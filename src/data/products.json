@@ -1,0 +1,151 @@
+{
+  "categories": [
+    "All",
+    "Industrial Brushes",
+    "Cleaning Solutions",
+    "Custom Brushes",
+    "Specialty Products"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Industrial Roller Brushes",
+      "category": "Industrial Brushes",
+      "description": "Heavy-duty roller brushes designed for continuous operation in demanding industrial environments. Perfect for conveyor cleaning, material handling, and surface preparation.",
+      "features": [
+        "Durable construction for extended service life",
+        "Available in multiple bristle materials",
+        "Custom sizes and configurations",
+        "Heat and chemical resistant options"
+      ],
+      "image": "/products/roller-brush.jpg",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Strip Brushes",
+      "category": "Industrial Brushes",
+      "description": "Versatile strip brushes ideal for sealing, cleaning, and dust control applications. Flexible mounting options for various industrial needs.",
+      "features": [
+        "Multiple backing materials available",
+        "Various bristle densities and lengths",
+        "Easy installation and replacement",
+        "Excellent for door seals and barriers"
+      ],
+      "image": "/products/strip-brush.jpg",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Rotary Brushes",
+      "category": "Industrial Brushes",
+      "description": "High-performance rotary brushes for automated cleaning systems, deburring, and surface finishing applications.",
+      "features": [
+        "Precision-engineered for balanced rotation",
+        "Wide range of wire and filament options",
+        "Custom arbor sizes and configurations",
+        "Suitable for high-speed applications"
+      ],
+      "image": "/products/rotary-brush.jpg",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "name": "Conveyor Cleaning Brushes",
+      "category": "Cleaning Solutions",
+      "description": "Specialized brushes designed to keep conveyor belts clean and efficient, reducing downtime and maintenance costs.",
+      "features": [
+        "Self-cleaning design",
+        "Reduces material buildup",
+        "Extends belt life",
+        "Food-grade options available"
+      ],
+      "image": "/products/conveyor-brush.jpg",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "name": "Tube Brushes",
+      "category": "Cleaning Solutions",
+      "description": "Essential tools for cleaning pipes, tubes, and cylinders in various industrial settings. Available in multiple sizes and materials.",
+      "features": [
+        "Wide diameter range",
+        "Twisted wire or wound construction",
+        "Multiple bristle material options",
+        "Custom lengths available"
+      ],
+      "image": "/products/tube-brush.jpg",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Custom Engineered Brushes",
+      "category": "Custom Brushes",
+      "description": "Tailored brush solutions designed to meet your specific industrial requirements. Our engineering team works with you to create the perfect brush for your application.",
+      "features": [
+        "Complete design consultation",
+        "Prototype development",
+        "Material selection expertise",
+        "Volume production capabilities"
+      ],
+      "image": "/products/custom-brush.jpg",
+      "featured": true
+    },
+    {
+      "id": 7,
+      "name": "Wire Wheel Brushes",
+      "category": "Specialty Products",
+      "description": "Robust wire wheel brushes for heavy-duty surface preparation, rust removal, and deburring operations.",
+      "features": [
+        "Multiple wire grades available",
+        "Various arbor hole sizes",
+        "Crimped and knotted wire options",
+        "Long-lasting performance"
+      ],
+      "image": "/products/wire-wheel.jpg",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Food Grade Brushes",
+      "category": "Specialty Products",
+      "description": "FDA-compliant brushes specifically designed for food processing and pharmaceutical industries, ensuring hygiene and safety.",
+      "features": [
+        "FDA approved materials",
+        "Easy to clean and sanitize",
+        "Metal detectable options",
+        "Color-coded for HACCP compliance"
+      ],
+      "image": "/products/food-grade.jpg",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "name": "Static Control Brushes",
+      "category": "Specialty Products",
+      "description": "Advanced brushes incorporating conductive materials to eliminate static electricity in sensitive manufacturing environments.",
+      "features": [
+        "Effective static dissipation",
+        "Safe for electronic components",
+        "Various mounting configurations",
+        "Low-resistance materials"
+      ],
+      "image": "/products/static-brush.jpg",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "name": "Maintenance Brush Kits",
+      "category": "Cleaning Solutions",
+      "description": "Comprehensive brush sets for general industrial maintenance, including multiple brush types and sizes.",
+      "features": [
+        "Versatile brush selection",
+        "Durable carrying case",
+        "Cost-effective solution",
+        "Covers common maintenance needs"
+      ],
+      "image": "/products/brush-kit.jpg",
+      "featured": false
+    }
+  ]
+}
