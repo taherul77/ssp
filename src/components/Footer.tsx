@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, LucideIcon } from 'lucide-react';
 import companyInfo from '@/data/companyInfo.json';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const { company } = companyInfo;
 
-  const socialIcons = {
+  const socialIcons: Record<string, LucideIcon> = {
     facebook: Facebook,
     twitter: Twitter,
     linkedin: Linkedin,

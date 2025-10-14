@@ -5,8 +5,18 @@ import { useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
 import { ZoomIn, X } from 'lucide-react';
 
-const GallerySection = ({ images = [] }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+interface GalleryImage {
+  id: number;
+  title: string;
+  category: string;
+}
+
+interface GallerySectionProps {
+  images?: GalleryImage[];
+}
+
+const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -25,7 +35,7 @@ const GallerySection = ({ images = [] }) => {
 
   const galleryImages = images.length > 0 ? images : defaultImages;
 
-  const openLightbox = (image) => {
+  const openLightbox = (image: GalleryImage) => {
     setSelectedImage(image);
   };
 

@@ -4,9 +4,24 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import Image from 'next/image';
 
-const ProductCard = ({ product, index, featured = false }) => {
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+  features: string[];
+  price?: string;
+  image?: string;
+}
+
+interface ProductCardProps {
+  product: Product;
+  index: number;
+  featured?: boolean;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, index, featured = false }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
