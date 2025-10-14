@@ -1,150 +1,430 @@
 {
   "categories": [
     "All",
-    "Industrial Brushes",
-    "Cleaning Solutions",
-    "Custom Brushes",
-    "Specialty Products"
+    "Paper Products",
+    "Packaging Materials",
+    "Garment Accessories",
+    "Labels & Stickers"
   ],
   "products": [
     {
       "id": 1,
-      "name": "Industrial Roller Brushes",
-      "category": "Industrial Brushes",
-      "description": "Heavy-duty roller brushes designed for continuous operation in demanding industrial environments. Perfect for conveyor cleaning, material handling, and surface preparation.",
+      "name": "Hangtags",
+      "category": "Paper Products",
+      "description": "Professional hangtags for garments and products. High-quality printing with various finishes and custom designs.",
       "features": [
-        "Durable construction for extended service life",
-        "Available in multiple bristle materials",
-        "Custom sizes and configurations",
-        "Heat and chemical resistant options"
+        "Custom shapes and sizes",
+        "Premium paper materials",
+        "Eco-friendly options available",
+        "Fast turnaround time"
       ],
-      "image": "/products/roller-brush.jpg",
+      "image": "/products/hangtag.jpg",
       "featured": true
     },
     {
       "id": 2,
-      "name": "Strip Brushes",
-      "category": "Industrial Brushes",
-      "description": "Versatile strip brushes ideal for sealing, cleaning, and dust control applications. Flexible mounting options for various industrial needs.",
+      "name": "Brochures & Catalogs",
+      "category": "Paper Products",
+      "description": "Professional brochures and catalogs for marketing and product showcasing. Various paper grades and finishes available.",
       "features": [
-        "Multiple backing materials available",
-        "Various bristle densities and lengths",
-        "Easy installation and replacement",
-        "Excellent for door seals and barriers"
+        "Full-color printing",
+        "Multiple folding options",
+        "Glossy and matte finishes",
+        "Bulk quantity discounts"
       ],
-      "image": "/products/strip-brush.jpg",
+      "image": "/products/brochure.jpg",
       "featured": true
     },
     {
       "id": 3,
-      "name": "Rotary Brushes",
-      "category": "Industrial Brushes",
-      "description": "High-performance rotary brushes for automated cleaning systems, deburring, and surface finishing applications.",
+      "name": "Visiting Cards",
+      "category": "Paper Products",
+      "description": "Premium business cards with professional designs. Various paper stocks and special finishes to make your brand stand out.",
       "features": [
-        "Precision-engineered for balanced rotation",
-        "Wide range of wire and filament options",
-        "Custom arbor sizes and configurations",
-        "Suitable for high-speed applications"
+        "Premium cardstock options",
+        "UV coating and lamination",
+        "Embossing and foil stamping",
+        "Quick delivery service"
       ],
-      "image": "/products/rotary-brush.jpg",
-      "featured": false
+      "image": "/products/visiting-card.jpg",
+      "featured": true
     },
     {
       "id": 4,
-      "name": "Conveyor Cleaning Brushes",
-      "category": "Cleaning Solutions",
-      "description": "Specialized brushes designed to keep conveyor belts clean and efficient, reducing downtime and maintenance costs.",
+      "name": "All Kinds of Stickers",
+      "category": "Labels & Stickers",
+      "description": "Custom stickers and labels for various applications including products, packaging, and promotional materials.",
       "features": [
-        "Self-cleaning design",
-        "Reduces material buildup",
-        "Extends belt life",
-        "Food-grade options available"
+        "Waterproof options",
+        "Various adhesive strengths",
+        "Die-cut shapes available",
+        "Indoor and outdoor use"
       ],
-      "image": "/products/conveyor-brush.jpg",
+      "image": "/products/stickers.jpg",
       "featured": true
     },
     {
       "id": 5,
-      "name": "Tube Brushes",
-      "category": "Cleaning Solutions",
-      "description": "Essential tools for cleaning pipes, tubes, and cylinders in various industrial settings. Available in multiple sizes and materials.",
+      "name": "Barcode Stickers",
+      "category": "Labels & Stickers",
+      "description": "High-quality barcode labels and stickers for inventory management and product identification.",
       "features": [
-        "Wide diameter range",
-        "Twisted wire or wound construction",
-        "Multiple bristle material options",
-        "Custom lengths available"
+        "Scannable quality guaranteed",
+        "Various sizes available",
+        "Thermal transfer printing",
+        "Durable adhesive"
       ],
-      "image": "/products/tube-brush.jpg",
+      "image": "/products/barcode.jpg",
       "featured": false
     },
     {
       "id": 6,
-      "name": "Custom Engineered Brushes",
-      "category": "Custom Brushes",
-      "description": "Tailored brush solutions designed to meet your specific industrial requirements. Our engineering team works with you to create the perfect brush for your application.",
+      "name": "Shopping Bags (Paper)",
+      "category": "Packaging Materials",
+      "description": "Eco-friendly paper shopping bags with custom printing. Perfect for retail stores and promotional events.",
       "features": [
-        "Complete design consultation",
-        "Prototype development",
-        "Material selection expertise",
-        "Volume production capabilities"
+        "Recyclable materials",
+        "Custom logo printing",
+        "Various handle options",
+        "Different sizes available"
       ],
-      "image": "/products/custom-brush.jpg",
+      "image": "/products/paper-bag.jpg",
       "featured": true
     },
     {
       "id": 7,
-      "name": "Wire Wheel Brushes",
-      "category": "Specialty Products",
-      "description": "Robust wire wheel brushes for heavy-duty surface preparation, rust removal, and deburring operations.",
+      "name": "Non-Woven Shopping Bags",
+      "category": "Packaging Materials",
+      "description": "Durable non-woven polypropylene shopping bags. Reusable and eco-friendly alternative to plastic bags.",
       "features": [
-        "Multiple wire grades available",
-        "Various arbor hole sizes",
-        "Crimped and knotted wire options",
-        "Long-lasting performance"
+        "Reusable and washable",
+        "Custom printing available",
+        "Strong carrying capacity",
+        "Various colors available"
       ],
-      "image": "/products/wire-wheel.jpg",
+      "image": "/products/nonwoven-bag.jpg",
       "featured": false
     },
     {
       "id": 8,
-      "name": "Food Grade Brushes",
-      "category": "Specialty Products",
-      "description": "FDA-compliant brushes specifically designed for food processing and pharmaceutical industries, ensuring hygiene and safety.",
+      "name": "Printed Cartons & Boxes",
+      "category": "Packaging Materials",
+      "description": "Custom printed packaging boxes and cartons for product shipping and retail display.",
       "features": [
-        "FDA approved materials",
-        "Easy to clean and sanitize",
-        "Metal detectable options",
-        "Color-coded for HACCP compliance"
+        "Custom sizes and designs",
+        "High-quality printing",
+        "Corrugated and cardboard options",
+        "Food-grade materials available"
       ],
-      "image": "/products/food-grade.jpg",
-      "featured": false
+      "image": "/products/carton-box.jpg",
+      "featured": true
     },
     {
       "id": 9,
-      "name": "Static Control Brushes",
-      "category": "Specialty Products",
-      "description": "Advanced brushes incorporating conductive materials to eliminate static electricity in sensitive manufacturing environments.",
+      "name": "Polymer Packaging Materials",
+      "category": "Packaging Materials",
+      "description": "All kinds of printed/fresh polymer goods for packaging including LDPE, HDPE, PP, BOPP, PVC materials.",
       "features": [
-        "Effective static dissipation",
-        "Safe for electronic components",
-        "Various mounting configurations",
-        "Low-resistance materials"
+        "Food-grade compliance",
+        "Custom printing options",
+        "Various thickness available",
+        "Heat sealable options"
       ],
-      "image": "/products/static-brush.jpg",
+      "image": "/products/polymer-packaging.jpg",
       "featured": false
     },
     {
       "id": 10,
-      "name": "Maintenance Brush Kits",
-      "category": "Cleaning Solutions",
-      "description": "Comprehensive brush sets for general industrial maintenance, including multiple brush types and sizes.",
+      "name": "Garment Accessories Set",
+      "category": "Garment Accessories",
+      "description": "Complete set of garment accessories including tagpins, clips, collar inserts, and more for textile industry.",
       "features": [
-        "Versatile brush selection",
-        "Durable carrying case",
-        "Cost-effective solution",
-        "Covers common maintenance needs"
+        "M Clips and Crocodile Clips",
+        "Lock pins and Tag pins",
+        "Collar inserts and Cable ties",
+        "Back boards and Neck boards"
       ],
-      "image": "/products/brush-kit.jpg",
+      "image": "/products/garment-accessories.jpg",
+      "featured": true
+    },
+    {
+      "id": 11,
+      "name": "Woven & Satin Labels",
+      "category": "Labels & Stickers",
+      "description": "Premium woven and satin labels for garments and textiles. Custom designs with brand logos and care instructions.",
+      "features": [
+        "High-quality weaving",
+        "Soft satin finish options",
+        "Custom color matching",
+        "Care instruction printing"
+      ],
+      "image": "/products/woven-labels.jpg",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "name": "Ledger Books & Diaries",
+      "category": "Paper Products",
+      "description": "Professional ledger books, diaries, and notebooks for business and personal use with quality binding.",
+      "features": [
+        "Durable binding options",
+        "Various page layouts",
+        "Custom cover printing",
+        "Different paper weights"
+      ],
+      "image": "/products/ledger-diary.jpg",
+      "featured": false
+    },
+    {
+      "id": 13,
+      "name": "Calendars",
+      "category": "Paper Products",
+      "description": "Custom calendars for promotional and business use. Wall calendars, desk calendars, and pocket calendars available.",
+      "features": [
+        "Custom design layouts",
+        "High-quality photo printing",
+        "Various binding options",
+        "Promotional customization"
+      ],
+      "image": "/products/calendar.jpg",
+      "featured": false
+    },
+    {
+      "id": 14,
+      "name": "Letter Head Pads",
+      "category": "Paper Products",
+      "description": "Professional letterhead pads for business correspondence. Custom designs with company branding.",
+      "features": [
+        "Premium paper stock",
+        "Professional printing quality",
+        "Various pad sizes",
+        "Perforated options available"
+      ],
+      "image": "/products/letterhead.jpg",
+      "featured": false
+    },
+    {
+      "id": 15,
+      "name": "Tissue Paper",
+      "category": "Paper Products",
+      "description": "Printed and fresh tissue paper for packaging and gift wrapping. Various colors and custom printing options.",
+      "features": [
+        "Acid-free materials",
+        "Custom color printing",
+        "Bulk quantity available",
+        "Gift wrapping quality"
+      ],
+      "image": "/products/tissue-paper.jpg",
+      "featured": false
+    },
+    {
+      "id": 16,
+      "name": "Printed Labels",
+      "category": "Labels & Stickers",
+      "description": "High-quality printed labels for product identification, branding, and information display.",
+      "features": [
+        "Waterproof options",
+        "Custom shapes and sizes",
+        "Strong adhesive",
+        "Fade-resistant printing"
+      ],
+      "image": "/products/printed-labels.jpg",
+      "featured": false
+    },
+    {
+      "id": 17,
+      "name": "Security Labels",
+      "category": "Labels & Stickers",
+      "description": "Tamper-evident security labels for authentication and anti-counterfeiting purposes.",
+      "features": [
+        "Tamper-evident technology",
+        "Holographic options",
+        "Serial numbering available",
+        "Custom security features"
+      ],
+      "image": "/products/security-labels.jpg",
+      "featured": false
+    },
+    {
+      "id": 18,
+      "name": "Product Packaging Boxes",
+      "category": "Packaging Materials",
+      "description": "Custom product packaging boxes with professional printing for retail and e-commerce.",
+      "features": [
+        "Custom branding",
+        "Various box styles",
+        "Product protection",
+        "Eco-friendly options"
+      ],
+      "image": "/products/product-boxes.jpg",
+      "featured": false
+    },
+    {
+      "id": 19,
+      "name": "Gift Wrapping Paper",
+      "category": "Paper Products",
+      "description": "Premium gift wrapping paper with custom designs and patterns for special occasions.",
+      "features": [
+        "Custom design printing",
+        "Various paper weights",
+        "Festive patterns",
+        "Bulk rolls available"
+      ],
+      "image": "/products/gift-wrap.jpg",
+      "featured": false
+    },
+    {
+      "id": 20,
+      "name": "Invoice Books",
+      "category": "Paper Products",
+      "description": "Professional invoice books with carbonless copies for business transactions.",
+      "features": [
+        "Carbonless copy paper",
+        "Custom company branding",
+        "Sequential numbering",
+        "Perforated for easy tear"
+      ],
+      "image": "/products/invoice-books.jpg",
+      "featured": false
+    },
+    {
+      "id": 21,
+      "name": "Receipt Books",
+      "category": "Paper Products",
+      "description": "Professional receipt books for retail and service businesses with duplicate copies.",
+      "features": [
+        "Duplicate carbon copies",
+        "Pre-numbered pages",
+        "Professional layout",
+        "Pocket-sized options"
+      ],
+      "image": "/products/receipt-books.jpg",
+      "featured": false
+    },
+    {
+      "id": 22,
+      "name": "Plastic Shopping Bags",
+      "category": "Packaging Materials",
+      "description": "Durable plastic shopping bags with custom printing for retail stores.",
+      "features": [
+        "Strong carrying capacity",
+        "Custom logo printing",
+        "Various handle styles",
+        "Biodegradable options"
+      ],
+      "image": "/products/plastic-bags.jpg",
+      "featured": false
+    },
+    {
+      "id": 23,
+      "name": "Zipper Bags",
+      "category": "Packaging Materials",
+      "description": "Resealable zipper bags for food storage and product packaging with custom printing.",
+      "features": [
+        "Resealable zipper closure",
+        "Food-grade materials",
+        "Custom printing available",
+        "Various sizes"
+      ],
+      "image": "/products/zipper-bags.jpg",
+      "featured": false
+    },
+    {
+      "id": 24,
+      "name": "Collar Supports",
+      "category": "Garment Accessories",
+      "description": "Professional collar supports and inserts for maintaining shirt collar shape.",
+      "features": [
+        "Flexible plastic material",
+        "Various collar sizes",
+        "Durable construction",
+        "Bulk packaging available"
+      ],
+      "image": "/products/collar-supports.jpg",
+      "featured": false
+    },
+    {
+      "id": 25,
+      "name": "Tag Pins",
+      "category": "Garment Accessories",
+      "description": "High-quality tag pins for attaching price tags and labels to garments.",
+      "features": [
+        "Sharp penetrating point",
+        "Various lengths available",
+        "Plastic and metal options",
+        "Bulk quantity packs"
+      ],
+      "image": "/products/tag-pins.jpg",
+      "featured": false
+    },
+    {
+      "id": 26,
+      "name": "Cable Ties",
+      "category": "Garment Accessories",
+      "description": "Multi-purpose cable ties for garment packaging and organization.",
+      "features": [
+        "Strong nylon construction",
+        "Various lengths",
+        "Self-locking mechanism",
+        "UV resistant options"
+      ],
+      "image": "/products/cable-ties.jpg",
+      "featured": false
+    },
+    {
+      "id": 27, 
+      "name": "Promotional Flyers",
+      "category": "Paper Products",
+      "description": "Eye-catching promotional flyers for marketing campaigns and event announcements.",
+      "features": [
+        "High-quality color printing",
+        "Various paper stocks",
+        "Custom sizes available",
+        "Fast turnaround"
+      ],
+      "image": "/products/flyers.jpg",
+      "featured": false
+    },
+    {
+      "id": 28,
+      "name": "Envelope Printing",
+      "category": "Paper Products",
+      "description": "Professional envelope printing services for business correspondence and marketing.",
+      "features": [
+        "Various envelope sizes",
+        "Window options available",
+        "Custom branding",
+        "Bulk printing discounts"
+      ],
+      "image": "/products/envelopes.jpg",
+      "featured": false
+    },
+    {
+      "id": 29,
+      "name": "Bookmarks",
+      "category": "Paper Products",
+      "description": "Custom bookmarks for promotional use, libraries, and educational institutions.",
+      "features": [
+        "Laminated options",
+        "Various shapes available",
+        "Full-color printing",
+        "Tassel attachment options"
+      ],
+      "image": "/products/bookmarks.jpg",
+      "featured": false
+    },
+    {
+      "id": 30,
+      "name": "Menu Cards",
+      "category": "Paper Products",
+      "description": "Professional menu cards for restaurants and cafes with durable lamination options.",
+      "features": [
+        "Water-resistant coating",
+        "Easy-clean surface",
+        "Various sizes available",
+        "Custom design layouts"
+      ],
+      "image": "/products/menu-cards.jpg",
       "featured": false
     }
   ]
