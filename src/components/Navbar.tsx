@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,8 +35,8 @@ const Navbar: React.FC = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-xl py-4'
-          : 'bg-transparent py-4'
+          ? 'bg-white/95 backdrop-blur-md shadow-xl '
+          : 'bg-transparent '
       }`}
     >
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
@@ -43,19 +44,18 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-4 group">
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg"
-            >
-              <span className="text-white font-bold text-3xl">S</span>
-            </motion.div>
-            <motion.div
+              whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-4xl font-bold tracking-tight"
+              className="flex items-center"
             >
-              <span className={`${isScrolled ? 'bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent' : 'text-white'}`}>
-                SS Printers
-              </span>
+              <Image 
+                src="/logo/ss-printers-logo.png" 
+                alt="SS Printers Logo" 
+                width={160}
+                height={120}
+                className="h-24 w-auto object-contain"
+              />
             </motion.div>
           </Link>
 
