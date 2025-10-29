@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface CtaButton {
@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle, 
   description, 
   primaryCta, 
-  secondaryCta,
+  
   backgroundImage = '/hero-bg.jpg' 
 }) => {
   return (
@@ -152,18 +152,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </Link>
             )}
             
-            {secondaryCta && (
-              <Link href={secondaryCta.href}>
-                <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white/80 backdrop-blur-sm text-white px-10 py-5 rounded-full font-bold text-lg flex items-center space-x-3 hover:border-white hover:bg-white/10 transition-all"
-                >
-                  <Play size={20} fill="currentColor" />
-                  <span>{secondaryCta.text}</span>
-                </motion.button>
-              </Link>
-            )}
+            
           </motion.div>
         </motion.div>
         

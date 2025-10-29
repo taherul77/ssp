@@ -1,27 +1,40 @@
 {
   "company": {
-    "name": "SS Printers ",
-    "tagline": "Your Trusted Partner in Industrial Solutions",
-    "description": "SS Printers  is a leading provider of industrial brushes and cleaning solutions, committed to delivering high-quality products and exceptional service to industries worldwide.",
-    "established": "2022",
-    "email": "info@SS Printers.com",
-    "phone": "+1 (555) 123-4567",
-    "address": {
-      "street": "123 Industrial Avenue",
-      "city": "Manufacturing District",
-      "state": "State",
-      "zip": "12345",
-      "country": "Country"
+    "name": "S.S. PRINTERS",
+    "tagline": "All Kinds of quality Printing Packaging & Garments Accessories suppliers",
+    "description": "S.S. PRINTERS is a leading provider of quality printing, packaging, and garment accessories, committed to delivering high-quality products and exceptional service to industries worldwide.",
+    "established": "1998",
+    "email": "ss.printers01@gmail.com",
+ 
+    "phones": [ "01734333410"],
+    "office": {
+      "street": "Ga-12, Shahjadpur, Gulshan",
+      "city": "Dhaka",
+      "zip": "1212",
+      "country": "Bangladesh"
+    },
+    "factory": {
+      "street": "House # 18 Hazipara, Uttar Badda, Badda",
+      "city": "Dhaka",
+      "zip": "1212",
+      "country": "Bangladesh"
     },
     "social": {
-      "facebook": "https://facebook.com/SS Printers",
-      "twitter": "https://twitter.com/SS Printers",
-      "linkedin": "https://linkedin.com/company/SS Printers",
-      "instagram": "https://instagram.com/SS Printers"
+      "facebook": "https://facebook.com/ssprinters",
+      "twitter": "https://twitter.com/ssprinters",
+      "linkedin": "https://linkedin.com/company/ssprinters",
+      "instagram": "https://instagram.com/ssprinters"
     }
   },
-  "vision": "To be the global leader in providing innovative industrial brush solutions that enhance efficiency and productivity across diverse industries.",
-  "mission": "We are committed to manufacturing and supplying superior quality industrial brushes through continuous innovation, sustainable practices, and unwavering dedication to customer satisfaction.",
+  "owner": {
+    "name": "Md. Shahidul Islam",
+    "title": "Proprietor",
+    "image": "/New/WhatsApp Image 2025-10-29 at 12.49.28 PM.jpeg",
+    "bio": "With over 15 years of experience in the printing and packaging industry, Md. Shahidul Islam has built S.S. PRINTERS into a trusted name for quality products and reliable service. His vision and dedication to excellence have made the company a preferred partner for businesses across Bangladesh.",
+    "message": "At S.S. PRINTERS, we believe in delivering not just products, but solutions that help our clients succeed. Our commitment to quality, innovation, and customer satisfaction drives everything we do."
+  },
+  "vision": "To be the most trusted and preferred provider of printing, packaging, and garment accessories in Bangladesh and beyond, recognized for our quality, innovation, and customer service excellence.",
+  "mission": "We are committed to delivering superior quality products through continuous innovation, sustainable practices, and unwavering dedication to customer satisfaction. We strive to build long-term partnerships with our clients by understanding their needs and exceeding their expectations.",
   "values": [
     {
       "title": "Quality Excellence",
@@ -29,7 +42,7 @@
     },
     {
       "title": "Innovation",
-      "description": "Continuously developing new solutions to meet evolving industrial needs and challenges."
+      "description": "Continuously developing new solutions to meet evolving market needs and challenges."
     },
     {
       "title": "Customer Focus",
@@ -46,56 +59,30 @@
   ],
   "milestones": [
     {
-      "year": "2022",
+      "year": "2010",
       "title": "Company Founded",
-      "description": "SS Printers  established with a vision to revolutionize industrial brush solutions."
+      "description": "S.S. PRINTERS established with a vision to provide quality printing and packaging solutions."
     },
     {
-      "year": "2023",
-      "title": "Expanded Product Line",
-      "description": "Introduced comprehensive range of specialized industrial brushes."
+      "year": "2015",
+      "title": "Expanded Services",
+      "description": "Added garment accessories to our product line, serving the growing textile industry."
     },
     {
-      "year": "2024",
-      "title": "International Expansion",
-      "description": "Extended services to international markets and established global partnerships."
+      "year": "2020",
+      "title": "New Factory",
+      "description": "Opened state-of-the-art production facility in Badda to meet growing demand."
     },
     {
       "year": "2025",
-      "title": "Innovation Hub",
-      "description": "Launched state-of-the-art R&D facility for advanced brush technology."
-    }
-  ],
-  "team": [
-    {
-      "name": "John Anderson",
-      "position": "Chief Executive Officer",
-      "bio": "Visionary leader with 20+ years in industrial manufacturing.",
-      "image": "/team/ceo.jpg"
-    },
-    {
-      "name": "Sarah Mitchell",
-      "position": "Head of Operations",
-      "bio": "Expert in supply chain management and operational excellence.",
-      "image": "/team/operations.jpg"
-    },
-    {
-      "name": "Michael Chen",
-      "position": "Technical Director",
-      "bio": "Leading innovator in brush technology and product development.",
-      "image": "/team/technical.jpg"
-    },
-    {
-      "name": "Emily Rodriguez",
-      "position": "Customer Relations Manager",
-      "bio": "Dedicated to ensuring exceptional customer satisfaction and support.",
-      "image": "/team/customer.jpg"
+      "title": "1000+ Clients",
+      "description": "Proud to serve over 1000 satisfied clients across various industries in Bangladesh."
     }
   ],
   "certifications": [
     "ISO 9001:2015 Certified",
+    "Quality Assurance Verified",
     "Industry Safety Standards Compliant",
-    "Environmental Management Certified",
-    "Quality Assurance Verified"
+    "Trusted by 1000+ Clients"
   ]
 }

@@ -2,18 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, LucideIcon } from 'lucide-react';
+import { Mail,  MapPin } from 'lucide-react';
 import companyInfo from '@/data/companyInfo.json';
 
 const Footer: React.FC = () => {
   const { company } = companyInfo;
 
-  const socialIcons: Record<string, LucideIcon> = {
-    facebook: Facebook,
-    twitter: Twitter,
-    linkedin: Linkedin,
-    instagram: Instagram,
-  };
+
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-300">
@@ -31,23 +26,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className="text-sm leading-relaxed mb-6 text-gray-400">{company.tagline}</p>
-            <div className="flex space-x-4">
-              {Object.entries(company.social).map(([platform, url]) => {
-                const Icon = socialIcons[platform];
-                return (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-blue-400 hover:scale-110 transition-all duration-300"
-                    aria-label={platform}
-                  >
-                    <Icon size={22} />
-                  </a>
-                );
-              })}
-            </div>
+           
           </div>
 
           {/* Quick Links */}
@@ -108,14 +87,12 @@ const Footer: React.FC = () => {
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin size={18} className="text-blue-500 flex-shrink-0 mt-1" />
                 <span>
-                  {company.address.street}<br />
-                  {company.address.city}, {company.address.state} {company.address.zip}
+                  {company.office.street}<br />
+                  {company.office.city}-{company.office.zip}<br />
+                  {company.office.country}
                 </span>
               </li>
-              <li className="flex items-center space-x-3 text-sm">
-                <Phone size={18} className="text-blue-500 flex-shrink-0" />
-                <span>{company.phone}</span>
-              </li>
+              
               <li className="flex items-center space-x-3 text-sm">
                 <Mail size={18} className="text-blue-500 flex-shrink-0" />
                 <span>{company.email}</span>

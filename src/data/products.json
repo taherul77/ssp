@@ -9,8 +9,8 @@
   "products": [
     {
       "id": 1,
-      "name": "Hangtags",
-      "category": "Paper Products",
+      "name": "Hang Tags",
+      "category": "Garment Accessories",
       "description": "Professional hangtags for garments and products. High-quality printing with various finishes and custom designs.",
       "features": [
         "Custom shapes and sizes",
@@ -18,413 +18,413 @@
         "Eco-friendly options available",
         "Fast turnaround time"
       ],
-      "image": "/products/hangtag.jpg",
+      "image": "/Product/Hang tags.jpg",
       "featured": true
     },
     {
       "id": 2,
-      "name": "Brochures & Catalogs",
-      "category": "Paper Products",
-      "description": "Professional brochures and catalogs for marketing and product showcasing. Various paper grades and finishes available.",
+      "name": "Garment Label",
+      "category": "Garment Accessories",
+      "description": "Professional garment labels for clothing and textile products. High-quality printing and materials.",
       "features": [
-        "Full-color printing",
-        "Multiple folding options",
-        "Glossy and matte finishes",
-        "Bulk quantity discounts"
+        "Durable fabric materials",
+        "Wash-resistant printing",
+        "Custom designs available",
+        "Various attachment methods"
       ],
-      "image": "/products/brochure.jpg",
+      "image": "/Product/Garment label.jpg",
       "featured": true
     },
     {
       "id": 3,
-      "name": "Visiting Cards",
-      "category": "Paper Products",
-      "description": "Premium business cards with professional designs. Various paper stocks and special finishes to make your brand stand out.",
+      "name": "Sew-on Woven Clothing Label",
+      "category": "Labels & Stickers",
+      "description": "Premium woven labels for sewing onto garments. High-quality weaving with custom brand logos.",
       "features": [
-        "Premium cardstock options",
-        "UV coating and lamination",
-        "Embossing and foil stamping",
-        "Quick delivery service"
+        "Premium weaving quality",
+        "Soft texture comfortable",
+        "Custom color matching",
+        "Multiple size options"
       ],
-      "image": "/products/visiting-card.jpg",
+      "image": "/Product/Sew -on woven clothing label.jpg",
       "featured": true
     },
     {
       "id": 4,
-      "name": "All Kinds of Stickers",
-      "category": "Labels & Stickers",
-      "description": "Custom stickers and labels for various applications including products, packaging, and promotional materials.",
+      "name": "Colored Paper",
+      "category": "Paper Products",
+      "description": "High-quality colored paper for printing, crafts, and creative projects. Wide range of vibrant colors.",
       "features": [
-        "Waterproof options",
-        "Various adhesive strengths",
-        "Die-cut shapes available",
-        "Indoor and outdoor use"
+        "Wide color selection",
+        "Various paper weights",
+        "Acid-free options",
+        "Suitable for printing"
       ],
-      "image": "/products/stickers.jpg",
+      "image": "/Product/Colored paper.jpg",
       "featured": true
     },
     {
       "id": 5,
-      "name": "Barcode Stickers",
-      "category": "Labels & Stickers",
-      "description": "High-quality barcode labels and stickers for inventory management and product identification.",
+      "name": "Custom Corrugated Board Shipping Box",
+      "category": "Packaging Materials",
+      "description": "Durable corrugated shipping boxes for safe product transportation. Custom sizes and printing available.",
       "features": [
-        "Scannable quality guaranteed",
-        "Various sizes available",
-        "Thermal transfer printing",
-        "Durable adhesive"
+        "Strong corrugated material",
+        "Custom size options",
+        "Brand printing available",
+        "Stackable design"
       ],
-      "image": "/products/barcode.jpg",
-      "featured": false
+      "image": "/Product/Custom corrugated board shipping box.jpg",
+      "featured": true
     },
     {
       "id": 6,
-      "name": "Shopping Bags (Paper)",
+      "name": "Premium Cardboard Shipping Box",
       "category": "Packaging Materials",
-      "description": "Eco-friendly paper shopping bags with custom printing. Perfect for retail stores and promotional events.",
+      "description": "High-quality cardboard boxes perfect for shipping and storage. Reliable protection for your products.",
       "features": [
-        "Recyclable materials",
-        "Custom logo printing",
-        "Various handle options",
-        "Different sizes available"
+        "Durable construction",
+        "Easy assembly",
+        "Various sizes available",
+        "Eco-friendly material"
       ],
-      "image": "/products/paper-bag.jpg",
+      "image": "/Product/Peohud cardboard Shipping Box.jpg",
       "featured": true
     },
     {
       "id": 7,
-      "name": "Non-Woven Shopping Bags",
-      "category": "Packaging Materials",
-      "description": "Durable non-woven polypropylene shopping bags. Reusable and eco-friendly alternative to plastic bags.",
+      "name": "Premium Quality Paper Products",
+      "category": "Paper Products",
+      "description": "High-quality specialty paper products for various printing and packaging needs.",
       "features": [
-        "Reusable and washable",
+        "Premium grade materials",
+        "Multiple finish options",
         "Custom printing available",
-        "Strong carrying capacity",
-        "Various colors available"
+        "Bulk order discounts"
       ],
-      "image": "/products/nonwoven-bag.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.49_f9dc7a1c.jpg",
       "featured": false
     },
     {
       "id": 8,
-      "name": "Printed Cartons & Boxes",
+      "name": "Custom Printed Cartons",
       "category": "Packaging Materials",
-      "description": "Custom printed packaging boxes and cartons for product shipping and retail display.",
+      "description": "Professional printed packaging boxes and cartons for product shipping and retail display.",
       "features": [
         "Custom sizes and designs",
         "High-quality printing",
-        "Corrugated and cardboard options",
-        "Food-grade materials available"
+        "Corrugated options",
+        "Brand enhancement"
       ],
-      "image": "/products/carton-box.jpg",
-      "featured": true
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.50_37579e31.jpg",
+      "featured": false
     },
     {
       "id": 9,
-      "name": "Polymer Packaging Materials",
+      "name": "Industrial Packaging Solutions",
       "category": "Packaging Materials",
-      "description": "All kinds of printed/fresh polymer goods for packaging including LDPE, HDPE, PP, BOPP, PVC materials.",
+      "description": "Professional industrial packaging materials for various business needs.",
       "features": [
-        "Food-grade compliance",
-        "Custom printing options",
-        "Various thickness available",
-        "Heat sealable options"
+        "Heavy-duty construction",
+        "Customizable options",
+        "Bulk availability",
+        "Cost-effective solutions"
       ],
-      "image": "/products/polymer-packaging.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.52_2b7957ab.jpg",
       "featured": false
     },
     {
       "id": 10,
-      "name": "Garment Accessories Set",
-      "category": "Garment Accessories",
-      "description": "Complete set of garment accessories including tagpins, clips, collar inserts, and more for textile industry.",
+      "name": "Specialized Label Solutions",
+      "category": "Labels & Stickers",
+      "description": "Professional label and sticker solutions for product identification and branding.",
       "features": [
-        "M Clips and Crocodile Clips",
-        "Lock pins and Tag pins",
-        "Collar inserts and Cable ties",
-        "Back boards and Neck boards"
+        "Weather-resistant materials",
+        "Custom shape cutting",
+        "Strong adhesion",
+        "Fade-resistant inks"
       ],
-      "image": "/products/garment-accessories.jpg",
-      "featured": true
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.53_488daa89.jpg",
+      "featured": false
     },
     {
       "id": 11,
-      "name": "Woven & Satin Labels",
-      "category": "Labels & Stickers",
-      "description": "Premium woven and satin labels for garments and textiles. Custom designs with brand logos and care instructions.",
+      "name": "Premium Packaging Boxes",
+      "category": "Packaging Materials",
+      "description": "High-end packaging boxes for premium products with custom branding options.",
       "features": [
-        "High-quality weaving",
-        "Soft satin finish options",
-        "Custom color matching",
-        "Care instruction printing"
+        "Luxury appearance",
+        "Rigid construction",
+        "Custom finishing",
+        "Brand enhancement"
       ],
-      "image": "/products/woven-labels.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.53_d555cc87.jpg",
       "featured": false
     },
     {
       "id": 12,
-      "name": "Ledger Books & Diaries",
+      "name": "Eco-Friendly Paper Solutions",
       "category": "Paper Products",
-      "description": "Professional ledger books, diaries, and notebooks for business and personal use with quality binding.",
+      "description": "Environmentally friendly paper products for sustainable business operations.",
       "features": [
-        "Durable binding options",
-        "Various page layouts",
-        "Custom cover printing",
-        "Different paper weights"
+        "100% recyclable",
+        "Biodegradable materials",
+        "FSC certified options",
+        "Reduced carbon footprint"
       ],
-      "image": "/products/ledger-diary.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.55_37fc5ddd.jpg",
       "featured": false
     },
     {
       "id": 13,
-      "name": "Calendars",
+      "name": "Custom Printed Materials",
       "category": "Paper Products",
-      "description": "Custom calendars for promotional and business use. Wall calendars, desk calendars, and pocket calendars available.",
+      "description": "Professional custom printing services for marketing materials and business documents.",
       "features": [
-        "Custom design layouts",
-        "High-quality photo printing",
-        "Various binding options",
-        "Promotional customization"
+        "High-resolution printing",
+        "Multiple paper options",
+        "Quick turnaround",
+        "Competitive pricing"
       ],
-      "image": "/products/calendar.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.55_777ad4c6.jpg",
       "featured": false
     },
     {
       "id": 14,
-      "name": "Letter Head Pads",
-      "category": "Paper Products",
-      "description": "Professional letterhead pads for business correspondence. Custom designs with company branding.",
+      "name": "Specialty Packaging Products",
+      "category": "Packaging Materials",
+      "description": "Unique packaging solutions for special product requirements and premium presentations.",
       "features": [
-        "Premium paper stock",
-        "Professional printing quality",
-        "Various pad sizes",
-        "Perforated options available"
+        "Custom design services",
+        "Premium materials",
+        "Unique shapes available",
+        "Brand differentiation"
       ],
-      "image": "/products/letterhead.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.57_8aacdefb.jpg",
       "featured": false
     },
     {
       "id": 15,
-      "name": "Tissue Paper",
-      "category": "Paper Products",
-      "description": "Printed and fresh tissue paper for packaging and gift wrapping. Various colors and custom printing options.",
+      "name": "Quality Label Products",
+      "category": "Labels & Stickers",
+      "description": "High-quality labels for various applications including product branding and information display.",
       "features": [
-        "Acid-free materials",
-        "Custom color printing",
-        "Bulk quantity available",
-        "Gift wrapping quality"
+        "Durable materials",
+        "Waterproof options",
+        "Custom printing",
+        "Various adhesive types"
       ],
-      "image": "/products/tissue-paper.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.58_c3bbd940.jpg",
       "featured": false
     },
     {
       "id": 16,
-      "name": "Printed Labels",
-      "category": "Labels & Stickers",
-      "description": "High-quality printed labels for product identification, branding, and information display.",
+      "name": "Professional Printing Services",
+      "category": "Paper Products",
+      "description": "Comprehensive printing solutions for all your business and promotional needs.",
       "features": [
-        "Waterproof options",
-        "Custom shapes and sizes",
-        "Strong adhesive",
-        "Fade-resistant printing"
+        "Full-color printing",
+        "Multiple format support",
+        "Fast delivery",
+        "Quality assurance"
       ],
-      "image": "/products/printed-labels.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.58_c6b53005.jpg",
       "featured": false
     },
     {
       "id": 17,
-      "name": "Security Labels",
-      "category": "Labels & Stickers",
-      "description": "Tamper-evident security labels for authentication and anti-counterfeiting purposes.",
+      "name": "Advanced Packaging Systems",
+      "category": "Packaging Materials",
+      "description": "Innovative packaging solutions with modern designs for contemporary businesses.",
       "features": [
-        "Tamper-evident technology",
-        "Holographic options",
-        "Serial numbering available",
-        "Custom security features"
+        "Modern aesthetics",
+        "Functional design",
+        "Brand visibility",
+        "Customer appeal"
       ],
-      "image": "/products/security-labels.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.59_044a47ec.jpg",
       "featured": false
     },
     {
       "id": 18,
-      "name": "Product Packaging Boxes",
-      "category": "Packaging Materials",
-      "description": "Custom product packaging boxes with professional printing for retail and e-commerce.",
+      "name": "Commercial Paper Products",
+      "category": "Paper Products",
+      "description": "Wide range of commercial paper products for business and industrial use.",
       "features": [
-        "Custom branding",
-        "Various box styles",
-        "Product protection",
-        "Eco-friendly options"
+        "Bulk availability",
+        "Consistent quality",
+        "Competitive pricing",
+        "Reliable supply"
       ],
-      "image": "/products/product-boxes.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.59_33094a4c.jpg",
       "featured": false
     },
     {
       "id": 19,
-      "name": "Gift Wrapping Paper",
-      "category": "Paper Products",
-      "description": "Premium gift wrapping paper with custom designs and patterns for special occasions.",
+      "name": "Branded Packaging Solutions",
+      "category": "Packaging Materials",
+      "description": "Custom branded packaging that enhances your product presentation and brand identity.",
       "features": [
-        "Custom design printing",
-        "Various paper weights",
-        "Festive patterns",
-        "Bulk rolls available"
+        "Logo integration",
+        "Color matching",
+        "Premium finishing",
+        "Market differentiation"
       ],
-      "image": "/products/gift-wrap.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.00_01b80531.jpg",
       "featured": false
     },
     {
       "id": 20,
-      "name": "Invoice Books",
-      "category": "Paper Products",
-      "description": "Professional invoice books with carbonless copies for business transactions.",
+      "name": "Versatile Label Solutions",
+      "category": "Labels & Stickers",
+      "description": "Flexible label solutions for diverse applications across multiple industries.",
       "features": [
-        "Carbonless copy paper",
-        "Custom company branding",
-        "Sequential numbering",
-        "Perforated for easy tear"
+        "Multi-purpose use",
+        "Strong adhesion",
+        "Weather resistant",
+        "Custom sizing"
       ],
-      "image": "/products/invoice-books.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.00_57f73c2a.jpg",
       "featured": false
     },
     {
       "id": 21,
-      "name": "Receipt Books",
+      "name": "Premium Paper Stock",
       "category": "Paper Products",
-      "description": "Professional receipt books for retail and service businesses with duplicate copies.",
+      "description": "High-grade paper stock for professional printing and premium presentations.",
       "features": [
-        "Duplicate carbon copies",
-        "Pre-numbered pages",
-        "Professional layout",
-        "Pocket-sized options"
+        "Superior texture",
+        "Excellent printability",
+        "Multiple weights",
+        "Professional finish"
       ],
-      "image": "/products/receipt-books.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.01_c80fbf7e.jpg",
       "featured": false
     },
     {
       "id": 22,
-      "name": "Plastic Shopping Bags",
+      "name": "Industrial Carton Boxes",
       "category": "Packaging Materials",
-      "description": "Durable plastic shopping bags with custom printing for retail stores.",
+      "description": "Heavy-duty carton boxes designed for industrial shipping and storage needs.",
       "features": [
-        "Strong carrying capacity",
-        "Custom logo printing",
-        "Various handle styles",
-        "Biodegradable options"
+        "Extra strength",
+        "Large capacity",
+        "Stackable design",
+        "Cost-effective"
       ],
-      "image": "/products/plastic-bags.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.02_7502fda0.jpg",
       "featured": false
     },
     {
       "id": 23,
-      "name": "Zipper Bags",
+      "name": "Custom Shipping Boxes",
       "category": "Packaging Materials",
-      "description": "Resealable zipper bags for food storage and product packaging with custom printing.",
+      "description": "Tailored shipping boxes with custom dimensions and branding for e-commerce businesses.",
       "features": [
-        "Resealable zipper closure",
-        "Food-grade materials",
-        "Custom printing available",
-        "Various sizes"
+        "Custom dimensions",
+        "Brand printing",
+        "Secure closure",
+        "Shipping optimized"
       ],
-      "image": "/products/zipper-bags.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.02_de29536b.jpg",
       "featured": false
     },
     {
       "id": 24,
-      "name": "Collar Supports",
+      "name": "Garment Tag Accessories",
       "category": "Garment Accessories",
-      "description": "Professional collar supports and inserts for maintaining shirt collar shape.",
+      "description": "Complete range of garment tagging accessories for the textile and fashion industry.",
       "features": [
-        "Flexible plastic material",
-        "Various collar sizes",
-        "Durable construction",
-        "Bulk packaging available"
+        "Durable materials",
+        "Easy attachment",
+        "Professional appearance",
+        "Bulk packaging"
       ],
-      "image": "/products/collar-supports.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.03_0e807eb9.jpg",
       "featured": false
     },
     {
       "id": 25,
-      "name": "Tag Pins",
+      "name": "Textile Labeling Solutions",
       "category": "Garment Accessories",
-      "description": "High-quality tag pins for attaching price tags and labels to garments.",
+      "description": "Comprehensive labeling solutions for textile products and fashion brands.",
       "features": [
-        "Sharp penetrating point",
-        "Various lengths available",
-        "Plastic and metal options",
-        "Bulk quantity packs"
+        "Wash-resistant",
+        "High durability",
+        "Custom branding",
+        "Compliance ready"
       ],
-      "image": "/products/tag-pins.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.03_fc3edd80.jpg",
       "featured": false
     },
     {
       "id": 26,
-      "name": "Cable Ties",
-      "category": "Garment Accessories",
-      "description": "Multi-purpose cable ties for garment packaging and organization.",
+      "name": "Multi-Purpose Labels",
+      "category": "Labels & Stickers",
+      "description": "Versatile labels suitable for various applications from product tagging to organization.",
       "features": [
-        "Strong nylon construction",
-        "Various lengths",
-        "Self-locking mechanism",
-        "UV resistant options"
+        "Multi-surface adhesion",
+        "Removable options",
+        "Print-ready surface",
+        "Value pricing"
       ],
-      "image": "/products/cable-ties.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.04_4a086496.jpg",
       "featured": false
     },
     {
       "id": 27, 
-      "name": "Promotional Flyers",
+      "name": "Quality Printing Materials",
       "category": "Paper Products",
-      "description": "Eye-catching promotional flyers for marketing campaigns and event announcements.",
+      "description": "Professional-grade printing materials for high-quality output and presentations.",
       "features": [
-        "High-quality color printing",
-        "Various paper stocks",
-        "Custom sizes available",
-        "Fast turnaround"
+        "Excellent print quality",
+        "Color accuracy",
+        "Fade resistance",
+        "Professional results"
       ],
-      "image": "/products/flyers.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.04_d7fa105d.jpg",
       "featured": false
     },
     {
       "id": 28,
-      "name": "Envelope Printing",
-      "category": "Paper Products",
-      "description": "Professional envelope printing services for business correspondence and marketing.",
+      "name": "Protective Packaging",
+      "category": "Packaging Materials",
+      "description": "Protective packaging solutions to ensure safe product transportation and storage.",
       "features": [
-        "Various envelope sizes",
-        "Window options available",
-        "Custom branding",
-        "Bulk printing discounts"
+        "Shock absorption",
+        "Moisture resistance",
+        "Custom fit options",
+        "Product safety"
       ],
-      "image": "/products/envelopes.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_106f98f6.jpg",
       "featured": false
     },
     {
       "id": 29,
-      "name": "Bookmarks",
-      "category": "Paper Products",
-      "description": "Custom bookmarks for promotional use, libraries, and educational institutions.",
+      "name": "Professional Label Systems",
+      "category": "Labels & Stickers",
+      "description": "Advanced labeling systems for efficient product identification and inventory management.",
       "features": [
-        "Laminated options",
-        "Various shapes available",
-        "Full-color printing",
-        "Tassel attachment options"
+        "Barcode compatible",
+        "Easy application",
+        "Long-lasting adhesive",
+        "System integration"
       ],
-      "image": "/products/bookmarks.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_2345a6ed.jpg",
       "featured": false
     },
     {
       "id": 30,
-      "name": "Menu Cards",
-      "category": "Paper Products",
-      "description": "Professional menu cards for restaurants and cafes with durable lamination options.",
+      "name": "Flexible Packaging Options",
+      "category": "Packaging Materials",
+      "description": "Adaptable packaging solutions that can be customized to meet specific product requirements.",
       "features": [
-        "Water-resistant coating",
-        "Easy-clean surface",
-        "Various sizes available",
-        "Custom design layouts"
+        "Versatile designs",
+        "Custom modifications",
+        "Multiple materials",
+        "Cost flexibility"
       ],
-      "image": "/products/menu-cards.jpg",
+      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_660f8a7b.jpg",
       "featured": false
     }
   ]

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface Product {
   id: number;
@@ -55,10 +57,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, featured = fa
             transition={{ duration: 0.4 }}
             className="relative w-full h-full flex items-center justify-center"
           >
-            {/* Placeholder for product image */}
-            <div className="w-full h-full bg-gradient-to-br from-blue-100 via-blue-100 to-blue-200 flex items-center justify-center group-hover:brightness-110 transition-all duration-300">
-              <span className="text-7xl transform group-hover:scale-110 transition-transform">🧹</span>
-            </div>
+            {product.image ? (
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover group-hover:brightness-110 transition-all duration-300"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-blue-100 via-blue-100 to-blue-200 flex items-center justify-center group-hover:brightness-110 transition-all duration-300">
+                <span className="text-7xl transform group-hover:scale-110 transition-transform">🧹</span>
+              </div>
+            )}
           </motion.div>
         </div>
 
@@ -97,19 +108,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, featured = fa
           )}
 
           {/* Action Button */}
-          <motion.button
-            whileHover={{ 
-              scale: 1.03, 
-              boxShadow: "0 12px 35px rgba(220, 38, 38, 0.35)",
-              y: -2
-            }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 text-white py-4.5 rounded-xl font-bold flex items-center justify-center space-x-2 hover:from-blue-700 hover:to-blue-800 transition-all shadow-[0_8px_25px_rgba(59,130,246,0.3)] mt-auto group uppercase text-sm tracking-wider relative overflow-hidden"
-          >
-            <span className="relative z-10">Learn More</span>
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform relative z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </motion.button>
+          <Link href={`/products/${product.id}`}>
+            <motion.button
+              whileHover={{ 
+                scale: 1.03, 
+                boxShadow: "0 12px 35px rgba(220, 38, 38, 0.35)",
+                y: -2
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 text-white py-4.5 rounded-xl font-bold flex items-center justify-center space-x-2 hover:from-blue-700 hover:to-blue-800 transition-all shadow-[0_8px_25px_rgba(59,130,246,0.3)] mt-auto group uppercase text-sm tracking-wider relative overflow-hidden"
+            >
+              <span className="relative z-10">Learn More</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </motion.button>
+          </Link>
         </div>
       </motion.div>
     </motion.div>

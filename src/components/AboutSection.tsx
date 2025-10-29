@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Target, Eye, Award, Users, TrendingUp, Shield, Sparkles, Zap, LucideIcon } from 'lucide-react';
+import companyInfo from '@/data/companyInfo.json';
 
 interface Feature {
   icon: LucideIcon;
@@ -20,6 +21,11 @@ interface Stat {
 const AboutSection: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Calculate years of experience dynamically based on company establishment year
+  const foundedYear = parseInt(companyInfo.company.established);
+  const currentYear = new Date().getFullYear();
+  const yearsOfExperience = currentYear - foundedYear;
 
   const features: Feature[] = [
     {
@@ -52,7 +58,7 @@ const AboutSection: React.FC = () => {
     { number: '500+', label: 'Products' },
     { number: '1000+', label: 'Happy Clients' },
     { number: '50+', label: 'Countries' },
-    { number: '25+', label: 'Years Experience' }
+    { number: `${yearsOfExperience}+`, label: 'Years Experience' }
   ];
 
   return (

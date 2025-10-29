@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,6 +15,7 @@ interface NavLink {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -62,36 +64,45 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8 xl:gap-10">
             <div className="flex items-center gap-8 xl:gap-10">
-              {navLinks.map((link: NavLink, index: number) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    className={`font-semibold text-lg uppercase tracking-wider transition-all relative group py-2 whitespace-nowrap ${
-                      isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
-                    }`}
+              {navLinks.map((link: NavLink, index: number) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {link.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={`font-semibold text-lg uppercase tracking-wider transition-all relative group py-2 whitespace-nowrap ${
+                        isScrolled 
+                          ? 'text-gray-700 hover:text-blue-600' 
+                          : 'text-white hover:text-blue-200'
+                      }`}
+                    >
+                      {link.name}
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
             
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-12 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 font-bold uppercase text-base tracking-wide whitespace-nowrap ml-6"
-            >
-              Get Quote
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-12 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 font-bold uppercase text-base tracking-wide whitespace-nowrap ml-6"
+              >
+                Get Quote
+              </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -115,19 +126,28 @@ const Navbar: React.FC = () => {
               className="lg:hidden mt-6 bg-white rounded-xl shadow-2xl overflow-hidden"
             >
               <div className="flex flex-col space-y-5 p-6">
-                {navLinks.map((link: NavLink) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-gray-700 font-semibold text-base hover:text-blue-600 transition-colors uppercase tracking-wide py-2 border-b border-gray-100 last:border-0"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-                <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 w-full font-bold uppercase text-base tracking-wide mt-2">
-                  Get Quote
-                </button>
+                {navLinks.map((link: NavLink) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors uppercase tracking-wide py-2 border-b border-gray-100 last:border-0 ${
+                        isActive 
+                          ? 'text-gray-900 font-bold' 
+                          : 'text-gray-700 font-semibold hover:text-blue-600'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 w-full font-bold uppercase text-base tracking-wide mt-2">
+                    Get Quote
+                  </button>
+                </Link>
               </div>
             </motion.div>
           )}
