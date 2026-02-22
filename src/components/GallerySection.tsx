@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
-import { ZoomIn, X, Globe, ArrowRight } from 'lucide-react';
+import { X, Globe, ArrowRight } from 'lucide-react';
 
 interface GalleryImage {
   id: number;
@@ -37,8 +37,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
   return (
     <section ref={ref} className="py-60 bg-[#030712] relative overflow-hidden">
       <div className="container mx-auto max-w-7xl px-8 relative z-10">
-        
-        {/* Section Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -49,12 +48,12 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
             <div className="w-12 h-[1px] bg-blue-500/30" />
             <span>Process Archive</span>
           </div>
-          
+
           <h2 className="font-playfair text-6xl md:text-[8rem] font-light leading-[0.85] tracking-tighter text-white mb-16">
             Visual <br />
             <span className="italic text-white/20 font-light block ml-[10%]">Verification.</span>
           </h2>
-          
+
           <p className="text-gray-500 font-light text-2xl leading-relaxed tracking-wide max-w-2xl ml-[10%] border-l border-white/5 pl-12">
             A curated documentation of our industrial methodologies and structural achievements.
           </p>
@@ -74,26 +73,26 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
               <div className="relative h-full w-full bg-[#0b0f1a] rounded-[3rem] border border-white/5 overflow-hidden group-hover:border-white/10 transition-all duration-1000">
                 {/* Image Placeholder with Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/[0.05] via-transparent to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-1000" />
-                
+
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
-                   <Globe size={120} className="text-blue-500" />
+                  <Globe size={120} className="text-blue-500" />
                 </div>
-                
+
                 {/* Overlay Info */}
                 <div className="absolute inset-0 flex flex-col justify-end p-12">
-                   <div className="space-y-4">
-                      <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                        {image.category}
-                      </span>
-                      <h3 className="text-3xl font-playfair italic text-white/90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-75">
-                         {image.title}
-                      </h3>
-                      <div className="w-12 h-[1px] bg-white/10 group-hover:w-full transition-all duration-1000 delay-150" />
-                      <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest text-gray-700 group-hover:text-blue-500 transition-colors duration-700 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 ">
-                         <span>VERIFY_DATA</span>
-                         <ArrowRight size={12} />
-                      </div>
-                   </div>
+                  <div className="space-y-4">
+                    <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                      {image.category}
+                    </span>
+                    <h3 className="text-3xl font-playfair italic text-white/90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-75">
+                      {image.title}
+                    </h3>
+                    <div className="w-12 h-[1px] bg-white/10 group-hover:w-full transition-all duration-1000 delay-150" />
+                    <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest text-gray-700 group-hover:text-blue-500 transition-colors duration-700 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 ">
+                      <span>VERIFY_DATA</span>
+                      <ArrowRight size={12} />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Industrial Grid Lines */}
@@ -116,13 +115,13 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
               className="fixed inset-0 z-[500] bg-[#030712]/95 backdrop-blur-3xl flex items-center justify-center p-8"
               onClick={() => setSelectedImage(null)}
             >
-              <button 
+              <button
                 className="absolute top-12 right-12 text-white/20 hover:text-white transition-colors group"
                 onClick={() => setSelectedImage(null)}
               >
                 <X size={40} className="group-hover:rotate-90 transition-transform duration-500" />
               </button>
-              
+
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 50 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -130,21 +129,21 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
                 className="max-w-5xl w-full border border-white/5 rounded-[4rem] bg-[#0b0f1a] aspect-video flex flex-col p-20 justify-center items-center relative overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
-                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-20" />
-                 
-                 <span className="text-blue-500 font-mono text-xs tracking-[1em] uppercase mb-12">Viewing Specimen</span>
-                 <h3 className="font-playfair text-7xl font-light text-white mb-8 tracking-tighter">
-                   {selectedImage.title}
-                 </h3>
-                 <p className="text-gray-500 font-mono text-xs tracking-widest uppercase">
-                   Category {'//'} {selectedImage.category} {'//'} Node_{selectedImage.id}
-                 </p>
-                 
-                 {/* Decorative HUD Elements */}
-                 <div className="absolute top-12 left-12 w-20 h-20 border-t border-l border-white/10" />
-                 <div className="absolute top-12 right-12 w-20 h-20 border-t border-r border-white/10" />
-                 <div className="absolute bottom-12 left-12 w-20 h-20 border-b border-l border-white/10" />
-                 <div className="absolute bottom-12 right-12 w-20 h-20 border-b border-r border-white/10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-20" />
+
+                <span className="text-blue-500 font-mono text-xs tracking-[1em] uppercase mb-12">Viewing Specimen</span>
+                <h3 className="font-playfair text-7xl font-light text-white mb-8 tracking-tighter">
+                  {selectedImage.title}
+                </h3>
+                <p className="text-gray-500 font-mono text-xs tracking-widest uppercase">
+                  Category {'//'} {selectedImage.category} {'//'} Node_{selectedImage.id}
+                </p>
+
+                {/* Decorative HUD Elements */}
+                <div className="absolute top-12 left-12 w-20 h-20 border-t border-l border-white/10" />
+                <div className="absolute top-12 right-12 w-20 h-20 border-t border-r border-white/10" />
+                <div className="absolute bottom-12 left-12 w-20 h-20 border-b border-l border-white/10" />
+                <div className="absolute bottom-12 right-12 w-20 h-20 border-b border-r border-white/10" />
               </motion.div>
             </motion.div>
           )}
@@ -153,7 +152,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
 
       {/* Decorative Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-playfair italic text-white/[0.01] -z-10 select-none pointer-events-none">
-         Process
+        Process
       </div>
     </section>
   );
