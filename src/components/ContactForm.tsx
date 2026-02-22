@@ -54,81 +54,88 @@ const ContactForm: React.FC = () => {
     }, 1500);
   };
 
+  const inputStyle = "w-full px-6 py-5 bg-[#0b0f1a]/40 backdrop-blur-3xl rounded-2xl border border-white/5 focus:border-blue-500/30 outline-none font-mono text-sm tracking-widest text-white/80 placeholder:text-gray-800 transition-all";
+  const labelStyle = "block text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase mb-4";
+
   return (
-    <div className="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] p-10 border border-gray-100/50 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)] transition-shadow duration-300">
+    <div className="bg-[#0b0f1a]/20 backdrop-blur-2xl rounded-[3rem] p-12 border border-white/5 transition-all duration-700 hover:border-white/10">
       {!isSubmitted ? (
-        <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Name Field */}
-          <div>
-            <label htmlFor="name" className="block text-gray-800 font-bold mb-3 text-sm uppercase tracking-wide">
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 hover:border-gray-300"
-              placeholder="John Doe"
-            />
+        <form onSubmit={handleSubmit} className="space-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Name Field */}
+            <div>
+              <label htmlFor="name" className={labelStyle}>
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className={inputStyle}
+                placeholder="USER_NAME…"
+              />
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label htmlFor="email" className={labelStyle}>
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={inputStyle}
+                placeholder="CONTACT_IDENTIFIER…"
+              />
+            </div>
           </div>
 
-          {/* Email Field */}
-          <div>
-            <label htmlFor="email" className="block text-gray-800 font-bold mb-3 text-sm uppercase tracking-wide">
-              Email Address <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 hover:border-gray-300"
-              placeholder="john@example.com"
-            />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Phone Field */}
+            <div>
+              <label htmlFor="phone" className={labelStyle}>
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className={inputStyle}
+                placeholder="PHONE_NODE…"
+              />
+            </div>
 
-          {/* Phone Field */}
-          <div>
-            <label htmlFor="phone" className="block text-gray-800 font-bold mb-3 text-sm uppercase tracking-wide">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 hover:border-gray-300"
-              placeholder="+1 (555) 123-4567"
-            />
-          </div>
-
-          {/* Subject Field */}
-          <div>
-            <label htmlFor="subject" className="block text-gray-800 font-bold mb-3 text-sm uppercase tracking-wide">
-              Subject <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 hover:border-gray-300"
-              placeholder="How can we help you?"
-            />
+            {/* Subject Field */}
+            <div>
+              <label htmlFor="subject" className={labelStyle}>
+                Inquiry Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className={inputStyle}
+                placeholder="PROJECT_TYPE…"
+              />
+            </div>
           </div>
 
           {/* Message Field */}
           <div>
-            <label htmlFor="message" className="block text-gray-800 font-bold mb-3 text-sm uppercase tracking-wide">
-              Message <span className="text-red-500">*</span>
+            <label htmlFor="message" className={labelStyle}>
+              Detailed Message
             </label>
             <textarea
               id="message"
@@ -137,8 +144,8 @@ const ContactForm: React.FC = () => {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 resize-none hover:border-gray-300"
-              placeholder="Tell us more about your inquiry..."
+              className={`${inputStyle} resize-none`}
+              placeholder="TRANSMIT_DATA…"
             />
           </div>
 
@@ -146,46 +153,45 @@ const ContactForm: React.FC = () => {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            whileHover={{ 
-              scale: 1.02, 
-              boxShadow: "0 15px 40px rgba(220, 38, 38, 0.4)",
-              y: -2
-            }}
+            whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 text-white py-5 rounded-xl font-bold text-base uppercase tracking-wider flex items-center justify-center space-x-2 hover:from-blue-700 hover:to-blue-800 transition-all shadow-[0_8px_25px_rgba(59,130,246,0.35)] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+            className="w-full bg-white text-black py-6 rounded-2xl font-mono text-[10px] tracking-[0.8em] font-bold uppercase transition-all duration-700 hover:bg-blue-600 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-4"
           >
             {isSubmitting ? (
               <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
-                <span>Sending...</span>
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-black border-t-transparent group-hover:border-white group-hover:border-t-transparent" />
+                <span>Synchronizing…</span>
               </>
             ) : (
               <>
-                <Send size={20} />
-                <span>Send Message</span>
+                <Send size={16} />
+                <span>Initialize Transmission</span>
               </>
             )}
           </motion.button>
         </form>
       ) : (
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-center py-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center py-20"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-block"
+            transition={{ type: "spring", stiffness: 200 }}
+            className="inline-block mb-10"
           >
-            <CheckCircle2 size={64} className="text-blue-500 mx-auto mb-4" />
+            <div className="w-24 h-24 rounded-full border border-blue-500/20 flex items-center justify-center">
+               <CheckCircle2 size={40} className="text-blue-500" />
+            </div>
           </motion.div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            Message Sent Successfully!
+          <span className="block text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-6">Success</span>
+          <h3 className="font-playfair text-4xl italic text-white mb-6">
+            Transmission Received.
           </h3>
-          <p className="text-gray-600">
-            Thank you for reaching out. We&apos;ll get back to you shortly.
+          <p className="text-gray-500 font-light text-xl leading-relaxed max-w-sm mx-auto">
+            Our strategic partners will process your dossier and respond within the next cycle.
           </p>
         </motion.div>
       )}
@@ -194,8 +200,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-
-
-
-
-

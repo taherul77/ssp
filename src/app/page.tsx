@@ -1,371 +1,342 @@
-"use client";
+'use client';
 
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ProductCard from "@/components/ProductCard";
-import ClientsSection from "@/components/ClientsSection";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import {
-  ArrowRight,
-  Shield,
-  Users,
-  Award,
-  Package,
-  Palette,
-  Tag,
-  Sparkles,
-} from "lucide-react";
-import Link from "next/link";
-import productsData from "@/data/products.json";
-import companyInfo from "@/data/companyInfo.json";
+import { motion, useScroll, useTransform, useSpring, MotionValue, Variants } from 'framer-motion';
+import { ArrowRight, Layers, Command, Zap, Target } from 'lucide-react';
+import Link from 'next/link';
+import { useRef } from 'react';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import ProductCard from '@/components/ProductCard';
+import ClientsSection from '@/components/ClientsSection';
+import companyInfo from '@/data/companyInfo.json';
+import productsData from '@/data/products.json';
+
+const revealVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 1.2, 
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+// Sub-components to fix Hook violations (useTransform inside callbacks)
+
+const BackgroundIndex = ({ 
+  index, 
+  total, 
+  progress 
+}: { 
+  index: number; 
+  total: number; 
+  progress: MotionValue<number> 
+}) => {
+  const opacity = useTransform(
+    progress, 
+    [index / total, (index + 0.3) / total, (index + 0.7) / total, (index + 1) / total], 
+    [0, 0.05, 0.05, 0]
+  );
+  const scale = useTransform(
+    progress,
+    [index / total, (index + 0.5) / total, (index + 1) / total],
+    [1.1, 1, 0.9]
+  );
+
+  return (
+    <motion.div
+      style={{ opacity, scale }}
+      className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+    >
+      <span className="text-[50vw] font-bold text-white leading-none select-none">
+        0{index + 1}
+      </span>
+    </motion.div>
+  );
+};
+
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+  features: string[];
+  price?: string;
+  image?: string;
+}
+
+const GalleryItem = ({ 
+  product, 
+  index, 
+  total, 
+  progress 
+}: { 
+  product: Product; 
+  index: number; 
+  total: number; 
+  progress: MotionValue<number> 
+}) => {
+  const scale = useTransform(
+    progress,
+    [index / total, (index + 0.5) / total, (index + 1) / total],
+    [0.95, 1, 0.95]
+  );
+
+  return (
+    <motion.div 
+      style={{ scale }}
+      className="flex-shrink-0 w-[70vw] md:w-[45vw] lg:w-[35vw]"
+    >
+      <ProductCard product={product} index={index} />
+    </motion.div>
+  );
+};
+
+const ProgressBar = ({ 
+  progress 
+}: { 
+  progress: MotionValue<number> 
+}) => {
+  return (
+    <div className="h-1 w-full bg-white/5 overflow-hidden rounded-full font-sans">
+      <motion.div 
+        style={{ scaleX: progress }}
+        className="h-full bg-blue-500 origin-left"
+      />
+    </div>
+  );
+};
 
 export default function Home() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const horizontalRootRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress: horizontalProgress } = useScroll({
+    target: horizontalRootRef,
+    offset: ["start start", "end end"]
+  });
+
+  const smoothProgress = useSpring(horizontalProgress, {
+    stiffness: 70,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const featuredProducts = productsData.products
     .filter((p) => p.featured)
     .slice(0, 6);
+    
   const currentYear = new Date().getFullYear();
-  const yearsOfExperience =
-    currentYear - parseInt(companyInfo.company.established);
-
-  const stats = [
-    { number: "1000+", label: "Happy Clients", icon: Users },
-    { number: `${yearsOfExperience}+`, label: "Years Experience", icon: Award },
-    { number: "30+", label: "Product Range", icon: Package },
-    { number: "100%", label: "Quality Assured", icon: Shield },
-  ];
-
-  const services = [
-    {
-      icon: Package,
-      title: "Packaging Solutions",
-      description:
-        "Custom corrugated boxes, shipping cartons, and industrial packaging materials.",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: Palette,
-      title: "Printing Services",
-      description:
-        "High-quality commercial printing, colored paper, and custom printing materials.",
-      color: "from-purple-500 to-purple-600",
-    },
-    {
-      icon: Tag,
-      title: "Garment Accessories",
-      description:
-        "Professional hang tags, garment labels, and woven clothing labels.",
-      color: "from-pink-500 to-pink-600",
-    },
-    {
-      icon: Sparkles,
-      title: "Labels & Stickers",
-      description:
-        "Weather-resistant labels, custom stickers, and specialty label solutions.",
-      color: "from-amber-500 to-amber-600",
-    },
-  ];
+  const yearsOfExperience = currentYear - parseInt(companyInfo.company.established);
 
   return (
-    <main className="overflow-x-hidden">
+        <main className="bg-[#030712] text-white selection:bg-white/10 selection:text-white">
       <HeroSection
         title={companyInfo.company.name}
-        subtitle={`Serving with Excellence Since ${companyInfo.company.established}`}
         description={companyInfo.company.tagline}
-        primaryCta={{ text: "Explore Products", href: "/products" }}
+        primaryCta={{ text: "Discover our work", href: "/products" }}
       />
 
-      {/* Stats Section */}
-
-      {/* Services Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      {/* Modern Intro Section - High impact Serif */}
+      <section className="py-60 relative">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-16"
+            variants={revealVariants}
+            className="mb-40 max-w-4xl"
           >
-            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm bg-blue-50 px-4 py-2 rounded-full inline-block mb-4">
-              What We Offer
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Services
+            <h2 className="font-playfair text-6xl md:text-[9rem] font-normal tracking-tight leading-[0.9] text-white/90">
+              Defining the <br />
+              <span className="italic text-white/20 font-light px-2">Next Standard.</span>
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-              Comprehensive printing, packaging, and garment accessory solutions
-              for your business
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
-                >
-                  <div
-                    className={`bg-gradient-to-br ${service.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                  >
-                    <Icon className="text-white" size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <AboutSection />
-
-      {/* Featured Products Section */}
-      <section
-        ref={ref}
-        className="py-20 bg-gradient-to-b from-white to-gray-50"
-      >
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm bg-blue-50 px-4 py-2 rounded-full inline-block mb-4">
-              Featured Products
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Best Solutions
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-              Discover our premium selection of printing, packaging, and garment
-              accessories
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {featuredProducts.map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                index={index}
-                featured={true}
-              />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
-            <Link href="/products">
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-5 rounded-full font-bold text-lg flex items-center space-x-3 hover:from-blue-700 hover:to-blue-800 transition-all shadow-xl mx-auto group"
-              >
-                <span>View All Products</span>
-                <ArrowRight
-                  size={22}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm bg-white px-4 py-2 rounded-full inline-block mb-4">
-              Why Choose Us
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              {companyInfo.mission}
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companyInfo.values
-              .slice(0, 6)
-              .map(
-                (
-                  value: { title: string; description: string },
-                  index: number
-                ) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
-                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100"
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                      <Shield className="text-white" size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </motion.div>
-                )
-              )}
-          </div>
-        </div>
-      </section>
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="bg-white/10 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20">
-                    <Icon className="text-white" size={36} />
-                  </div>
-                  <div className="text-5xl font-bold text-white mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-blue-100 text-sm uppercase tracking-wider">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      {/* Certifications Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Certifications & Standards
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Certified excellence and trusted by industry leaders
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {companyInfo.certifications.map((cert: string, index: number) => (
+          {/* Capabilities Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Layers, title: "Structural Logic", desc: "Engineered corrugated structures." },
+              { icon: Command, title: "Chroma Precision", desc: "High-fidelity color reproduction." },
+              { icon: Zap, title: "Rapid Output", desc: "Industrial capacity fulfillment." },
+              { icon: Target, title: "Bespoke Identity", desc: "Tailored labeling systems." }
+            ].map((s, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 1 }}
                 viewport={{ once: true }}
-                whileHover={{
-                  y: -10,
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-                }}
-                className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg text-center border border-gray-100 group"
+                className="bg-[#0b0f1a]/30 backdrop-blur-3xl p-12 rounded-[3rem] border border-white/5 group hover:border-white/10 transition-all duration-700"
               >
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <Shield className="text-white" size={40} />
-                </div>
-                <h3 className="font-bold text-gray-900 text-base group-hover:text-blue-600 transition-colors">
-                  {cert}
-                </h3>
+                <s.icon className="text-blue-500/60 group-hover:text-blue-500 mb-10 transition-colors" size={32} />
+                <h3 className="text-2xl font-medium mb-4 tracking-tight">{s.title}</h3>
+                <p className="text-gray-500 font-light leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+       {/* SPLIT-SCREEN HORIZONTAL GALLERY */}
+      <section ref={horizontalRootRef} className="relative h-[1200vh] bg-[#030712] z-30">
+        <div className="sticky top-0 h-screen flex overflow-hidden">
+          
+           {/* Left Side: Fixed Information Pane - Locked and Clipless */}
+          <div className="w-[40%] h-full flex flex-col justify-center p-16 lg:p-32 border-r border-white/5 relative z-50 bg-[#030712]">
+             <div className="space-y-12 max-w-sm">
+                <div className="space-y-8">
+                   <div className="flex items-center gap-4 text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">
+                      <div className="w-8 h-[1px] bg-current" />
+                      <span>Archive</span>
+                   </div>
+                   <h2 className="font-playfair text-6xl lg:text-[5.5vw] font-normal text-white leading-[0.8] tracking-tighter">
+                     Featured <br />
+                     <span className="italic text-white/20 font-light block ml-[10%]">Specimens.</span>
+                   </h2>
+                </div>
+
+                <div className="space-y-10">
+                   <p className="text-gray-500 font-light text-lg leading-relaxed tracking-wide">
+                      A curated selection of industrial high-fidelity reproduction and structural engineering projects.
+                   </p>
+                   <div className="flex items-center gap-6 text-[10px] font-bold tracking-[0.4em] text-white/20 uppercase">
+                      <span>Scroll to traverse</span>
+                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center animate-bounce">
+                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                      </div>
+                   </div>
+                   
+                   <div className="w-full pt-10">
+                      <ProgressBar progress={smoothProgress} />
+                   </div>
+                </div>
+
+                {/* Fixed Metadata HUD */}
+                <div className="pt-12 flex justify-between items-end border-t border-white/5">
+                   <div className="space-y-2">
+                      <span className="block text-[10px] font-mono text-white/10 uppercase tracking-widest">Selection ID</span>
+                      <span className="block text-[14px] font-mono text-gray-400">SSP_ARC_2026</span>
+                   </div>
+                   <div className="text-[5rem] font-playfair italic text-white/5 leading-none select-none">
+                      {featuredProducts.length}
+                   </div>
+                </div>
+             </div>
+          </div>
+
+           {/* Right Side: Horizontal Scroll Track - Strictly 60% */}
+          <div className="w-[60%] h-full relative overflow-hidden bg-[#030712]/50 z-10">
+             {/* Massive Background Index Numbers - Specific for the right pane */}
+             {featuredProducts.map((_, i) => (
+               <BackgroundIndex 
+                 key={i} 
+                 index={i} 
+                 total={featuredProducts.length} 
+                 progress={smoothProgress} 
+               />
+             ))}
+
+              <motion.div 
+                style={{ x: useTransform(smoothProgress, [0, 1], ["0vw", "-380vw"]) }}
+                className="h-full flex items-center gap-[15vw] pl-[10vw] pr-[80vw]"
+              >
+                {featuredProducts.map((product, index) => (
+                  <GalleryItem 
+                    key={product.id} 
+                    product={product} 
+                    index={index} 
+                    total={featuredProducts.length} 
+                    progress={smoothProgress} 
+                  />
+                ))}
+                
+                {/* Final CTA in the track */}
+                <div className="flex-shrink-0 w-[40vw] flex flex-col items-center justify-center gap-12 text-center h-full">
+                   <h3 className="font-playfair text-6xl font-normal tracking-tight text-white/20 italic">
+                      Discovery.
+                   </h3>
+                   <Link href="/products" className="group flex flex-col items-center gap-6">
+                      <div className="w-24 h-24 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white transition-all duration-700">
+                        <ArrowRight size={32} className="text-white group-hover:text-black transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold tracking-[0.5em] uppercase opacity-30 group-hover:opacity-100 transition-opacity">Explore All</span>
+                   </Link>
+                </div>
+             </motion.div>
+             
+             {/* Glass Overlay for depth */}
+             <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
+          </div>
+        </div>
+      </section>
+
+      <AboutSection />
+
+      {/* Final Call to Legacy */}
+      <section className="py-60 bg-[#030712] relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={revealVariants}
+                className="space-y-20"
+              >
+                 <h2 className="font-playfair text-7xl md:text-[9rem] font-normal tracking-tighter leading-[0.85] text-white">
+                   Precision <br /><span className="italic text-white/20 font-light">Craft.</span>
+                 </h2>
+                 <div className="space-y-12">
+                   {companyInfo.values.slice(0, 2).map((value: any, index: number) => (
+                     <div key={index} className="space-y-4">
+                       <span className="text-blue-500 font-mono text-[10px] tracking-[0.6em]">VALUE-0{index+1}</span>
+                       <h3 className="text-3xl font-medium tracking-tight text-white/90">{value.title}</h3>
+                       <p className="text-gray-500 text-xl font-light leading-relaxed max-w-md">{value.description}</p>
+                     </div>
+                   ))}
+                 </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5 }}
+                className="relative aspect-square bg-[#0b0f1a] rounded-[5rem] border border-white/5 flex flex-col items-center justify-center shadow-[0_0_100px_rgba(3,7,18,1)] overflow-hidden group"
+              >
+                 <div className="text-[25rem] font-bold text-white/5 select-none leading-none group-hover:scale-110 transition-transform duration-2000">
+                    {yearsOfExperience}
+                 </div>
+                 <div className="absolute inset-0 bg-blue-600/5 blur-[120px] pointer-events-none" />
+                 <div className="absolute bottom-24 text-[11px] tracking-[0.8em] text-white/20 uppercase font-black">Years Established</div>
+              </motion.div>
+           </div>
+        </div>
+      </section>
+
       <ClientsSection />
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Partner with {companyInfo.company.name} for quality printing,
-              packaging, and garment accessories solutions
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white text-blue-600 px-12 py-5 rounded-full font-bold hover:bg-gray-50 transition-all text-lg shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] flex items-center gap-3 mx-auto"
-                >
-                  <span>Get Your Quote</span>
-                  <ArrowRight size={20} />
-                </motion.button>
-              </Link>
-              <Link href="/products">
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="border-2 border-white text-white px-12 py-5 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all text-lg backdrop-blur-sm"
-                >
-                  Explore Products
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+      {/* CTA Final Statement */}
+      <section className="py-80 flex flex-col items-center justify-center text-center relative">
+         <motion.h2 
+           initial={{ opacity: 0, y: 50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           className="font-playfair text-[12vw] font-normal tracking-tighter leading-none mb-24 text-white/90"
+         >
+           Lets build.
+         </motion.h2>
+         <Link href="/contact">
+           <motion.button
+             whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+             whileTap={{ scale: 0.98 }}
+             className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
+           >
+             Start Discovery
+           </motion.button>
+         </Link>
+         
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
       </section>
     </main>
   );

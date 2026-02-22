@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,115 +23,73 @@ interface ProductCardProps {
   featured?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, index, featured = false }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`${featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
+      initial={{ opacity: 0, y: 60, filter: 'blur(15px)' }}
+      animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
+      className="group cursor-pointer h-full"
     >
-      <motion.div
-        whileHover={{ 
-          y: -12, 
-          boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.25), 0 18px 36px -18px rgba(220, 38, 38, 0.3)" 
-        }}
-        className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-500 h-full flex flex-col group border border-gray-100/50 hover:border-blue-100"
-      >
-        {/* Product Image */}
-        <div className="relative h-72 bg-gradient-to-br from-blue-50 via-blue-50 to-blue-100 overflow-hidden">
-          {featured && (
-            <div className="absolute top-4 right-4 z-10">
-              <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                Featured
-              </span>
-            </div>
-          )}
+      <Link href={`/products/${product.id}`} className="block h-full">
+        <div className="relative h-full flex flex-col bg-[#0b0f1a]/40 backdrop-blur-md rounded-[3rem] border border-gray-900/50 overflow-hidden group-hover:border-gray-700/80 transition-all duration-700">
           
-          <motion.div
-            whileHover={{ scale: 1.15, rotate: 5 }}
-            transition={{ duration: 0.4 }}
-            className="relative w-full h-full flex items-center justify-center"
-          >
+          {/* Image Container */}
+          <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[2rem]">
             {product.image ? (
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover group-hover:brightness-110 transition-all duration-300"
+                className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-blue-100 via-blue-100 to-blue-200 flex items-center justify-center group-hover:brightness-110 transition-all duration-300">
-                <span className="text-7xl transform group-hover:scale-110 transition-transform">🧹</span>
+              <div className="w-full h-full bg-[#111827] flex items-center justify-center">
+                <span className="text-5xl opacity-40 group-hover:scale-125 transition-transform duration-1000 grayscale group-hover:grayscale-0">📦</span>
               </div>
             )}
-          </motion.div>
-        </div>
-
-        {/* Product Content */}
-        <div className="p-8 flex-grow flex flex-col space-y-4">
-          {/* Category Badge */}
-          <span className="inline-block bg-gradient-to-r from-red-100 to-red-50 text-blue-700 text-xs font-bold px-4 py-2 rounded-full w-fit shadow-sm">
-            {product.category}
-          </span>
-
-          {/* Product Name */}
-          <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-            {product.name}
-          </h3>
-
-          {/* Description */}
-          <p className="text-gray-600 leading-relaxed flex-grow">
-            {product.description}
-          </p>
-
-          {/* Features List */}
-          {product.features && product.features.length > 0 && (
-            <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
-                Key Features:
-              </h4>
-              <ul className="space-y-3">
-                {product.features.slice(0, 3).map((feature, idx) => (
-                  <li key={idx} className="flex items-start text-sm text-gray-600">
-                    <CheckCircle size={18} className="text-blue-500 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f1a] to-transparent opacity-60" />
+            
+            {/* Top Right Icon */}
+            <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+               <ArrowUpRight size={18} />
             </div>
-          )}
+          </div>
 
-          {/* Action Button */}
-          <Link href={`/products/${product.id}`}>
-            <motion.button
-              whileHover={{ 
-                scale: 1.03, 
-                boxShadow: "0 12px 35px rgba(220, 38, 38, 0.35)",
-                y: -2
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 text-white py-4.5 rounded-xl font-bold flex items-center justify-center space-x-2 hover:from-blue-700 hover:to-blue-800 transition-all shadow-[0_8px_25px_rgba(59,130,246,0.3)] mt-auto group uppercase text-sm tracking-wider relative overflow-hidden"
-            >
-              <span className="relative z-10">Learn More</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform relative z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.button>
-          </Link>
+          {/* Content */}
+          <div className="p-10 pt-4 flex-grow flex flex-col">
+             <div className="flex items-center gap-3 mb-4">
+                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-blue-500">_CATALOGUE {'//'} {product.category}</span>
+                <div className="h-[1px] flex-grow bg-blue-500/10" />
+             </div>
+            
+            <h3 className="text-3xl font-medium text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-500 transition-all duration-700">
+              {product.name}
+            </h3>
+            
+            <p className="text-gray-500 font-light leading-relaxed group-hover:text-gray-400 transition-colors duration-700 flex-grow">
+              {product.description}
+            </p>
+            
+            <div className="mt-8 pt-8 border-t border-gray-900/50 flex items-center justify-between">
+               <span className="text-sm tracking-[0.1em] text-blue-500 font-mono">SPEC_0{product.id}</span>
+               {product.price && <span className="text-lg font-medium text-white">{product.price}</span>}
+            </div>
+          </div>
+
+          {/* Background shine effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
         </div>
-      </motion.div>
+      </Link>
     </motion.div>
   );
 };
 
 export default ProductCard;
-
-
-
-
-

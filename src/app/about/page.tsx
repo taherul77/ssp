@@ -1,22 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Target, Eye, Award, Users, TrendingUp, Shield, Phone, Mail, Factory, Building2 } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
+import { Target, Eye, Award, Users, TrendingUp, Shield, Phone, Mail, Factory, Building2, Globe, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import companyInfo from '@/data/companyInfo.json';
 
-export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+const revealVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 1.2, 
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
 
+export default function About() {
   const { company, owner, vision, mission, values, milestones } = companyInfo;
 
-  // Calculate years of experience dynamically based on company establishment year
-  const foundedYear = parseInt(company.established);
   const currentYear = new Date().getFullYear();
-  const yearsOfExperience = currentYear - foundedYear;
+  const yearsOfExperience = currentYear - parseInt(company.established);
 
   const iconMap = {
     'Quality Excellence': Award,
@@ -27,389 +33,310 @@ export default function About() {
   };
 
   return (
-    <main className="overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white pt-32 pb-20">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
+    <main className="bg-[#030712] text-white selection:bg-white/10 selection:text-white overflow-hidden">
+      {/* Premium Hero Section */}
+      <section className="relative pt-60 pb-40 overflow-hidden">
+        <div className="container mx-auto max-w-7xl px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            variants={revealVariants}
+            className="flex flex-col gap-12"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              About {company.name}
+            <div className="flex items-center gap-4 text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">
+              <div className="w-12 h-[1px] bg-blue-500/30" />
+              <span>Our Story</span>
+            </div>
+
+            <h1 className="font-playfair text-[7vw] md:text-[6vw] lg:text-[8rem] font-light leading-[0.9] tracking-tighter text-white max-w-5xl">
+              About <br />
+              <span className="italic text-gray-800 font-light block ml-[10%]">{company.name}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              {company.tagline}
-            </p>
-            <div className="mt-8 inline-block bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-              <p className="text-blue-100 font-semibold">
-                Serving with Excellence Since {company.established}
-              </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end pt-10">
+               <p className="text-gray-500 font-light text-2xl leading-relaxed tracking-wide max-w-xl">
+                  {company.tagline}
+               </p>
+               <div className="flex items-center gap-10 opacity-30">
+                  <div className="space-y-2">
+                     <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-widest text-right">Established</span>
+                     <span className="block text-2xl font-playfair italic text-white text-right">{company.established}</span>
+                  </div>
+                  <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center">
+                     <Globe size={24} className="text-blue-500" />
+                  </div>
+               </div>
             </div>
           </motion.div>
         </div>
+        
+        {/* Background Blur Glaze */}
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-600/5 blur-[120px] -z-10" />
+        <div className="absolute -bottom-20 -left-20 w-[40%] h-[40%] bg-blue-600/5 blur-[120px] -z-10" />
       </section>
 
-      {/* Owner/Proprietor Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm bg-blue-50 px-4 py-2 rounded-full inline-block mb-4">
-              Leadership
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Meet Our Proprietor
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto"
-          >
-            {/* Owner Image */}
-            <div className="relative">
-              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
-                <Image
-                  src={owner.image}
-                  alt={owner.name}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-              {/* Floating Badge */}
+      {/* Leadership Section - Orfeo Style */}
+      <section className="py-40 relative border-t border-white/5">
+        <div className="container mx-auto max-w-7xl px-8">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 rounded-xl shadow-2xl"
+                variants={revealVariants}
+                className="space-y-12"
               >
-                <div className="text-center">
-                  <p className="text-4xl font-bold">{yearsOfExperience}+</p>
-                  <p className="text-sm text-blue-100">Years Experience</p>
-                </div>
-              </motion.div>
-            </div>
+                 <div className="space-y-8">
+                    <span className="text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase">Leadership</span>
+                    <h2 className="font-playfair text-6xl md:text-7xl font-light tracking-tight leading-none text-white/90">
+                       Meet our <br /><span className="italic text-gray-800 font-light">Proprietor.</span>
+                    </h2>
+                 </div>
 
-            {/* Owner Info */}
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-4xl font-bold text-gray-900 mb-2">
-                  {owner.name}
-                </h3>
-                <p className="text-2xl text-blue-600 font-semibold mb-6">
-                  {owner.title}
-                </p>
-              </div>
-
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-xl">
-                <p className="text-gray-700 leading-relaxed italic text-lg">
-                  &ldquo;{owner.message}&rdquo;
-                </p>
-              </div>
-
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {owner.bio}
-              </p>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-6">
-                <div className="text-center p-4 bg-white rounded-xl shadow-md">
-                  <p className="text-3xl font-bold text-blue-600">{company.established}</p>
-                  <p className="text-sm text-gray-600">Founded</p>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-md">
-                  <p className="text-3xl font-bold text-blue-600">1000+</p>
-                  <p className="text-sm text-gray-600">Clients</p>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-md">
-                  <p className="text-3xl font-bold text-blue-600">{yearsOfExperience}+</p>
-                  <p className="text-sm text-gray-600">Years</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Vision & Mission Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl"
-            >
-              <Eye className="text-blue-600 mb-4" size={48} />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h2>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {vision}
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl"
-            >
-              <Target className="text-blue-600 mb-4" size={48} />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {mission}
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section ref={ref} className="py-20 bg-gray-50">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const Icon = iconMap[value.title as keyof typeof iconMap] || Award;
-              return (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ 
-                    y: -10, 
-                    scale: 1.02,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 12px 20px -8px rgba(220, 38, 38, 0.1)"
-                  }}
-                  className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 border border-gray-100/50 hover:border-blue-100 group"
-                >
-                  <div className="bg-gradient-to-br from-red-50 to-red-100 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-200/50 transition-all duration-300">
-                    <Icon className="text-blue-600 group-hover:text-blue-700" size={44} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Milestones Timeline */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-gray-600">
-              Key milestones in our growth and innovation
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
-
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } flex-col`}
-                >
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
-                      <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full font-bold mb-3">
-                        {milestone.year}
-                      </span>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-gray-700">
-                        {milestone.description}
-                      </p>
+                 <div className="space-y-8 max-w-xl">
+                    <div className="pt-8 border-t border-white/5 space-y-6">
+                       <h3 className="text-3xl font-medium tracking-tight text-white">{owner.name}</h3>
+                       <span className="block text-blue-500/60 font-mono text-xs tracking-widest uppercase">{owner.title}</span>
                     </div>
-                  </div>
+                    
+                       <p className="text-gray-500 text-xl font-light leading-relaxed italic">
+                          &ldquo;{owner.message}&rdquo;
+                       </p>
 
-                  {/* Timeline Dot */}
-                  <div className="hidden md:flex w-2/12 justify-center">
-                    <div className="w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-                  </div>
+                    <p className="text-gray-500 font-light text-lg leading-relaxed pt-4">
+                       {owner.bio}
+                    </p>
+                 </div>
+              </motion.div>
 
-                  <div className="w-full md:w-5/12"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+                className="relative aspect-[4/5] bg-[#0b0f1a] rounded-[4rem] border border-white/5 overflow-hidden group shadow-2xl"
+              >
+                  <Image
+                    src={owner.image}
+                    alt={owner.name}
+                    fill
+                    className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-2000"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60" />
+                  
+                  {/* Years Experience Seal */}
+                  <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-600 rounded-full flex flex-col items-center justify-center p-10 rotate-12 group-hover:rotate-0 transition-transform duration-1000">
+                     <span className="text-5xl font-bold tracking-tighter text-white">{yearsOfExperience}+</span>
+                     <span className="text-[10px] font-mono tracking-widest uppercase text-white/60">Years of Focus</span>
+                  </div>
+              </motion.div>
+           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Contact Information
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Get in touch with us for all your printing, packaging, and garment accessories needs
-            </p>
-          </motion.div>
+      {/* Vision & Mission - Horizontal Grid */}
+      <section className="py-40 bg-[#030712] relative">
+        <div className="container mx-auto max-w-7xl px-8">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                className="bg-[#0b0f1a]/30 backdrop-blur-3xl p-16 rounded-[4rem] border border-white/5 group hover:border-white/10 transition-all duration-700"
+              >
+                 <Eye className="text-blue-500/40 group-hover:text-blue-500 mb-10 transition-colors" size={40} />
+                 <span className="block text-blue-500 font-mono text-[10px] tracking-[0.5em] uppercase mb-8">Strategic Direction</span>
+                 <h2 className="font-playfair text-5xl font-light mb-8 italic text-white/90">Vision</h2>
+                 <p className="text-gray-500 text-xl font-light leading-relaxed">{vision}</p>
+              </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Office Address */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-4 rounded-xl">
-                  <Building2 className="text-blue-600" size={32} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Office Address</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {company.office.street}<br />
-                    {company.office.city}-{company.office.zip}<br />
-                    {company.office.country}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Factory Address */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-4 rounded-xl">
-                  <Factory className="text-blue-600" size={32} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Factory Address</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {company.factory.street}<br />
-                    {company.factory.city}-{company.factory.zip}<br />
-                    {company.factory.country}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Contact Numbers */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-4 rounded-xl">
-                  <Phone className="text-blue-600" size={32} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Contact Numbers</h3>
-                  <div className="space-y-2 text-gray-600">
-                   
-                    {company.phones.map((phone, idx) => (
-                      <p key={idx}>Phone: {phone}</p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Email */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-4 rounded-xl">
-                  <Mail className="text-blue-600" size={32} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Email</h3>
-                  <a 
-                    href={`mailto:${company.email}`}
-                    className="text-blue-600 hover:text-blue-700 font-semibold break-all"
-                  >
-                    {company.email}
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-[#0b0f1a]/30 backdrop-blur-3xl p-16 rounded-[4rem] border border-white/5 group hover:border-white/10 transition-all duration-700"
+              >
+                 <Target className="text-blue-500/40 group-hover:text-blue-500 mb-10 transition-colors" size={40} />
+                 <span className="block text-blue-500 font-mono text-[10px] tracking-[0.5em] uppercase mb-8">Core Implementation</span>
+                 <h2 className="font-playfair text-5xl font-light mb-8 italic text-white/90">Mission</h2>
+                 <p className="text-gray-500 text-xl font-light leading-relaxed">{mission}</p>
+              </motion.div>
+           </div>
         </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-60 relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl px-8">
+           <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={revealVariants}
+              className="mb-32 text-center"
+           >
+              <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Ethos</span>
+              <h2 className="font-playfair text-7xl font-light mt-8 text-white/90">Our Core <span className="italic text-gray-800">Values.</span></h2>
+           </motion.div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {values.map((v, i) => {
+                 const Icon = iconMap[v.title as keyof typeof iconMap] || Award;
+                 return (
+                    <motion.div
+                       key={v.title}
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ delay: i * 0.1, duration: 1 }}
+                       viewport={{ once: true }}
+                       className="bg-[#0b0f1a]/20 backdrop-blur-2xl p-12 rounded-[3.5rem] border border-white/5 group hover:border-white/10 transition-all duration-700"
+                    >
+                       <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:bg-blue-600 transition-colors duration-700">
+                          <Icon className="text-blue-500 group-hover:text-white transition-colors" size={28} />
+                       </div>
+                       <h3 className="text-2xl font-medium mb-6 tracking-tight text-white/90">{v.title}</h3>
+                       <p className="text-gray-500 font-light leading-relaxed">{v.description}</p>
+                    </motion.div>
+                 );
+              })}
+           </div>
+        </div>
+        
+        {/* Massive Decorative Text */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] font-playfair italic text-white/[0.02] -z-10 select-none">
+           Integrity
+        </div>
+      </section>
+
+      {/* Journey / Milestones */}
+      <section className="py-40 bg-[#030712] border-t border-white/5">
+        <div className="container mx-auto max-w-7xl px-8">
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+              <div className="lg:col-span-4 sticky top-40 h-fit">
+                 <div className="space-y-10">
+                    <span className="text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase">Traversing Time</span>
+                    <h2 className="font-playfair text-6xl font-light text-white leading-[0.9]">
+                       A Legacy <br /> in the <span className="italic text-gray-800">Making.</span>
+                    </h2>
+                    <p className="text-gray-500 font-light text-lg max-w-sm">
+                       Tracking the evolution of industrial excellence and technological adaptation.
+                    </p>
+                 </div>
+              </div>
+
+              <div className="lg:col-span-8 space-y-32">
+                 {milestones.map((m) => (
+                    <motion.div
+                       key={m.year}
+                       initial={{ opacity: 0, x: 20 }}
+                       whileInView={{ opacity: 1, x: 0 }}
+                       transition={{ duration: 1.2 }}
+                       viewport={{ once: true }}
+                       className="group relative pl-24 border-l border-white/5 pb-10"
+                    >
+                       <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full border border-blue-500 bg-[#030712] z-10 group-hover:scale-150 transition-transform duration-500" />
+                       <div className="space-y-6">
+                          <span className="text-blue-500 font-mono text-5xl font-black opacity-20 group-hover:opacity-100 transition-opacity duration-1000">
+                             {m.year}
+                          </span>
+                          <h3 className="text-3xl font-medium tracking-tight text-white/90">{m.title}</h3>
+                          <p className="text-gray-500 font-light text-xl leading-relaxed max-w-2xl">
+                             {m.description}
+                          </p>
+                       </div>
+                    </motion.div>
+                 ))}
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Modern Contact HUD */}
+      <section className="py-60 relative overflow-hidden bg-[#030712]">
+        <div className="container mx-auto max-w-7xl px-8">
+           <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={revealVariants}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32"
+           >
+              <div>
+                 <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Coordinates</span>
+                 <h2 className="font-playfair text-7xl font-light text-white mt-8 italic">Global Reach.</h2>
+              </div>
+              <div className="flex items-end">
+                 <p className="text-gray-500 font-light text-xl leading-relaxed max-w-md">
+                    Based in the industrial heart of Dhaka, we bridge local expertise with international standards.
+                 </p>
+              </div>
+           </motion.div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {[
+                 { icon: Building2, label: "HQ / Office", content: [`${company.office.street}`, `${company.office.city}-${company.office.zip}`, `${company.office.country}`] },
+                 { icon: Factory, label: "Industrial Facility", content: [`${company.factory.street}`, `${company.factory.city}-${company.factory.zip}`, `${company.factory.country}`] },
+                 { icon: Phone, label: "Direct Comms", content: company.phones },
+                 { icon: Mail, label: "Digital Inquiry", content: [company.email], isEmail: true }
+              ].map((item, i) => (
+                 <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 1 }}
+                    viewport={{ once: true }}
+                    className="bg-[#0b0f1a]/40 backdrop-blur-3xl p-16 rounded-[4rem] border border-white/5 group hover:border-white/10 transition-all duration-700"
+                 >
+                    <div className="flex flex-col h-full justify-between gap-12">
+                       <div className="flex justify-between items-start">
+                          <item.icon className="text-blue-500/40 group-hover:text-blue-500 transition-colors" size={32} />
+                          <span className="text-gray-800 text-[10px] font-mono tracking-widest uppercase">SSP_NODE_0{i+1}</span>
+                       </div>
+                       <div className="space-y-6">
+                          <span className="text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase">{item.label}</span>
+                          <div className="space-y-2">
+                             {item.content.map((line, idx) => (
+                                item.isEmail ? (
+                                   <a key={idx} href={`mailto:${line}`} className="block text-2xl font-light text-white/90 hover:text-blue-500 transition-colors truncate">
+                                      {line}
+                                   </a>
+                                ) : (
+                                   <p key={idx} className="text-2xl font-light text-white/90">{line}</p>
+                                )
+                             ))}
+                          </div>
+                       </div>
+                    </div>
+                 </motion.div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-80 flex flex-col items-center justify-center text-center relative">
+         <motion.h2 
+           initial={{ opacity: 0, y: 50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           className="font-playfair text-[10vw] font-light tracking-tighter leading-none mb-24 text-white/90"
+         >
+           Forge the <span className="italic text-gray-800">Future.</span>
+         </motion.h2>
+         <Link href="/contact">
+           <motion.button
+             whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+             whileTap={{ scale: 0.98 }}
+             className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
+           >
+             Connect Now <ArrowRight size={20} className="inline ml-4" />
+           </motion.button>
+         </Link>
+         
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
       </section>
     </main>
   );
 }
-
-
-
-
-

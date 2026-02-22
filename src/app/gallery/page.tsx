@@ -2,6 +2,8 @@
 
 import GallerySection from '@/components/GallerySection';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Gallery() {
   // Extended gallery images
@@ -24,9 +26,9 @@ export default function Gallery() {
   ];
 
   return (
-    <main className="">
+    <main className="bg-[#030712] text-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
+      {/* <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -41,81 +43,63 @@ export default function Gallery() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Gallery Section */}
       <GallerySection images={galleryImages} />
 
       {/* Stats Section */}
-      <section className="py-24 lg:py-28 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl font-bold mb-2">5000+</div>
-              <div className="text-blue-200">Square Meters</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl font-bold mb-2">100+</div>
-              <div className="text-blue-200">Team Members</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl font-bold mb-2">24/7</div>
-              <div className="text-blue-200">Production</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-blue-200">Countries Served</div>
-            </motion.div>
+      <section className="py-40 bg-[#030712] border-t border-white/5 relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            {[
+              { val: '5000+', label: 'Square Meters' },
+              { val: '100+', label: 'Team Members' },
+              { val: '24/7', label: 'Production' },
+              { val: '50+', label: 'Countries Served' }
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="space-y-4"
+              >
+                <div className="text-5xl md:text-6xl font-playfair italic text-white/90">{stat.val}</div>
+                <div className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-28 bg-white">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center">
+      <section className="py-60 flex flex-col items-center justify-center text-center relative bg-[#030712] border-t border-white/5">
+        <div className="container mx-auto max-w-7xl px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 1.2 }}
             viewport={{ once: true }}
+            className="flex flex-col items-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Want to See More?
+            <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-12">Next Steps</span>
+            <h2 className="font-playfair text-[8vw] font-light text-white mb-20 tracking-tighter leading-none">
+              Want to See <br /><span className="italic text-white/20">More?</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Schedule a facility tour or request a product demonstration
-            </p>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-12 py-4.5 rounded-xl font-bold uppercase text-sm tracking-wider hover:from-blue-700 hover:to-blue-800 transition-all shadow-[0_8px_25px_rgba(59,130,246,0.35)] hover:shadow-[0_12px_35px_rgba(220,38,38,0.45)] relative overflow-hidden group"
-            >
-              <span className="relative z-10">Contact Us</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.a>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
+              >
+                Schedule Tour <ArrowUpRight size={20} className="inline ml-4" />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
       </section>
     </main>
   );

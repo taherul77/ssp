@@ -1,165 +1,224 @@
 'use client';
 
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
+import { Plus, X, ArrowRight, Instagram, Linkedin, Twitter, Globe, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import companyInfo from '@/data/companyInfo.json';
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
-interface NavLink {
-  name: string;
-  href: string;
-}
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const { company } = companyInfo;
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const pathname = usePathname();
+  const opacityProgress = useTransform(scrollY, [0, 100], [1, 0.4]);
+  const yProgress = useTransform(scrollY, [0, 100], [0, -10]);
 
+  const smoothOpacity = useSpring(opacityProgress, { stiffness: 100, damping: 30 });
+  const smoothY = useSpring(yProgress, { stiffness: 100, damping: 30 });
+
+  // Prevent scroll when menu is open
   useEffect(() => {
-    const handleScroll = (): void => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
 
-  const navLinks: NavLink[] = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Products', href: '/products' },
+  const menuLinks = [
+    { name: 'HOME', href: '/' },
+    { name: 'Our Products', href: '/products' },
+    { name: 'ABOUT US', href: '/about' },
+    { name: 'CONTACT', href: '/contact' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Contact', href: '/contact' },
   ];
 
-  return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-xl '
-          : 'bg-transparent '
-      }`}
-    >
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-4 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center"
-            >
-              <Image 
-                src="/logo/ss-printers-logo.png" 
-                alt="SS Printers Logo" 
-                width={160}
-                height={120}
-                className="h-24 w-auto object-contain"
-              />
-            </motion.div>
-          </Link>
+  const menuVariants: Variants = {
+    closed: {
+      opacity: 0,
+      scaleY: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.76, 0, 0.24, 1] as const,
+      },
+    },
+    open: {
+      opacity: 1,
+      scaleY: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.76, 0, 0.24, 1] as const,
+      },
+    },
+  };
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
-            <div className="flex items-center gap-8 xl:gap-10">
-              {navLinks.map((link: NavLink, index: number) => {
-                const isActive = pathname === link.href;
-                return (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={`font-semibold text-lg uppercase tracking-wider transition-all relative group py-2 whitespace-nowrap ${
-                        isScrolled 
-                          ? 'text-gray-700 hover:text-blue-600' 
-                          : 'text-white hover:text-blue-200'
-                      }`}
-                    >
-                      {link.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}></span>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-            
-            <Link href="/contact">
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-12 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 font-bold uppercase text-base tracking-wide whitespace-nowrap ml-6"
-              >
-                Get Quote
-              </motion.button>
+  const staggerLinks: Variants = {
+    open: {
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+  };
+
+  const linkVariants: Variants = {
+    closed: { y: 100, opacity: 0, rotateX: 30 },
+    open: { y: 0, opacity: 1, rotateX: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as const } },
+  };
+
+  return (
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-[100] pointer-events-none">
+        <motion.div 
+          style={{ opacity: smoothOpacity, y: smoothY }}
+          className="container mx-auto max-w-[1920px] px-8 py-10 flex items-center justify-between"
+        >
+          {/* Left: Brand & Menu Toggle */}
+          <div className="flex items-center gap-16 pointer-events-auto">
+            <Link href="/" className="group flex items-center gap-4">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <div className="absolute inset-0 bg-blue-600 rounded-full blur-[10px] opacity-40 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-full h-full rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center overflow-hidden">
+                  <Image 
+                    src="/logo/ss-printers-logo.png" 
+                    alt="SS Printers Logo" 
+                    width={48} 
+                    height={48} 
+                    className="w-full h-full object-contain p-1"
+                  />
+                </div>
+              </div>
             </Link>
+
+            <button 
+              onClick={() => setIsOpen(true)}
+              className="flex items-center gap-3 text-white/80 hover:text-white transition-all group"
+            >
+              <div className="relative w-4 h-4 flex items-center justify-center">
+                <Plus size={16} className="absolute group-hover:rotate-90 transition-all duration-500" />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.4em] uppercase">MENU</span>
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-3 rounded-lg transition-colors ${
-              isScrolled ? 'text-gray-800' : 'text-white'
-            }`}
-          >
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
-          </button>
-        </div>
+          {/* Right: CTA */}
+          <div className="flex items-center gap-6 pointer-events-auto">
+            <Link href="/contact" className="hidden md:block">
+              <button className="group relative text-[10px] font-bold tracking-[0.3em] uppercase text-white px-8 py-4 rounded-md border border-white/10 hover:border-white transition-all duration-500 overflow-hidden">
+                {/* Initial Text */}
+                <div className="relative z-10 flex items-center gap-3 transition-transform duration-500 group-hover:-translate-y-12">
+                  START PROJECT <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+                
+                {/* Hover Text & Background */}
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-white text-black font-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 uppercase">
+                  Let&apos;s talk
+                </div>
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </nav>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden mt-6 bg-white rounded-xl shadow-2xl overflow-hidden"
-            >
-              <div className="flex flex-col space-y-5 p-6">
-                {navLinks.map((link: NavLink) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-base transition-colors uppercase tracking-wide py-2 border-b border-gray-100 last:border-0 ${
-                        isActive 
-                          ? 'text-gray-900 font-bold' 
-                          : 'text-gray-700 font-semibold hover:text-blue-600'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  );
-                })}
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 w-full font-bold uppercase text-base tracking-wide mt-2">
-                    Get Quote
-                  </button>
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </nav>
+      {/* Full Screen Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed inset-0 z-[200] bg-[#030712] origin-top flex flex-col pt-40 px-8 pb-12 overflow-hidden"
+          >
+            {/* Menu Header (Logo & Close) */}
+            <div className="absolute top-10 left-8 right-8 flex justify-between items-center">
+               <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center overflow-hidden bg-white/5">
+                     <Image 
+                       src="/logo/ss-printers-logo.png" 
+                       alt="SS Printers Logo" 
+                       width={56} 
+                       height={56} 
+                       className="w-full h-full object-contain p-1"
+                     />
+                  </div>
+                  <span className="text-xl font-playfair tracking-tight text-white/90">SS Printers.</span>
+               </div>
+               
+               <button 
+                 onClick={() => setIsOpen(false)}
+                 className="flex items-center gap-4 group hover:text-blue-500 transition-colors"
+               >
+                 <X size={24} className="group-hover:rotate-90 transition-transform duration-500" />
+                 <span className="text-[10px] font-black tracking-[0.5em] uppercase">CLOSE</span>
+               </button>
+            </div>
+
+            <div className="container mx-auto max-w-7xl h-full grid grid-cols-1 lg:grid-cols-2 gap-20">
+               {/* Navigation Links */}
+               <motion.div 
+                 variants={staggerLinks}
+                 className="flex flex-col justify-center space-y-2 lg:space-y-4"
+               >
+                  {menuLinks.map((link) => (
+                    <motion.div key={link.name} variants={linkVariants} className="overflow-hidden">
+                      <Link 
+                        href={link.href} 
+                        onClick={() => setIsOpen(false)}
+                        className="font-playfair text-[8vw] lg:text-[4.5rem] font-light leading-[0.9] tracking-tighter text-white hover:italic transition-all duration-700 block hover:pl-10 text-white/90 hover:text-white"
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+               </motion.div>
+
+               {/* Side Info & Socials */}
+               <div className="flex flex-col justify-end space-y-16 pb-12 lg:pl-20 border-l border-white/5">
+                  <div className="space-y-8">
+                     <span className="text-blue-500 text-[10px] font-mono tracking-[0.6em] uppercase">Inquiries</span>
+                     <div className="space-y-4">
+                        <Link href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-4 text-lg font-light text-gray-500 hover:text-white transition-colors group">
+                           <Phone size={18} className="text-white/20 group-hover:text-blue-500 group-hover:scale-110 transition-all" />
+                           <span className="text-gray-500 group-hover:text-white transition-colors">{company.phones[0]}</span>
+                        </Link>
+                        <Link href={`mailto:${company.email}`} className="flex items-center gap-4 text-lg font-light text-gray-500 hover:text-white transition-colors group">
+                           <Mail size={18} className="text-white/20 group-hover:text-blue-500 group-hover:scale-110 transition-all" />
+                           <span className="text-gray-500 group-hover:text-white transition-colors">{company.email}</span>
+                        </Link>
+                     </div>
+                  </div>
+
+                  <div className="space-y-8">
+                     <span className="text-blue-500 text-[10px] font-mono tracking-[0.6em] uppercase">Social Media</span>
+                     <div className="flex gap-10">
+                        {[Instagram, Linkedin, Twitter].map((Icon, i) => (
+                           <Link key={i} href="#" className="text-gray-600 hover:text-white transition-all transform hover:-translate-y-1">
+                              <Icon size={24} />
+                           </Link>
+                        ))}
+                     </div>
+                  </div>
+
+                  <div className="space-y-2 pt-10 border-t border-white/5 opacity-40">
+                     <div className="flex items-baseline gap-4">
+                        <Globe size={12} className="text-gray-500" />
+                        <span className="text-[10px] font-mono tracking-widest uppercase">Factory Active — 23.8° N / 90.4° E</span>
+                     </div>
+                     <span className="block text-[10px] font-mono tracking-[0.8em] text-gray-700 uppercase ml-7">Dhaka, Bangladesh</span>
+                  </div>
+               </div>
+            </div>
+
+            {/* Background Blur Glaze */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_100%)] pointer-events-none -z-10" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
 export default Navbar;
-
-
-
-
-

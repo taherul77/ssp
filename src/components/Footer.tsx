@@ -1,127 +1,113 @@
 'use client';
 
+import { ArrowUpRight, Instagram, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail,  MapPin } from 'lucide-react';
 import companyInfo from '@/data/companyInfo.json';
 
-const Footer: React.FC = () => {
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
   const { company } = companyInfo;
 
-
+  const footerLinks = [
+    { name: 'HOME', href: '/' },
+    { name: 'OUR PRODUCTS', href: '/products' },
+    { name: 'ABOUT US', href: '/about' },
+    { name: 'CONTACT', href: '/contact' },
+    { name: 'GALLERY', href: '/gallery' },
+  ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-300">
-      <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          {/* Company Info */}
-          <div>
-            <div className="mb-6">
-              <Image 
-                src="/logo/ss-printers-logo.png" 
-                alt="SS Printers Logo" 
-                width={160}
-                height={80}
-                className="h-20 w-auto object-contain"
-              />
+    <footer className="bg-[#030712] pt-40 pb-20 border-t border-white/5 relative overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-40">
+          {/* Brand & Mission */}
+          <div className="space-y-12">
+            <Link href="/" className="inline-block group">
+              <div className="relative flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden ring-1 ring-white/10 group-hover:scale-110 transition-transform duration-500">
+                  <Image 
+                    src="/logo/ss-printers-logo.png" 
+                    alt="SS Printers Logo" 
+                    width={56} 
+                    height={56} 
+                    className="w-full h-full object-contain p-1"
+                  />
+                </div>
+                <span className="text-2xl font-playfair tracking-tight text-white/90">SS Printers.</span>
+              </div>
+            </Link>
+            <h2 className="text-4xl md:text-5xl font-playfair italic font-light text-gray-500 leading-tight max-w-md">
+              Engineering the visual architecture of <span className="text-white not-italic font-normal">global standards.</span>
+            </h2>
+            <div className="flex gap-8">
+              {[Instagram, Linkedin, Twitter].map((Icon, i) => (
+                <Link key={i} href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-500">
+                  <Icon size={20} />
+                </Link>
+              ))}
             </div>
-            <p className="text-sm leading-relaxed mb-6 text-gray-400">{company.tagline}</p>
-           
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/" className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 text-sm inline-block">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 text-sm inline-block">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 text-sm inline-block">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 text-sm inline-block">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 text-sm inline-block">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Contact & Links */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div className="space-y-8">
+              <span className="block text-[10px] font-bold tracking-[0.5em] text-gray-800 uppercase">Navigation</span>
+              <ul className="space-y-4">
+                {footerLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-lg font-light text-gray-400 hover:text-white transition-colors duration-500 flex items-center gap-2 group">
+                      {link.name}
+                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Our Products</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 cursor-pointer inline-block">
-                Paper Products
-              </li>
-              <li className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 cursor-pointer inline-block">
-                Packaging Materials
-              </li>
-              <li className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 cursor-pointer inline-block">
-                Labels & Stickers
-              </li>
-              <li className="hover:text-blue-400 hover:translate-x-2 transition-all duration-300 cursor-pointer inline-block">
-                Garment Accessories
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-sm">
-                <MapPin size={18} className="text-blue-500 flex-shrink-0 mt-1" />
-                <span>
-                  {company.office.street}<br />
-                  {company.office.city}-{company.office.zip}<br />
-                  {company.office.country}
-                </span>
-              </li>
-              
-              <li className="flex items-center space-x-3 text-sm">
-                <Mail size={18} className="text-blue-500 flex-shrink-0" />
-                <span>{company.email}</span>
-              </li>
-            </ul>
+            <div className="space-y-8">
+              <span className="block text-[10px] font-bold tracking-[0.5em] text-gray-800 uppercase">Contact</span>
+              <div className="space-y-6">
+                <div className="flex flex-col gap-1 group cursor-pointer">
+                  <span className="text-[10px] text-gray-700 tracking-widest uppercase mb-1">Office</span>
+                  <p className="text-gray-400 font-light leading-relaxed group-hover:text-white transition-colors">
+                    {company.office.street}<br />{company.office.city}, {company.office.country}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-1 group cursor-pointer">
+                  <span className="text-[10px] text-gray-700 tracking-widest uppercase mb-1">Inquiries</span>
+                  <Link href={`mailto:${company.email}`} className="text-gray-400 font-light hover:text-blue-500 transition-colors">{company.email}</Link>
+                  <Link href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="text-gray-400 font-light hover:text-blue-500 transition-colors">{company.phones[0]}</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800/50 mt-12 pt-8 text-center text-sm">
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} SS Printers. All rights reserved. | 
-            <Link href="/privacy" className="hover:text-blue-400 transition-colors ml-2">
-              Privacy Policy
-            </Link>
-            {' | '}
-            <Link href="/terms" className="hover:text-blue-400 transition-colors">
-              Terms of Service
-            </Link>
-          </p>
+        <div className="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-[10px] font-mono text-gray-800 uppercase tracking-[0.3em]">
+            &copy; {currentYear} SS Printers Archive — All Rights Reserved.
+          </div>
+          <div className="flex gap-12 text-[10px] font-mono text-gray-800 uppercase tracking-[0.3em]">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <div className="flex items-center gap-2">
+               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+               System Active
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Massive Background Text */}
+      <div className="absolute -bottom-20 left-0 w-full select-none pointer-events-none opacity-[0.02]">
+        <h2 className="text-[25vw] font-playfair font-black text-white leading-none tracking-tighter text-center">
+          PRINTERS
+        </h2>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
-
-
-
-

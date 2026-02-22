@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Globe, ArrowRight } from 'lucide-react';
 
 interface GalleryImage {
   id: number;
@@ -20,138 +20,143 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Default gallery images if none provided
   const defaultImages = [
-    { id: 1, title: 'Industrial Roller Brush', category: 'Manufacturing' },
-    { id: 2, title: 'Quality Control', category: 'Quality' },
-    { id: 3, title: 'Custom Solutions', category: 'Products' },
-    { id: 4, title: 'Production Line', category: 'Manufacturing' },
-    { id: 5, title: 'Strip Brushes', category: 'Products' },
-    { id: 6, title: 'Team at Work', category: 'Team' },
-    { id: 7, title: 'Warehouse', category: 'Facilities' },
-    { id: 8, title: 'Testing Lab', category: 'Quality' },
-    { id: 9, title: 'Product Range', category: 'Products' },
+    { id: 1, title: 'Precision Folding', category: 'Packaging' },
+    { id: 2, title: 'Color Calibration', category: 'Printing' },
+    { id: 3, title: 'Fulfillment Center', category: 'Logistics' },
+    { id: 4, title: 'Material Archive', category: 'Sourcing' },
+    { id: 5, title: 'Die-Cut Processing', category: 'Mechanical' },
+    { id: 6, title: 'Prototype Unit', category: 'Design' },
+    { id: 7, title: 'Scale Production', category: 'Industrial' },
+    { id: 8, title: 'Quality Scanning', category: 'Inspection' },
+    { id: 9, title: 'Custom Finishing', category: 'Craft' },
   ];
 
   const galleryImages = images.length > 0 ? images : defaultImages;
 
-  const openLightbox = (image: GalleryImage) => {
-    setSelectedImage(image);
-  };
-
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
-
   return (
-    <section ref={ref} className="py-20 bg-gray-50">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+    <section ref={ref} className="py-60 bg-[#030712] relative overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-8 relative z-10">
+        
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-32"
         >
-          <span className="text-blue-600 font-semibold uppercase tracking-wide">
-            Our Gallery
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
-            Explore Our Work
+          <div className="flex items-center gap-4 text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-12">
+            <div className="w-12 h-[1px] bg-blue-500/30" />
+            <span>Process Archive</span>
+          </div>
+          
+          <h2 className="font-playfair text-6xl md:text-[8rem] font-light leading-[0.85] tracking-tighter text-white mb-16">
+            Visual <br />
+            <span className="italic text-white/20 font-light block ml-[10%]">Verification.</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our state-of-the-art facilities, products, and team in action.
+          
+          <p className="text-gray-500 font-light text-2xl leading-relaxed tracking-wide max-w-2xl ml-[10%] border-l border-white/5 pl-12">
+            A curated documentation of our industrial methodologies and structural achievements.
           </p>
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((image, index) => (
             <motion.div
               key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg"
-              onClick={() => openLightbox(image)}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1, delay: index * 0.1 }}
+              className="relative group cursor-none aspect-[4/5]"
+              onClick={() => setSelectedImage(image)}
             >
-              {/* Image Placeholder with Gradient */}
-              <div className="relative h-80 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl">📷</span>
+              <div className="relative h-full w-full bg-[#0b0f1a] rounded-[3rem] border border-white/5 overflow-hidden group-hover:border-white/10 transition-all duration-1000">
+                {/* Image Placeholder with Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/[0.05] via-transparent to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-1000" />
+                
+                <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                   <Globe size={120} className="text-blue-500" />
                 </div>
                 
-                {/* Overlay */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6"
-                >
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="inline-block bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                      {image.category}
-                    </span>
-                    <h3 className="text-white font-bold text-xl mb-2">
-                      {image.title}
-                    </h3>
-                    <div className="flex items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <ZoomIn size={20} className="mr-2" />
-                      <span>Click to view</span>
-                    </div>
-                  </div>
-                </motion.div>
+                {/* Overlay Info */}
+                <div className="absolute inset-0 flex flex-col justify-end p-12">
+                   <div className="space-y-4">
+                      <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                        {image.category}
+                      </span>
+                      <h3 className="text-3xl font-playfair italic text-white/90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-75">
+                         {image.title}
+                      </h3>
+                      <div className="w-12 h-[1px] bg-white/10 group-hover:w-full transition-all duration-1000 delay-150" />
+                      <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest text-gray-700 group-hover:text-blue-500 transition-colors duration-700 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 ">
+                         <span>VERIFY_DATA</span>
+                         <ArrowRight size={12} />
+                      </div>
+                   </div>
+                </div>
+
+                {/* Industrial Grid Lines */}
+                <div className="absolute top-0 bottom-0 left-[20%] w-[1px] bg-white/[0.02]" />
+                <div className="absolute top-0 bottom-0 left-[40%] w-[1px] bg-white/[0.02]" />
+                <div className="absolute top-0 bottom-0 left-[60%] w-[1px] bg-white/[0.02]" />
+                <div className="absolute top-0 bottom-0 left-[80%] w-[1px] bg-white/[0.02]" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Lightbox Modal */}
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-            onClick={closeLightbox}
-          >
-            <button
-              className="absolute top-6 right-6 text-white hover:text-blue-500 transition-colors"
-              onClick={closeLightbox}
-            >
-              <X size={32} />
-            </button>
-            
+        {/* Lightbox / Modal */}
+        <AnimatePresence>
+          {selectedImage && (
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-5xl w-full"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[500] bg-[#030712]/95 backdrop-blur-3xl flex items-center justify-center p-8"
+              onClick={() => setSelectedImage(null)}
             >
-              {/* Lightbox Image Placeholder */}
-              <div className="relative bg-gradient-to-br from-blue-200 via-blue-300 to-blue-400 rounded-lg h-[600px] flex items-center justify-center">
-                <span className="text-9xl">📷</span>
-              </div>
+              <button 
+                className="absolute top-12 right-12 text-white/20 hover:text-white transition-colors group"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X size={40} className="group-hover:rotate-90 transition-transform duration-500" />
+              </button>
               
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-                <span className="inline-block bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                  {selectedImage.category}
-                </span>
-                <h3 className="text-white font-bold text-2xl">
-                  {selectedImage.title}
-                </h3>
-              </div>
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0, y: 50 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="max-w-5xl w-full border border-white/5 rounded-[4rem] bg-[#0b0f1a] aspect-video flex flex-col p-20 justify-center items-center relative overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-20" />
+                 
+                 <span className="text-blue-500 font-mono text-xs tracking-[1em] uppercase mb-12">Viewing Specimen</span>
+                 <h3 className="font-playfair text-7xl font-light text-white mb-8 tracking-tighter">
+                   {selectedImage.title}
+                 </h3>
+                 <p className="text-gray-500 font-mono text-xs tracking-widest uppercase">
+                   Category {'//'} {selectedImage.category} {'//'} Node_{selectedImage.id}
+                 </p>
+                 
+                 {/* Decorative HUD Elements */}
+                 <div className="absolute top-12 left-12 w-20 h-20 border-t border-l border-white/10" />
+                 <div className="absolute top-12 right-12 w-20 h-20 border-t border-r border-white/10" />
+                 <div className="absolute bottom-12 left-12 w-20 h-20 border-b border-l border-white/10" />
+                 <div className="absolute bottom-12 right-12 w-20 h-20 border-b border-r border-white/10" />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Decorative Background Text */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-playfair italic text-white/[0.01] -z-10 select-none pointer-events-none">
+         Process
       </div>
     </section>
   );
 };
 
 export default GallerySection;
-
-
-
-
-
