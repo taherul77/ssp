@@ -54,11 +54,11 @@ const ContactForm: React.FC = () => {
     }, 1500);
   };
 
-  const inputStyle = "w-full px-6 py-5 bg-[#0b0f1a]/40 backdrop-blur-3xl rounded-2xl border border-white/5 focus:border-blue-500/30 outline-none font-mono text-sm tracking-widest text-white/80 placeholder:text-gray-800 transition-all";
-  const labelStyle = "block text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase mb-4";
+  const inputStyle = "w-full px-6 py-5 bg-black/[0.03] backdrop-blur-3xl rounded-2xl border border-black/5 focus:border-blue-600/30 outline-none font-mono text-sm tracking-widest text-black/80 placeholder:text-gray-400 transition-all";
+  const labelStyle = "block text-blue-600 font-mono text-[10px] tracking-[0.6em] uppercase mb-4";
 
   return (
-    <div className="bg-[#0b0f1a]/20 backdrop-blur-2xl rounded-[3rem] p-12 border border-white/5 transition-all duration-700 hover:border-white/10">
+    <div className="bg-black/[0.02] backdrop-blur-2xl rounded-[3rem] p-12 border border-black/5 transition-all duration-700 hover:border-black/10">
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -155,11 +155,11 @@ const ContactForm: React.FC = () => {
             disabled={isSubmitting}
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-white text-black py-6 rounded-2xl font-mono text-[10px] tracking-[0.8em] font-bold uppercase transition-all duration-700 hover:bg-blue-600 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-4"
+            className="w-full bg-black text-white py-6 rounded-2xl font-mono text-[10px] tracking-[0.8em] font-bold uppercase transition-all duration-700 hover:bg-blue-600 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-4"
           >
             {isSubmitting ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-2 border-black border-t-transparent group-hover:border-white group-hover:border-t-transparent" />
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
                 <span>Synchronizing…</span>
               </>
             ) : (
@@ -182,12 +182,12 @@ const ContactForm: React.FC = () => {
             transition={{ type: "spring", stiffness: 200 }}
             className="inline-block mb-10"
           >
-            <div className="w-24 h-24 rounded-full border border-blue-500/20 flex items-center justify-center">
-              <CheckCircle2 size={40} className="text-blue-500" />
+            <div className="w-24 h-24 rounded-full border border-blue-600/20 flex items-center justify-center">
+              <CheckCircle2 size={40} className="text-blue-600" />
             </div>
           </motion.div>
-          <span className="block text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-6">Success</span>
-          <h3 className="font-playfair text-4xl italic text-white mb-6">
+          <span className="block text-blue-600 font-mono text-[10px] tracking-[0.8em] uppercase mb-6">Success</span>
+          <h3 className="font-playfair text-4xl italic text-black mb-6">
             Transmission Received.
           </h3>
           <p className="text-gray-500 font-light text-xl leading-relaxed max-w-sm mx-auto">

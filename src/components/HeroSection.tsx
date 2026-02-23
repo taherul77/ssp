@@ -59,14 +59,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const textOpacity = useTransform(scrollSpring, [0, 600], [1, 0]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center bg-[#030712] overflow-hidden">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center bg-[var(--background)] overflow-hidden">
       {/* 3D Scene - Constant depth */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 translate-x-[20%] lg:translate-x-[30%]">
         <ThreeBackground />
       </div>
 
       {/* Background vignette glaze */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(3,7,18,0.7)_100%)] z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,253,246,0.7)_100%)] z-10 pointer-events-none" />
 
       {/* Main Content - Asymmetric Agency Layout */}
       <div className="relative z-30 container mx-auto max-w-7xl px-8 h-full flex flex-col justify-center">
@@ -80,13 +80,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="flex items-center gap-4 text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase"
+              className="flex items-center gap-4 text-blue-600 font-mono text-[10px] tracking-[0.6em] uppercase"
             >
               <span>Industrial Precision</span>
-              <div className="w-12 h-[1px] bg-blue-500/30" />
+              <div className="w-12 h-[1px] bg-blue-600/30" />
             </motion.div>
 
-            <h1 className="font-playfair text-[9vw] md:text-[8vw] lg:text-[9rem] font-light leading-[0.9] tracking-tighter text-white flex flex-col">
+            <h1 className="font-playfair text-[9vw] md:text-[8vw] lg:text-[9rem] font-light leading-[0.9] tracking-tighter text-[var(--foreground)] flex flex-col">
               <motion.span
                 initial={{ y: 100, opacity: 0, rotateX: 30 }}
                 animate={{ y: 0, opacity: 1, rotateX: 0 }}
@@ -96,11 +96,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </motion.span>
               <motion.span
                 initial={{ y: 100, opacity: 0, rotateX: 30 }}
-                animate={{ y: 0, opacity: 0.9, rotateX: 0 }}
+                animate={{ y: 0, opacity: 1, rotateX: 0 }}
                 transition={{ duration: 1.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="pl-[10%]"
               >
-                the <span className="italic text-gray-800">Future.</span>
+                the <span className="italic text-black/50 group-hover:text-black transition-all duration-1000">Future.</span>
               </motion.span>
             </h1>
           </div>
@@ -122,7 +122,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group flex items-center gap-10 bg-white text-black px-12 py-5 rounded-full transition-all duration-700 hover:bg-transparent hover:text-white border border-white"
+                    className="group flex items-center gap-10 bg-black text-white px-12 py-5 rounded-full transition-all duration-700 hover:bg-transparent hover:text-black border border-black"
                   >
                     <span className="text-[11px] font-bold tracking-[0.5em] uppercase">
                       Explore
@@ -136,9 +136,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Detail Stat - Very Agency like */}
-            <div className="hidden md:block pb-5 border-l border-white/5 pl-10 space-y-2 opacity-40">
-              <span className="block text-[10px] font-mono text-gray-400">EST. 1998</span>
-              <span className="block text-[10px] font-mono text-gray-400">DHAKA_HQ_01</span>
+            <div className="hidden md:block pb-5 border-l border-black/5 pl-10 space-y-2 opacity-70">
+              <span className="block text-[10px] font-mono text-black">EST. 1998</span>
+              <span className="block text-[10px] font-mono text-black">DHAKA_HQ_01</span>
             </div>
           </motion.div>
         </motion.div>
@@ -171,11 +171,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <div className="space-y-2">
             <span className="block text-gray-700 text-[10px] font-bold tracking-[0.5em] uppercase">Status</span>
-            <span className="block text-white text-[12px] font-mono tracking-widest uppercase">Factory Active</span>
+            <span className="block text-black text-[12px] font-mono tracking-widest uppercase">Factory Active</span>
           </div>
           <div className="space-y-2">
             <span className="block text-gray-700 text-[10px] font-bold tracking-[0.5em] uppercase">Coordinates</span>
-            <span className="block text-white text-[12px] font-mono tracking-widest">23.8° N / 90.4° E</span>
+            <span className="block text-black text-[12px] font-mono tracking-widest">23.8° N / 90.4° E</span>
           </div>
         </motion.div>
       </div>
@@ -187,8 +187,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-3"
         >
-          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_20px_white]" />
-          <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent opacity-20" />
+          <div className="w-1.5 h-1.5 bg-black rounded-full shadow-[0_0_20px_rgba(0,0,0,0.2)]" />
+          <div className="w-[1px] h-12 bg-gradient-to-b from-black to-transparent opacity-20" />
         </motion.div>
       </div>
     </section>

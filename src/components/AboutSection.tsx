@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section ref={ref} className="py-60 bg-[#030712] relative overflow-hidden">
+    <section ref={ref} className="py-60 bg-[var(--background)] relative overflow-hidden">
       <div className="container mx-auto max-w-7xl px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
 
@@ -41,15 +41,15 @@ const AboutSection: React.FC = () => {
             className="lg:col-span-12 mb-32"
           >
             <div className="max-w-4xl">
-              <span className="inline-flex items-center gap-3 px-4 py-2 border border-white/5 rounded-full text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-12 bg-white/5">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
+              <span className="inline-flex items-center gap-3 px-4 py-2 border border-black/5 rounded-full text-blue-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-12 bg-black/5">
+                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" />
                 Our Philosophy
               </span>
-              <h2 className="text-6xl md:text-[8rem] font-playfair font-normal text-white mb-16 tracking-tighter leading-[0.85]">
+              <h2 className="text-6xl md:text-[8rem] font-playfair font-normal text-black mb-16 tracking-tighter leading-[0.85]">
                 Defining the <br />
-                <span className="italic text-white/20 font-light pl-[10%]">Next Standard.</span>
+                <span className="italic text-black/60 font-light pl-[10%]">Next Standard.</span>
               </h2>
-              <p className="text-gray-500 text-2xl font-light leading-relaxed max-w-2xl tracking-wide ml-[10%] border-l border-white/5 pl-12 italic">
+              <p className="text-gray-500 text-2xl font-light leading-relaxed max-w-2xl tracking-wide ml-[10%] border-l border-black/5 pl-12 italic">
                 Since {companyInfo.company.established}, we have navigated the intersection of mechanical mastery and visual communication.
                 SS Printers provides the structural spine for global industrial identity.
               </p>
@@ -67,12 +67,12 @@ const AboutSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 1 }}
                   viewport={{ once: true }}
-                  className="p-12 bg-white/[0.02] border border-white/5 rounded-[3rem] hover:bg-white/[0.04] transition-all duration-700 group hover:border-white/10"
+                  className="p-12 bg-black/[0.02] border border-black/5 rounded-[3rem] hover:bg-black/[0.04] transition-all duration-700 group hover:border-black/10"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-black border border-white/5 flex items-center justify-center mb-10 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-700 shadow-2xl">
-                    <Icon className="text-gray-600 group-hover:text-white transition-colors duration-700" size={24} />
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-black/5 flex items-center justify-center mb-10 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-700 shadow-xl">
+                    <Icon className="text-gray-400 group-hover:text-white transition-colors duration-700" size={24} />
                   </div>
-                  <h3 className="text-2xl font-normal tracking-tight text-white/90 mb-5">{feature.title}</h3>
+                  <h3 className="text-2xl font-normal tracking-tight text-black/90 mb-5">{feature.title}</h3>
                   <p className="text-gray-500 font-light leading-relaxed text-lg">{feature.description}</p>
                 </motion.div>
               );
@@ -81,15 +81,15 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Floating Stat Indicator */}
-        <div className="mt-40 pt-20 border-t border-white/5 flex flex-wrap gap-20">
+        <div className="mt-40 pt-20 border-t border-black/5 flex flex-wrap gap-20">
           {[
             { label: 'Founded', val: companyInfo.company.established },
             { label: 'Precision', val: '0.01mm' },
             { label: 'Capacity', val: 'Industrial+' }
           ].map((stat, i) => (
             <div key={i} className="space-y-2">
-              <span className="block text-[10px] text-blue-500 font-mono tracking-[0.5em] uppercase">{stat.label}</span>
-              <span className="block text-3xl font-playfair italic text-white/90">{stat.val}</span>
+              <span className="block text-[10px] text-blue-600 font-mono tracking-[0.5em] uppercase">{stat.label}</span>
+              <span className="block text-3xl font-playfair italic text-black/90">{stat.val}</span>
             </div>
           ))}
         </div>

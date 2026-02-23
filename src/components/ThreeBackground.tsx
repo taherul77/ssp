@@ -48,12 +48,12 @@ const Rib = ({ index, total, time }: { index: number; total: number; time: React
       {/* Ultra-thin metallic rings */}
       <torusGeometry args={[2.5, 0.005, 8, 100]} />
       <meshStandardMaterial
-        color="#ffffff"
-        metalness={0.8}
-        roughness={0.1}
-        envMapIntensity={1}
-        emissive="#ffffff"
-        emissiveIntensity={0.1}
+        color="#1e3a8a"
+        metalness={1}
+        roughness={1}
+        transparent
+        opacity={0.9}
+        envMapIntensity={0.5}
       />
     </mesh>
   );
@@ -62,7 +62,7 @@ const Rib = ({ index, total, time }: { index: number; total: number; time: React
 const TangledCore = () => {
   const groupRef = useRef<THREE.Group>(null);
   const time = useRef(0);
-  const ribCount = 2100; // Dense tangled look
+  const ribCount = 800; // Reduced density for clarity
 
   useFrame((state) => {
     if (!groupRef.current) return;
@@ -76,7 +76,7 @@ const TangledCore = () => {
   });
 
   return (
-    <group ref={groupRef} scale={.8}>
+    <group ref={groupRef} scale={0.65}>
       {Array.from({ length: ribCount }).map((_, i) => (
         <Rib
           key={i}
@@ -96,9 +96,9 @@ const Scene = () => {
 
       <ambientLight intensity={0.01} />
 
-      {/* Clean white lighting */}
-      <pointLight position={[20, 20, 20]} intensity={150} color="#ffffff" />
-      <pointLight position={[-20, -10, 15]} intensity={100} color="#ffffff" />
+      {/* Clean lighting with a hint of warmth */}
+      <pointLight position={[20, 20, 20]} intensity={100} color="#ffffff" />
+      <pointLight position={[-20, -10, 15]} intensity={80} color="#fffdf6" />
       <pointLight position={[0, -25, 10]} intensity={50} color="#ffffff" />
 
       <TangledCore />
@@ -111,7 +111,7 @@ const Scene = () => {
         far={20}
       />
 
-      <Environment preset="night" />
+      <Environment preset="apartment" />
     </>
   );
 };

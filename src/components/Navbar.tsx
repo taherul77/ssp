@@ -12,10 +12,8 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const { company } = companyInfo;
 
-  const opacityProgress = useTransform(scrollY, [0, 100], [1, 0.4]);
   const yProgress = useTransform(scrollY, [0, 100], [0, -10]);
 
-  const smoothOpacity = useSpring(opacityProgress, { stiffness: 100, damping: 30 });
   const smoothY = useSpring(yProgress, { stiffness: 100, damping: 30 });
 
   // Prevent scroll when menu is open
@@ -30,6 +28,7 @@ const Navbar = () => {
   const menuLinks = [
     { name: 'HOME', href: '/' },
     { name: 'Our Products', href: '/products' },
+    { name: 'Our Clients', href: '/clients' },
     { name: 'ABOUT US', href: '/about' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'Gallery', href: '/gallery' },
@@ -72,7 +71,7 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[100] pointer-events-none">
         <motion.div
-          style={{ opacity: smoothOpacity, y: smoothY }}
+          style={{ y: smoothY }}
           className="container mx-auto max-w-[1920px] px-8  flex items-center justify-between"
         >
           {/* Left: Brand & Menu Toggle */}
@@ -94,19 +93,19 @@ const Navbar = () => {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="flex items-center gap-3 text-white/80 hover:text-white transition-all group"
+              className="flex items-center gap-4 text-black/80 hover:text-black transition-all group"
             >
-              <div className="relative w-4 h-4 flex items-center justify-center">
-                <Plus size={16} className="absolute group-hover:rotate-90 transition-all duration-500" />
+              <div className="relative w-5 h-5 flex items-center justify-center">
+                <Plus size={20} className="absolute group-hover:rotate-90 transition-all duration-500 text-black" />
               </div>
-              <span className="text-[10px] font-bold tracking-[0.4em] uppercase">MENU</span>
+              <span className="text-[12px] font-bold tracking-[0.4em] uppercase">MENU</span>
             </button>
           </div>
 
           {/* Right: CTA */}
           <div className="flex items-center gap-6 pointer-events-auto">
             <Link href="/contact" className="hidden md:block z-10">
-              <button className="group relative text-[10px] font-bold tracking-[0.3em] uppercase text-white px-8 py-4 rounded-md border border-white/10 hover:border-white transition-all duration-500 overflow-hidden">
+              <button className="group relative text-[10px] font-bold tracking-[0.3em] uppercase text-white bg-black px-8 py-4 rounded-md border border-black hover:bg-transparent hover:text-black transition-all duration-500 overflow-hidden">
                 {/* Initial Text */}
                 <div className="relative z-10 flex items-center gap-3 transition-transform duration-500 group-hover:-translate-y-12">
                   START PROJECT <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -130,12 +129,12 @@ const Navbar = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 z-[200] bg-[#030712] origin-top flex flex-col pt-40 px-8 pb-12 overflow-hidden"
+            className="fixed inset-0 z-[200] bg-[var(--background)] origin-top flex flex-col pt-40 px-8 pb-12 overflow-hidden"
           >
             {/* Menu Header (Logo & Close) */}
             <div className="absolute top-10 left-8 right-8 flex justify-between items-center">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center overflow-hidden bg-white/5">
+                <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center overflow-hidden bg-black/5">
                   <Image
                     src="/logo/ss-printers-logo.png"
                     alt="SS Printers Logo"
@@ -144,12 +143,12 @@ const Navbar = () => {
                     className="w-full h-full object-contain p-1"
                   />
                 </div>
-                <span className="text-xl font-playfair tracking-tight text-white/90">SS Printers.</span>
+                <span className="text-xl font-playfair tracking-tight text-black/90">SS Printers.</span>
               </div>
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-4 group hover:text-blue-500 transition-colors"
+                className="flex items-center gap-4 group hover:text-blue-600 transition-colors text-black"
               >
                 <X size={24} className="group-hover:rotate-90 transition-transform duration-500" />
                 <span className="text-[10px] font-black tracking-[0.5em] uppercase">CLOSE</span>
@@ -167,7 +166,7 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="font-playfair text-[8vw] lg:text-[4.5rem] font-light leading-[0.9] tracking-tighter text-white hover:italic transition-all duration-700 block hover:pl-10 text-white/90 hover:text-white"
+                      className="font-playfair text-[8vw] lg:text-[4.5rem] font-light leading-[0.9] tracking-tighter text-black/90 hover:italic transition-all duration-700 block hover:pl-10 hover:text-black"
                     >
                       {link.name}
                     </Link>
@@ -176,38 +175,38 @@ const Navbar = () => {
               </motion.div>
 
               {/* Side Info & Socials */}
-              <div className="flex flex-col justify-end space-y-16 pb-12 lg:pl-20 border-l border-white/5">
+              <div className="flex flex-col justify-end space-y-16 pb-12 lg:pl-20 border-l border-black/5">
                 <div className="space-y-8">
-                  <span className="text-blue-500 text-[10px] font-mono tracking-[0.6em] uppercase">Inquiries</span>
+                  <span className="text-blue-600 text-[10px] font-mono tracking-[0.6em] uppercase">Inquiries</span>
                   <div className="space-y-4">
-                    <Link href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-4 text-lg font-light text-gray-500 hover:text-white transition-colors group">
-                      <Phone size={18} className="text-white/20 group-hover:text-blue-500 group-hover:scale-110 transition-all" />
-                      <span className="text-gray-500 group-hover:text-white transition-colors">{company.phones[0]}</span>
+                    <Link href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-4 text-lg font-light text-gray-400 hover:text-black transition-colors group">
+                      <Phone size={18} className="text-black/20 group-hover:text-blue-600 group-hover:scale-110 transition-all" />
+                      <span className="text-gray-400 group-hover:text-black transition-colors">{company.phones[0]}</span>
                     </Link>
-                    <Link href={`mailto:${company.email}`} className="flex items-center gap-4 text-lg font-light text-gray-500 hover:text-white transition-colors group">
-                      <Mail size={18} className="text-white/20 group-hover:text-blue-500 group-hover:scale-110 transition-all" />
-                      <span className="text-gray-500 group-hover:text-white transition-colors">{company.email}</span>
+                    <Link href={`mailto:${company.email}`} className="flex items-center gap-4 text-lg font-light text-gray-400 hover:text-black transition-colors group">
+                      <Mail size={18} className="text-black/20 group-hover:text-blue-600 group-hover:scale-110 transition-all" />
+                      <span className="text-gray-400 group-hover:text-black transition-colors">{company.email}</span>
                     </Link>
                   </div>
                 </div>
 
                 <div className="space-y-8">
-                  <span className="text-blue-500 text-[10px] font-mono tracking-[0.6em] uppercase">Social Media</span>
+                  <span className="text-blue-600 text-[10px] font-mono tracking-[0.6em] uppercase">Social Media</span>
                   <div className="flex gap-10">
                     {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-                      <Link key={i} href="#" className="text-gray-600 hover:text-white transition-all transform hover:-translate-y-1">
+                      <Link key={i} href="#" className="text-gray-400 hover:text-black transition-all transform hover:-translate-y-1">
                         <Icon size={24} />
                       </Link>
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-2 pt-10 border-t border-white/5 opacity-40">
+                <div className="space-y-2 pt-10 border-t border-black/5 ">
                   <div className="flex items-baseline gap-4">
-                    <Globe size={12} className="text-gray-500" />
-                    <span className="text-[10px] font-mono tracking-widest uppercase">Factory Active — 23.8° N / 90.4° E</span>
+                    <Globe size={12} className="text-gray-400" />
+                    <span className="text-[10px] font-mono tracking-widest uppercase text-black">Factory Active — 23.8° N / 90.4° E</span>
                   </div>
-                  <span className="block text-[10px] font-mono tracking-[0.8em] text-gray-700 uppercase ml-7">Dhaka, Bangladesh</span>
+                  <span className="block text-[10px] font-mono tracking-[0.8em] text-gray-400 uppercase ml-7">Dhaka, Bangladesh</span>
                 </div>
               </div>
             </div>

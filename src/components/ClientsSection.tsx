@@ -19,7 +19,7 @@ const ClientsSection = () => {
   const duplicatedLogos = [...clientLogos, ...clientLogos];
 
   return (
-    <section className="py-60 bg-[#030712] overflow-hidden">
+    <section className="py-60 bg-[var(--background)] overflow-hidden">
       <div className="container mx-auto max-w-7xl px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -28,25 +28,25 @@ const ClientsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-40"
         >
-          <span className="text-blue-500 font-bold tracking-[0.6em] uppercase text-[10px] mb-8 inline-block">
+          <span className="text-blue-600 font-bold tracking-[0.6em] uppercase text-[10px] mb-8 inline-block">
             Strategic Partners
           </span>
-          <h2 className="text-6xl md:text-8xl font-playfair font-normal text-white mb-4 tracking-tighter leading-none">
+          <h2 className="text-6xl md:text-8xl font-playfair font-normal text-black mb-4 tracking-tighter leading-none">
             Scale through <br />
-            <span className="italic text-gray-700 font-light pl-10">Precision.</span>
+            <span className="italic text-gray-400 font-light pl-10">Precision.</span>
           </h2>
         </motion.div>
 
         {/* Marquee Container */}
         <div className="relative group mt-20">
           {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-60 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-60 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-60 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-60 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
           {/* Marquee Track */}
           <div className="flex overflow-hidden">
             <motion.div
-              className="flex gap-24 py-10"
+              className="flex gap-10 py-10"
               animate={{
                 x: ['0%', '-50%'],
               }}
@@ -59,7 +59,7 @@ const ClientsSection = () => {
               {duplicatedLogos.map((logo, index) => (
                 <div
                   key={`${logo}-${index}`}
-                  className="flex-shrink-0 w-48 h-16 relative grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out cursor-default transform hover:scale-110"
+                  className="flex-shrink-0 w-48 h-16 relative grayscale  hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out cursor-default transform hover:scale-110"
                 >
                   <Image
                     src={`/Client/${logo}`}

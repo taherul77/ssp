@@ -26,7 +26,7 @@ export default function Gallery() {
   ];
 
   return (
-    <main className="bg-[#030712] text-white">
+    <main className="bg-[var(--background)] text-[var(--foreground)]">
       {/* Hero Section */}
       {/* <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center">
@@ -49,7 +49,7 @@ export default function Gallery() {
       <GallerySection images={galleryImages} />
 
       {/* Stats Section */}
-      <section className="py-40 bg-[#030712] border-t border-white/5 relative overflow-hidden">
+      <section className="py-40 bg-[var(--background)] border-t border-black/5 relative overflow-hidden">
         <div className="container mx-auto max-w-7xl px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             {[
@@ -66,8 +66,8 @@ export default function Gallery() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <div className="text-5xl md:text-6xl font-playfair italic text-white/90">{stat.val}</div>
-                <div className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase">{stat.label}</div>
+                <div className="text-5xl md:text-6xl font-playfair italic text-black/90">{stat.val}</div>
+                <div className="text-blue-600 font-mono text-[10px] tracking-[0.4em] uppercase">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default function Gallery() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-60 flex flex-col items-center justify-center text-center relative bg-[#030712] border-t border-white/5">
+      <section className="py-60 flex flex-col items-center justify-center text-center relative bg-[var(--background)] border-t border-black/5">
         <div className="container mx-auto max-w-7xl px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -84,15 +84,15 @@ export default function Gallery() {
             viewport={{ once: true }}
             className="flex flex-col items-center"
           >
-            <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-12">Next Steps</span>
-            <h2 className="font-playfair text-[8vw] font-light text-white mb-20 tracking-tighter leading-none">
-              Want to See <br /><span className="italic text-white/20">More?</span>
+            <span className="text-blue-600 font-mono text-[10px] tracking-[0.8em] uppercase mb-12">Next Steps</span>
+            <h2 className="font-playfair text-[8vw] font-light text-black mb-20 tracking-tighter leading-none">
+              Want to See <br /><span className="italic text-black/60">More?</span>
             </h2>
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+                whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.98 }}
-                className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
+                className="px-20 py-8 rounded-full border border-black/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700 bg-black text-white"
               >
                 Schedule Tour <ArrowUpRight size={20} className="inline ml-4" />
               </motion.button>
