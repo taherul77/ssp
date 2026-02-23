@@ -10,7 +10,7 @@ import productsData from '@/data/products.json';
 export default function ProductDetailPage() {
   const params = useParams();
   const productId = parseInt(params.id as string);
-  
+
   const product = productsData.products.find(p => p.id === productId);
 
   if (!product) {
@@ -73,12 +73,12 @@ export default function ProductDetailPage() {
                     <Package size={120} className="text-blue-500" />
                   </div>
                 )}
-                
+
                 {/* HUD Overlays */}
                 <div className="absolute top-12 left-12 w-12 h-12 border-t border-l border-white/20" />
                 <div className="absolute bottom-12 right-12 w-12 h-12 border-b border-r border-white/20" />
               </div>
-              
+
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-600/10 blur-[80px] -z-10" />
             </motion.div>
 
@@ -91,10 +91,10 @@ export default function ProductDetailPage() {
             >
               <div className="space-y-10">
                 <div className="flex items-center gap-4 text-blue-500 font-mono text-[10px] tracking-[0.6em] uppercase">
-                   <div className="w-10 h-[1px] bg-blue-500/30" />
-                   <span>{product.category}</span>
+                  <div className="w-10 h-[1px] bg-blue-500/30" />
+                  <span>{product.category}</span>
                 </div>
-                
+
                 <h1 className="font-playfair text-6xl md:text-8xl font-light text-white leading-[0.9] tracking-tighter">
                   {product.name}
                 </h1>
@@ -132,7 +132,7 @@ export default function ProductDetailPage() {
                   </motion.button>
                 </Link>
                 <Link href="/contact" className="w-full">
-                   <motion.button
+                  <motion.button
                     whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-8 rounded-full bg-blue-600/5 border border-blue-500/20 text-blue-500 text-xs font-mono tracking-[0.4em] uppercase transition-all duration-700"
@@ -154,8 +154,8 @@ export default function ProductDetailPage() {
             whileInView={{ opacity: 1, y: 0 }}
             className="mb-24"
           >
-             <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Value Engineering</span>
-             <h2 className="font-playfair text-6xl md:text-7xl font-light text-white mt-8">The <span className="italic text-white/10">Advantage.</span></h2>
+            <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Value Engineering</span>
+            <h2 className="font-playfair text-6xl md:text-7xl font-light text-white mt-8">The <span className="italic text-white/10">Advantage.</span></h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -185,14 +185,14 @@ export default function ProductDetailPage() {
       {/* Related Archive */}
       <section className="py-40 bg-[#030712] border-t border-white/5">
         <div className="container mx-auto max-w-7xl px-8">
-           <div className="flex justify-between items-end mb-24">
-              <div className="space-y-4">
-                 <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Related Entities</span>
-                 <h2 className="font-playfair text-6xl font-light text-white">Similar <br /><span className="italic text-white/10">Specimens.</span></h2>
-              </div>
-           </div>
+          <div className="flex justify-between items-end mb-24">
+            <div className="space-y-4">
+              <span className="text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase">Related Entities</span>
+              <h2 className="font-playfair text-6xl font-light text-white">Similar <br /><span className="italic text-white/10">Specimens.</span></h2>
+            </div>
+          </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {productsData.products
               .filter(p => p.category === product.category && p.id !== product.id)
               .slice(0, 3)
@@ -221,10 +221,10 @@ export default function ProductDetailPage() {
                       )}
                     </div>
                     <div className="space-y-4 px-6 text-center">
-                       <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase">ARC_{relatedProduct.id}</span>
-                       <h3 className="text-3xl font-playfair font-normal text-white/90 group-hover:text-white transition-colors">
-                         {relatedProduct.name}
-                       </h3>
+                      <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase">ARC_{relatedProduct.id}</span>
+                      <h3 className="text-3xl font-playfair font-normal text-white/90 group-hover:text-white transition-colors">
+                        {relatedProduct.name}
+                      </h3>
                     </div>
                   </Link>
                 </motion.div>

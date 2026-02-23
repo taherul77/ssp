@@ -26,11 +26,11 @@ const Footer = () => {
             <Link href="/" className="inline-block group">
               <div className="relative flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden ring-1 ring-white/10 group-hover:scale-110 transition-transform duration-500">
-                  <Image 
-                    src="/logo/ss-printers-logo.png" 
-                    alt="SS Printers Logo" 
-                    width={56} 
-                    height={56} 
+                  <Image
+                    src="/logo/ss-printers-logo.png"
+                    alt="SS Printers Logo"
+                    width={56}
+                    height={56}
                     className="w-full h-full object-contain p-1"
                   />
                 </div>
@@ -93,8 +93,8 @@ const Footer = () => {
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             <div className="flex items-center gap-2">
-               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-               System Active
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+              System Active
             </div>
           </div>
         </div>

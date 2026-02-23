@@ -9,11 +9,11 @@ import Link from 'next/link';
 
 const revealVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
-      duration: 1.2, 
+    transition: {
+      duration: 1.2,
       ease: [0.22, 1, 0.36, 1]
     }
   }
@@ -28,7 +28,7 @@ export default function Products() {
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -54,18 +54,18 @@ export default function Products() {
             </h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end pt-10">
-               <p className="text-gray-500 font-light text-2xl leading-relaxed tracking-wide max-w-xl">
-                  Discover our comprehensive range of high-fidelity printing and industrial packaging solutions.
-               </p>
-               <div className="flex items-center gap-10 opacity-30">
-                  <div className="space-y-2">
-                     <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-widest text-right">Total Count</span>
-                     <span className="block text-2xl font-playfair italic text-white text-right">{products.length} Items</span>
-                  </div>
-                  <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center">
-                     <Globe size={24} className="text-blue-500" />
-                  </div>
-               </div>
+              <p className="text-gray-500 font-light text-2xl leading-relaxed tracking-wide max-w-xl">
+                Discover our comprehensive range of high-fidelity printing and industrial packaging solutions.
+              </p>
+              <div className="flex items-center gap-10 opacity-30">
+                <div className="space-y-2">
+                  <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-widest text-right">Total Count</span>
+                  <span className="block text-2xl font-playfair italic text-white text-right">{products.length} Items</span>
+                </div>
+                <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center">
+                  <Globe size={24} className="text-blue-500" />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -75,40 +75,39 @@ export default function Products() {
       {/* Advanced Filter HUD */}
       <section className="py-20 border-y border-white/5 bg-[#030712] relative z-20">
         <div className="container mx-auto max-w-7xl px-8">
-           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
-              {/* Search HUD */}
-              <div className="w-full lg:w-[450px]">
-                 <div className="relative group">
-                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-blue-500/40 group-focus-within:text-blue-500 group-hover:text-blue-500/70 transition-colors" size={20} />
-                    <input
-                      type="text"
-                      placeholder="SEARCH_CATALOGUE…"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-16 pr-6 py-6 bg-[#0b0f1a]/40 backdrop-blur-3xl rounded-full border border-white/5 focus:border-blue-500/30 outline-none font-mono text-sm tracking-widest text-white/80 placeholder:text-gray-800 transition-all"
-                    />
-                 </div>
+          <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
+            {/* Search HUD */}
+            <div className="w-full lg:w-[450px]">
+              <div className="relative group">
+                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-blue-500/40 group-focus-within:text-blue-500 group-hover:text-blue-500/70 transition-colors" size={20} />
+                <input
+                  type="text"
+                  placeholder="SEARCH_CATALOGUE…"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-16 pr-6 py-6 bg-[#0b0f1a]/40 backdrop-blur-3xl rounded-full border border-white/5 focus:border-blue-500/30 outline-none font-mono text-sm tracking-widest text-white/80 placeholder:text-gray-800 transition-all"
+                />
               </div>
+            </div>
 
-              {/* Category Matrix */}
-              <div className="flex flex-wrap gap-4 justify-center">
-                 {categories.map((category) => (
-                    <motion.button
-                      key={category}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`px-10 py-5 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase transition-all duration-700 border ${
-                          selectedCategory === category
-                            ? 'bg-white text-black border-white'
-                            : 'bg-transparent text-gray-400 border-white/5 hover:border-white hover:text-white'
-                        }`}
-                    >
-                      {category}
-                    </motion.button>
-                 ))}
-              </div>
-           </div>
+            {/* Category Matrix */}
+            <div className="flex flex-wrap gap-4 justify-center">
+              {categories.map((category) => (
+                <motion.button
+                  key={category}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-10 py-5 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase transition-all duration-700 border ${selectedCategory === category
+                      ? 'bg-white text-black border-white'
+                      : 'bg-transparent text-gray-400 border-white/5 hover:border-white hover:text-white'
+                    }`}
+                >
+                  {category}
+                </motion.button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,33 +139,33 @@ export default function Products() {
             </div>
           )}
         </div>
-        
+
         {/* Absolute Background Text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-playfair italic text-white/[0.01] -z-10 select-none">
-           Works
+          Works
         </div>
       </section>
 
       {/* Premium Footer CTA */}
       <section className="py-80 flex flex-col items-center justify-center text-center relative border-t border-white/5">
-         <motion.h2 
-           initial={{ opacity: 0, y: 50 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           className="font-playfair text-[10vw] font-light tracking-tighter leading-none mb-24 text-white/90"
-         >
-           Custom <span className="italic text-gray-800">Identity.</span>
-         </motion.h2>
-         <Link href="/contact">
-           <motion.button
-             whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
-             whileTap={{ scale: 0.98 }}
-             className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
-           >
-             Request Bespoke <ArrowRight size={20} className="inline ml-4" />
-           </motion.button>
-         </Link>
-         
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="font-playfair text-[10vw] font-light tracking-tighter leading-none mb-24 text-white/90"
+        >
+          Custom <span className="italic text-gray-800">Identity.</span>
+        </motion.h2>
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
+            whileTap={{ scale: 0.98 }}
+            className="px-20 py-8 rounded-full border border-white/10 text-xl font-light tracking-[0.4em] uppercase transition-all duration-700"
+          >
+            Request Bespoke <ArrowRight size={20} className="inline ml-4" />
+          </motion.button>
+        </Link>
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
       </section>
     </main>
   );

@@ -20,7 +20,7 @@ const ContactForm: React.FC = () => {
     subject: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
@@ -34,12 +34,12 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
@@ -183,7 +183,7 @@ const ContactForm: React.FC = () => {
             className="inline-block mb-10"
           >
             <div className="w-24 h-24 rounded-full border border-blue-500/20 flex items-center justify-center">
-               <CheckCircle2 size={40} className="text-blue-500" />
+              <CheckCircle2 size={40} className="text-blue-500" />
             </div>
           </motion.div>
           <span className="block text-blue-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-6">Success</span>
