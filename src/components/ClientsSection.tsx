@@ -44,30 +44,30 @@ const ClientsSection = () => {
           <div className="absolute right-0 top-0 bottom-0 w-60 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
           {/* Marquee Track */}
-          <div className="flex overflow-hidden">
+          <div className="overflow-hidden w-full">
             <motion.div
-              className="flex gap-10 py-10"
+              className="flex py-10 w-max will-change-transform"
               animate={{
                 x: ['0%', '-50%'],
               }}
               transition={{
-                duration: 80,
+                duration: 50,
                 repeat: Infinity,
                 ease: 'linear',
+                repeatType: 'loop',
               }}
             >
               {duplicatedLogos.map((logo, index) => (
-                <div
-                  key={`${logo}-${index}`}
-                  className="flex-shrink-0 w-48 h-16 relative grayscale  hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out cursor-default transform hover:scale-110"
-                >
-                  <Image
-                    src={`/Client/${logo}`}
-                    alt={logo.replace('.jpg', '')}
-                    fill
-                    className="object-contain"
-                    sizes="192px"
-                  />
+                <div key={`${logo}-${index}`} className="flex-shrink-0 pr-20">
+                  <div className="w-48 h-16 relative grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out cursor-default transform hover:scale-110">
+                    <Image
+                      src={`/Client/${logo}`}
+                      alt={logo.replace('.jpg', '')}
+                      fill
+                      className="object-contain"
+                      sizes="192px"
+                    />
+                  </div>
                 </div>
               ))}
             </motion.div>
