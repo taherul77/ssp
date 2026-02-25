@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import ProductCard from '@/components/ProductCard';
+import ProductCard, { Product } from '@/components/ProductCard';
 import ClientsSection from '@/components/ClientsSection';
 import companyInfo from '@/data/companyInfo.json';
 import productsData from '@/data/products.json';
@@ -36,13 +36,13 @@ const BackgroundIndex = ({
 }) => {
   const opacity = useTransform(
     progress,
-    [index / total, (index + 0.3) / total, (index + 0.7) / total, (index + 1) / total],
-    [0, 0.05, 0.05, 0]
+    [(index - 0.5) / total, index / total, (index + 0.5) / total],
+    [0, 0.05, 0]
   );
   const scale = useTransform(
     progress,
-    [index / total, (index + 0.5) / total, (index + 1) / total],
-    [1.1, 1, 0.9]
+    [(index - 0.5) / total, index / total, (index + 0.5) / total],
+    [1.05, 1, 0.95]
   );
 
   return (
@@ -57,16 +57,6 @@ const BackgroundIndex = ({
   );
 };
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  category: string;
-  features: string[];
-  price?: string;
-  image?: string;
-}
-
 const GalleryItem = ({
   product,
   index,
@@ -80,14 +70,14 @@ const GalleryItem = ({
 }) => {
   const scale = useTransform(
     progress,
-    [index / total, (index + 0.5) / total, (index + 1) / total],
-    [0.95, 1, 0.95]
+    [(index - 0.5) / total, index / total, (index + 0.5) / total],
+    [0.9, 1, 0.9]
   );
 
   return (
     <motion.div
       style={{ scale }}
-      className="flex-shrink-0 w-[70vw] md:w-[45vw] lg:w-[35vw]"
+      className="flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw]"
     >
       <ProductCard product={product} index={index} />
     </motion.div>
@@ -239,7 +229,7 @@ export default function Home() {
             ))}
 
             <motion.div
-              style={{ x: useTransform(smoothProgress, [0, 1], ["0vw", "-380vw"]) }}
+              style={{ x: useTransform(smoothProgress, [0, 1], ["7.5vw", "-240vw"]) }}
               className="h-full flex items-center gap-[15vw] pl-[10vw] pr-[80vw]"
             >
               {featuredProducts.map((product, index) => (

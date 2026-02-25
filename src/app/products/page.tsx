@@ -115,7 +115,7 @@ export default function Products() {
       <section className="py-40 bg-[var(--background)] relative min-h-[60vh]">
         <div className="container mx-auto max-w-7xl px-8">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-20">
               {filteredProducts.map((product, index) => (
                 <motion.div
                   key={product.id}

@@ -9,422 +9,1044 @@
   "products": [
     {
       "id": 1,
-      "name": "Hang Tags",
-      "category": "Garment Accessories",
-      "description": "Professional hangtags for garments and products. High-quality printing with various finishes and custom designs.",
+      "name": "2 Ply  3 Ply  4 Ply Form",
+      "category": "Paper Products",
+      "description": "High-quality 2 Ply  3 Ply  4 Ply Form solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
         "Custom shapes and sizes",
-        "Premium paper materials",
-        "Eco-friendly options available",
-        "Fast turnaround time"
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Hang tags.jpg",
+      "images": [
+        "/Our Product/2 Ply  3 Ply  4 Ply Form/Direct-Manufacturer-DongLin-241mm-3-Ply-4-Ply-Hot-Selling-Carbonless-Computer-Continuous-Paper-Red-White-Yellow-Wholesale-Sales.jpg_300x300.avif",
+        "/Our Product/2 Ply  3 Ply  4 Ply Form/ph-11134207-7rasl-m6f5eqrss43x0e.jpg"
+      ],
       "featured": true
     },
     {
       "id": 2,
-      "name": "Garment Label",
-      "category": "Garment Accessories",
-      "description": "Professional garment labels for clothing and textile products. High-quality printing and materials.",
+      "name": "3-pack of active boxer briefs",
+      "category": "Packaging Materials",
+      "description": "High-quality 3-pack of active boxer briefs solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Durable fabric materials",
-        "Wash-resistant printing",
-        "Custom designs available",
-        "Various attachment methods"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Garment label.jpg",
-      "featured": true
+      "images": [
+        "/Our Product/3-pack of active boxer briefs/WhatsApp Image 2025-10-27 at 14.12.52_2b7957ab.jpg",
+        "/Our Product/3-pack of active boxer briefs/WhatsApp Image 2025-10-27 at 14.13.03_0e807eb9.jpg",
+        "/Our Product/3-pack of active boxer briefs/WhatsApp Image 2025-10-27 at 14.13.03_fc3edd80.jpg"
+      ],
+      "featured": false
     },
     {
       "id": 3,
-      "name": "Sew-on Woven Clothing Label",
-      "category": "Labels & Stickers",
-      "description": "Premium woven labels for sewing onto garments. High-quality weaving with custom brand logos.",
+      "name": "back board",
+      "category": "Paper Products",
+      "description": "High-quality back board solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Premium weaving quality",
-        "Soft texture comfortable",
-        "Custom color matching",
-        "Multiple size options"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Sew -on woven clothing label.jpg",
-      "featured": true
+      "images": [
+        "/Our Product/back board/back board.jpg"
+      ],
+      "featured": false
     },
     {
       "id": 4,
-      "name": "Colored Paper",
-      "category": "Paper Products",
-      "description": "High-quality colored paper for printing, crafts, and creative projects. Wide range of vibrant colors.",
+      "name": "barcode",
+      "category": "Labels & Stickers",
+      "description": "High-quality barcode solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Wide color selection",
-        "Various paper weights",
-        "Acid-free options",
-        "Suitable for printing"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Colored paper.jpg",
-      "featured": true
+      "images": [
+        "/Our Product/barcode/barcode.jpg"
+      ],
+      "featured": false
     },
     {
       "id": 5,
-      "name": "Custom Corrugated Board Shipping Box",
-      "category": "Packaging Materials",
-      "description": "Durable corrugated shipping boxes for safe product transportation. Custom sizes and printing available.",
+      "name": "Book Printing",
+      "category": "Paper Products",
+      "description": "High-quality Book Printing solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Strong corrugated material",
-        "Custom size options",
-        "Brand printing available",
-        "Stackable design"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Custom corrugated board shipping box.jpg",
+      "images": [
+        "/Our Product/Book Printing/images (1).jpg",
+        "/Our Product/Book Printing/images.jpg",
+        "/Our Product/Book Printing/sic-code-2731-books-publishing-publishing-printing.jpg"
+      ],
       "featured": true
     },
     {
       "id": 6,
-      "name": "Premium Cardboard Shipping Box",
-      "category": "Packaging Materials",
-      "description": "High-quality cardboard boxes perfect for shipping and storage. Reliable protection for your products.",
+      "name": "Brand Kit Printing",
+      "category": "Paper Products",
+      "description": "High-quality Brand Kit Printing solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Durable construction",
-        "Easy assembly",
-        "Various sizes available",
-        "Eco-friendly material"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/Peohud cardboard Shipping Box.jpg",
-      "featured": true
+      "images": [
+        "/Our Product/Brand Kit Printing/images.jpg",
+        "/Our Product/Brand Kit Printing/screen-printing-services-for-office-stationery-2229015552-r3f0gkc5.avif"
+      ],
+      "featured": false
     },
     {
       "id": 7,
-      "name": "Premium Quality Paper Products",
+      "name": "Brochure (Bi-fold or Tri-fold)",
       "category": "Paper Products",
-      "description": "High-quality specialty paper products for various printing and packaging needs.",
+      "description": "High-quality Brochure (Bi-fold or Tri-fold) solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Premium grade materials",
-        "Multiple finish options",
-        "Custom printing available",
-        "Bulk order discounts"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.49_f9dc7a1c.jpg",
+      "images": [
+        "/Our Product/Brochure (Bi-fold or Tri-fold)/images (1).jpg",
+        "/Our Product/Brochure (Bi-fold or Tri-fold)/School-education-trifold-brochure-template-2.jpg"
+      ],
       "featured": false
     },
     {
       "id": 8,
-      "name": "Custom Printed Cartons",
-      "category": "Packaging Materials",
-      "description": "Professional printed packaging boxes and cartons for product shipping and retail display.",
+      "name": "Business Card Design",
+      "category": "Paper Products",
+      "description": "High-quality Business Card Design solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Custom sizes and designs",
-        "High-quality printing",
-        "Corrugated options",
-        "Brand enhancement"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.50_37579e31.jpg",
-      "featured": false
+      "images": [
+        "/Our Product/Business Card Design/Business_Cards_1_1000w.avif",
+        "/Our Product/Business Card Design/corporate-clean-style-modern-business-card-design-professional-creative-visiting-card-template_694765-188.avif"
+      ],
+      "featured": true
     },
     {
       "id": 9,
-      "name": "Industrial Packaging Solutions",
-      "category": "Packaging Materials",
-      "description": "Professional industrial packaging materials for various business needs.",
+      "name": "Butterfly, neck board,back board",
+      "category": "Paper Products",
+      "description": "High-quality Butterfly, neck board,back board solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Heavy-duty construction",
-        "Customizable options",
-        "Bulk availability",
-        "Cost-effective solutions"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.52_2b7957ab.jpg",
+      "images": [
+        "/Our Product/Butterfly, neck board,back board/Butterfly, neck board,back board .jpg",
+        "/Our Product/Butterfly, neck board,back board/WhatsApp Image 2025-10-27 at 14.13.07_dd3137d4.jpg"
+      ],
       "featured": false
     },
     {
       "id": 10,
-      "name": "Specialized Label Solutions",
+      "name": "care label",
       "category": "Labels & Stickers",
-      "description": "Professional label and sticker solutions for product identification and branding.",
+      "description": "High-quality care label solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Weather-resistant materials",
-        "Custom shape cutting",
-        "Strong adhesion",
-        "Fade-resistant inks"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.53_488daa89.jpg",
+      "images": [
+        "/Our Product/care label/care label.jpeg"
+      ],
       "featured": false
     },
     {
       "id": 11,
-      "name": "Premium Packaging Boxes",
-      "category": "Packaging Materials",
-      "description": "High-end packaging boxes for premium products with custom branding options.",
+      "name": "Certificate Printing",
+      "category": "Paper Products",
+      "description": "High-quality Certificate Printing solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Luxury appearance",
-        "Rigid construction",
-        "Custom finishing",
-        "Brand enhancement"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.53_d555cc87.jpg",
+      "images": [
+        "/Our Product/Certificate Printing/1726984280.png",
+        "/Our Product/Certificate Printing/certificate-printing-service.jpg"
+      ],
       "featured": false
     },
     {
       "id": 12,
-      "name": "Eco-Friendly Paper Solutions",
+      "name": "Challan Book",
       "category": "Paper Products",
-      "description": "Environmentally friendly paper products for sustainable business operations.",
+      "description": "High-quality Challan Book solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "100% recyclable",
-        "Biodegradable materials",
-        "FSC certified options",
-        "Reduced carbon footprint"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.55_37fc5ddd.jpg",
-      "featured": false
+      "images": [
+        "/Our Product/Challan Book/20230329153845image_387x280_media_28.png",
+        "/Our Product/Challan Book/delivery-challan-format.webp"
+      ],
+      "featured": true
     },
     {
       "id": 13,
-      "name": "Custom Printed Materials",
-      "category": "Paper Products",
-      "description": "Professional custom printing services for marketing materials and business documents.",
+      "name": "Classic Roll labels",
+      "category": "Labels & Stickers",
+      "description": "High-quality Classic Roll labels solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "High-resolution printing",
-        "Multiple paper options",
-        "Quick turnaround",
-        "Competitive pricing"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.55_777ad4c6.jpg",
-      "featured": false
+      "images": [
+        "/Our Product/Classic Roll labels/paper label.jpg",
+        "/Our Product/Classic Roll labels/shirting label.jpg"
+      ],
+      "featured": true
     },
     {
       "id": 14,
-      "name": "Specialty Packaging Products",
-      "category": "Packaging Materials",
-      "description": "Unique packaging solutions for special product requirements and premium presentations.",
+      "name": "Colored paper",
+      "category": "Paper Products",
+      "description": "High-quality Colored paper solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Custom design services",
+        "Custom shapes and sizes",
         "Premium materials",
-        "Unique shapes available",
-        "Brand differentiation"
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.57_8aacdefb.jpg",
+      "images": [
+        "/Our Product/Colored paper/Colored paper 2.jpg",
+        "/Our Product/Colored paper/Colored paper.jpg",
+        "/Our Product/Colored paper/colored paper3.jpg"
+      ],
       "featured": false
     },
     {
       "id": 15,
-      "name": "Quality Label Products",
-      "category": "Labels & Stickers",
-      "description": "High-quality labels for various applications including product branding and information display.",
+      "name": "Custom Printed Cartons",
+      "category": "Packaging Materials",
+      "description": "High-quality Custom Printed Cartons solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Durable materials",
-        "Waterproof options",
-        "Custom printing",
-        "Various adhesive types"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.58_c3bbd940.jpg",
+      "images": [
+        "/Our Product/Custom Printed Cartons/2.jpeg",
+        "/Our Product/Custom Printed Cartons/3..jpeg",
+        "/Our Product/Custom Printed Cartons/WhatsApp Image 2026-02-23 at 1.23.18 PM.jpeg"
+      ],
       "featured": false
     },
     {
       "id": 16,
-      "name": "Professional Printing Services",
+      "name": "Custom Printed Materials",
       "category": "Paper Products",
-      "description": "Comprehensive printing solutions for all your business and promotional needs.",
+      "description": "High-quality Custom Printed Materials solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Full-color printing",
-        "Multiple format support",
-        "Fast delivery",
-        "Quality assurance"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.58_c6b53005.jpg",
-      "featured": false
+      "images": [
+        "/Our Product/Custom Printed Materials/1.jpeg",
+        "/Our Product/Custom Printed Materials/2.jpeg"
+      ],
+      "featured": true
     },
     {
       "id": 17,
-      "name": "Advanced Packaging Systems",
-      "category": "Packaging Materials",
-      "description": "Innovative packaging solutions with modern designs for contemporary businesses.",
+      "name": "Customized Mug",
+      "category": "Paper Products",
+      "description": "High-quality Customized Mug solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Modern aesthetics",
-        "Functional design",
-        "Brand visibility",
-        "Customer appeal"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.59_044a47ec.jpg",
+      "images": [
+        "/Our Product/Customized Mug/images.jpg",
+        "/Our Product/Customized Mug/the-definitive-guide-to-printing-images-on-mugs-from-diy-to-professional-quality-7067955.webp"
+      ],
       "featured": false
     },
     {
       "id": 18,
-      "name": "Commercial Paper Products",
+      "name": "Danglers",
       "category": "Paper Products",
-      "description": "Wide range of commercial paper products for business and industrial use.",
+      "description": "High-quality Danglers solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Bulk availability",
-        "Consistent quality",
-        "Competitive pricing",
-        "Reliable supply"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.12.59_33094a4c.jpg",
+      "images": [
+        "/Our Product/Danglers/danglers2.webp",
+        "/Our Product/Danglers/promontional-danglers.png"
+      ],
       "featured": false
     },
     {
       "id": 19,
-      "name": "Branded Packaging Solutions",
-      "category": "Packaging Materials",
-      "description": "Custom branded packaging that enhances your product presentation and brand identity.",
+      "name": "Eco-Friendly Paper Solutions",
+      "category": "Paper Products",
+      "description": "High-quality Eco-Friendly Paper Solutions solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Logo integration",
-        "Color matching",
-        "Premium finishing",
-        "Market differentiation"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.00_01b80531.jpg",
+      "images": [
+        "/Our Product/Eco-Friendly Paper Solutions/2.jpeg",
+        "/Our Product/Eco-Friendly Paper Solutions/WhatsApp Image 2026-02-23 at 1.39.55 PM.jpeg"
+      ],
       "featured": false
     },
     {
       "id": 20,
-      "name": "Versatile Label Solutions",
-      "category": "Labels & Stickers",
-      "description": "Flexible label solutions for diverse applications across multiple industries.",
+      "name": "Envelopes (Small  A4  Window)",
+      "category": "Paper Products",
+      "description": "High-quality Envelopes (Small  A4  Window) solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Multi-purpose use",
-        "Strong adhesion",
-        "Weather resistant",
-        "Custom sizing"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.00_57f73c2a.jpg",
+      "images": [
+        "/Our Product/Envelopes (Small  A4  Window)/175413_3294016_450204_image.png",
+        "/Our Product/Envelopes (Small  A4  Window)/envelope-design-dl-template-a4-600nw-2504095947.webp",
+        "/Our Product/Envelopes (Small  A4  Window)/images (1).jpg",
+        "/Our Product/Envelopes (Small  A4  Window)/Window_Envelopes_1.webp"
+      ],
       "featured": false
     },
     {
       "id": 21,
-      "name": "Premium Paper Stock",
+      "name": "flexible packaging options",
       "category": "Paper Products",
-      "description": "High-grade paper stock for professional printing and premium presentations.",
+      "description": "High-quality flexible packaging options solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Superior texture",
-        "Excellent printability",
-        "Multiple weights",
-        "Professional finish"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.01_c80fbf7e.jpg",
+      "images": [
+        "/Our Product/flexible packaging options/flexible packaging options.webp"
+      ],
       "featured": false
     },
     {
       "id": 22,
-      "name": "Industrial Carton Boxes",
-      "category": "Packaging Materials",
-      "description": "Heavy-duty carton boxes designed for industrial shipping and storage needs.",
+      "name": "Flyer or Leaflet",
+      "category": "Paper Products",
+      "description": "High-quality Flyer or Leaflet solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Extra strength",
-        "Large capacity",
-        "Stackable design",
-        "Cost-effective"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.02_7502fda0.jpg",
+      "images": [
+        "/Our Product/Flyer or Leaflet/Brochures-and-Flyers.jpg",
+        "/Our Product/Flyer or Leaflet/flyer-printing-1024x580.jpg.webp",
+        "/Our Product/Flyer or Leaflet/images.jpg"
+      ],
       "featured": false
     },
     {
       "id": 23,
-      "name": "Custom Shipping Boxes",
+      "name": "Garments export packaging box",
       "category": "Packaging Materials",
-      "description": "Tailored shipping boxes with custom dimensions and branding for e-commerce businesses.",
+      "description": "High-quality Garments export packaging box solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Custom dimensions",
-        "Brand printing",
-        "Secure closure",
-        "Shipping optimized"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.02_de29536b.jpg",
+      "images": [
+        "/Our Product/Garments export packaging box/board shipping box.jpeg",
+        "/Our Product/Garments export packaging box/Custom corrugated board shipping box.jpg",
+        "/Our Product/Garments export packaging box/WhatsApp Image 2026-02-23 at 1.20.04 PM.jpeg"
+      ],
       "featured": false
     },
     {
       "id": 24,
-      "name": "Garment Tag Accessories",
+      "name": "Hand tag",
       "category": "Garment Accessories",
-      "description": "Complete range of garment tagging accessories for the textile and fashion industry.",
+      "description": "High-quality Hand tag solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Durable materials",
-        "Easy attachment",
-        "Professional appearance",
-        "Bulk packaging"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.03_0e807eb9.jpg",
+      "images": [
+        "/Our Product/Hand tag/hand tag 44.jpg",
+        "/Our Product/Hand tag/hand tag.jpg",
+        "/Our Product/Hand tag/hand tag3.jpg",
+        "/Our Product/Hand tag/Hang tags.jpg",
+        "/Our Product/Hand tag/WhatsApp Image 2025-10-27 at 14.12.57_8aacdefb.jpg"
+      ],
       "featured": false
     },
     {
       "id": 25,
-      "name": "Textile Labeling Solutions",
+      "name": "Hanger",
       "category": "Garment Accessories",
-      "description": "Comprehensive labeling solutions for textile products and fashion brands.",
+      "description": "High-quality Hanger solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Wash-resistant",
-        "High durability",
-        "Custom branding",
-        "Compliance ready"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.03_fc3edd80.jpg",
-      "featured": false
+      "images": [
+        "/Our Product/Hanger/Hanger.jpg",
+        "/Our Product/Hanger/WhatsApp Image 2025-10-27 at 14.12.49_f9dc7a1c.jpg"
+      ],
+      "featured": true
     },
     {
       "id": 26,
-      "name": "Multi-Purpose Labels",
-      "category": "Labels & Stickers",
-      "description": "Versatile labels suitable for various applications from product tagging to organization.",
+      "name": "ID Card (PVC  Paper)",
+      "category": "Paper Products",
+      "description": "High-quality ID Card (PVC  Paper) solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Multi-surface adhesion",
-        "Removable options",
-        "Print-ready surface",
-        "Value pricing"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.04_4a086496.jpg",
+      "images": [
+        "/Our Product/ID Card (PVC  Paper)/9253f144d5b71f070d08b2233837061f.jpg",
+        "/Our Product/ID Card (PVC  Paper)/featured-img-0699.jpg",
+        "/Our Product/ID Card (PVC  Paper)/featured-img-0705.jpg"
+      ],
       "featured": false
     },
     {
-      "id": 27, 
-      "name": "Quality Printing Materials",
+      "id": 27,
+      "name": "Industrial Packaging Solutions",
       "category": "Paper Products",
-      "description": "Professional-grade printing materials for high-quality output and presentations.",
+      "description": "High-quality Industrial Packaging Solutions solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Excellent print quality",
-        "Color accuracy",
-        "Fade resistance",
-        "Professional results"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.04_d7fa105d.jpg",
+      "images": [
+        "/Our Product/Industrial Packaging Solutions/2.jpeg",
+        "/Our Product/Industrial Packaging Solutions/WhatsApp Image 2026-02-23 at 1.27.30 PM.jpeg"
+      ],
       "featured": false
     },
     {
       "id": 28,
-      "name": "Protective Packaging",
-      "category": "Packaging Materials",
-      "description": "Protective packaging solutions to ensure safe product transportation and storage.",
+      "name": "Invitation Card",
+      "category": "Paper Products",
+      "description": "High-quality Invitation Card solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Shock absorption",
-        "Moisture resistance",
-        "Custom fit options",
-        "Product safety"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_106f98f6.jpg",
+      "images": [
+        "/Our Product/Invitation Card/island-printing-420gsm-business-cards-multi-colour-layout-1024x768.webp",
+        "/Our Product/Invitation Card/unnamed.jpg"
+      ],
       "featured": false
     },
     {
       "id": 29,
-      "name": "Professional Label Systems",
-      "category": "Labels & Stickers",
-      "description": "Advanced labeling systems for efficient product identification and inventory management.",
+      "name": "Invoice or Bill Book",
+      "category": "Paper Products",
+      "description": "High-quality Invoice or Bill Book solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Barcode compatible",
-        "Easy application",
-        "Long-lasting adhesive",
-        "System integration"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_2345a6ed.jpg",
+      "images": [
+        "/Our Product/Invoice or Bill Book/bill-book-114-600x800.png",
+        "/Our Product/Invoice or Bill Book/Bill-Book-Printing-Near-Me-600x600.jpg"
+      ],
       "featured": false
     },
     {
       "id": 30,
-      "name": "Flexible Packaging Options",
-      "category": "Packaging Materials",
-      "description": "Adaptable packaging solutions that can be customized to meet specific product requirements.",
+      "name": "Letterhead Design",
+      "category": "Paper Products",
+      "description": "High-quality Letterhead Design solutions tailored for your business needs. Premium printing and durable materials.",
       "features": [
-        "Versatile designs",
-        "Custom modifications",
-        "Multiple materials",
-        "Cost flexibility"
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
       ],
-      "image": "/Product/WhatsApp Image 2025-10-27 at 14.13.05_660f8a7b.jpg",
+      "images": [
+        "/Our Product/Letterhead Design/blog-6.jpg",
+        "/Our Product/Letterhead Design/DLHP10.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 31,
+      "name": "Magazine Printing",
+      "category": "Paper Products",
+      "description": "High-quality Magazine Printing solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Magazine Printing/image-0901-27-500x500.webp",
+        "/Our Product/Magazine Printing/magazines.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 32,
+      "name": "Mark Sheet",
+      "category": "Paper Products",
+      "description": "High-quality Mark Sheet solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Mark Sheet/marksheet-printing-service.jpg",
+        "/Our Product/Mark Sheet/school-marksheet-printing-service-500x500.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 33,
+      "name": "Menu Card (Restaurant  Cafe)",
+      "category": "Paper Products",
+      "description": "High-quality Menu Card (Restaurant  Cafe) solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Menu Card (Restaurant  Cafe)/create-menu-card-designs-for-restaurant-cafe-500x500.webp",
+        "/Our Product/Menu Card (Restaurant  Cafe)/original-aab871b7aec620b319c6f340655b0a46.webp",
+        "/Our Product/Menu Card (Restaurant  Cafe)/pngtree-coffee-cafe-menu-card-design-png-image_3612705.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 34,
+      "name": "Money Receipt",
+      "category": "Paper Products",
+      "description": "High-quality Money Receipt solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Money Receipt/1.webp",
+        "/Our Product/Money Receipt/Money-Receipt-4-scaled.jpg",
+        "/Our Product/Money Receipt/money-receipt-printing-services-1701076943-7184646.jpeg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 35,
+      "name": "multiple purpose boxes duplex box",
+      "category": "Packaging Materials",
+      "description": "High-quality multiple purpose boxes duplex box solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/multiple purpose boxes duplex box/multiple purpose boxes duplex box.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 36,
+      "name": "Office File Cover",
+      "category": "Paper Products",
+      "description": "High-quality Office File Cover solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Office File Cover/images.jpg",
+        "/Our Product/Office File Cover/IN_Standard-Office-File_Overview.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 37,
+      "name": "Office Form Printing",
+      "category": "Paper Products",
+      "description": "High-quality Office Form Printing solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Office Form Printing/Print-Request-Form.jpg",
+        "/Our Product/Office Form Printing/printing-service-request-form-information-management-amp-services.jpg",
+        "/Our Product/Office Form Printing/PXL-35430_forms_043021-1024x576.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 38,
+      "name": "OPD Slip",
+      "category": "Paper Products",
+      "description": "High-quality OPD Slip solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/OPD Slip/digittal-opd-slip-paper.jpg",
+        "/Our Product/OPD Slip/images (1).jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 39,
+      "name": "Packaging Sleeve",
+      "category": "Paper Products",
+      "description": "High-quality Packaging Sleeve solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Packaging Sleeve/images.jpg",
+        "/Our Product/Packaging Sleeve/packaging-sleeve-2_orig.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 40,
+      "name": "paper hanger",
+      "category": "Garment Accessories",
+      "description": "High-quality paper hanger solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/paper hanger/paper hanger.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 41,
+      "name": "Patient Card",
+      "category": "Paper Products",
+      "description": "High-quality Patient Card solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Patient Card/20230119_185658827139_107094_Patient_Card.jpg",
+        "/Our Product/Patient Card/INDAPPTCARD.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 42,
+      "name": "Photo Book",
+      "category": "Paper Products",
+      "description": "High-quality Photo Book solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Photo Book/Custom-greeting-card-printing-Printify.webp",
+        "/Our Product/Photo Book/free-photo-book-maker-laptop-PC.webp",
+        "/Our Product/Photo Book/sq6D9xXdqCucLubYdTzyMF-1200-80.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 43,
+      "name": "Poster (A3 or A2 or A1)",
+      "category": "Paper Products",
+      "description": "High-quality Poster (A3 or A2 or A1) solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Poster (A3 or A2 or A1)/19163a9ef1af79d126680f2e00c07fc1.jpg",
+        "/Our Product/Poster (A3 or A2 or A1)/flex-banner-printing-services.jpeg",
+        "/Our Product/Poster (A3 or A2 or A1)/printing-service-ad-template-design-57f0eeb52863bea1bf5cc3c20cd1efe5_screen.jpg",
+        "/Our Product/Poster (A3 or A2 or A1)/promotional-flex-banner-printing-service-570.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 44,
+      "name": "Premium Cardboard Shipping Box",
+      "category": "Packaging Materials",
+      "description": "High-quality Premium Cardboard Shipping Box solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Premium Cardboard Shipping Box/Garments export box.jpg",
+        "/Our Product/Premium Cardboard Shipping Box/Premium Cardboard Shipping Box.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 45,
+      "name": "Premium Packaging Boxes",
+      "category": "Packaging Materials",
+      "description": "High-quality Premium Packaging Boxes solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Premium Packaging Boxes/2.jpeg",
+        "/Our Product/Premium Packaging Boxes/Custom corrugated board shipping box 3.jpg",
+        "/Our Product/Premium Packaging Boxes/WhatsApp Image 2025-10-27 at 14.12.55_37fc5ddd.jpg",
+        "/Our Product/Premium Packaging Boxes/WhatsApp Image 2025-10-27 at 14.12.58_c6b53005.jpg",
+        "/Our Product/Premium Packaging Boxes/WhatsApp Image 2026-02-23 at 1.36.39 PM.jpeg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 46,
+      "name": "Purchase Order (PO) Pad",
+      "category": "Paper Products",
+      "description": "High-quality Purchase Order (PO) Pad solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Purchase Order (PO) Pad/Carbonless-NCR-Pads.webp",
+        "/Our Product/Purchase Order (PO) Pad/NCR_Pads_Web_Banner_450x750_1735901350093.png",
+        "/Our Product/Purchase Order (PO) Pad/Product-Thumbnail-Carbonless-NCR-Purchase-Order-Sets-Pads-Books.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": 47,
+      "name": "QR Code Sticker",
+      "category": "Labels & Stickers",
+      "description": "High-quality QR Code Sticker solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/QR Code Sticker/Custom-Made-Unique-Qr-Code-Hologram-Sticker-with-ISO9001-Certified.avif",
+        "/Our Product/QR Code Sticker/Customized-Logo-Printing-on-Barcode-Label-Roll-Direct-Thermal-Barcode-Sticker.avif",
+        "/Our Product/QR Code Sticker/images.jpg",
+        "/Our Product/QR Code Sticker/top-10-barcode-printers-manufacturing-companies-and-brands-in-india-price-demand-38b2120.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 48,
+      "name": "Question Paper Printing",
+      "category": "Paper Products",
+      "description": "High-quality Question Paper Printing solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Question Paper Printing/exam-paper-1582100499694-500x500.webp",
+        "/Our Product/Question Paper Printing/Exam-Printing.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": 49,
+      "name": "Quotation Pad",
+      "category": "Paper Products",
+      "description": "High-quality Quotation Pad solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Quotation Pad/1-700x1024.webp",
+        "/Our Product/Quotation Pad/Quotation_template_6.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 50,
+      "name": "Roll-up Standee",
+      "category": "Paper Products",
+      "description": "High-quality Roll-up Standee solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Roll-up Standee/215-scaled.jpg",
+        "/Our Product/Roll-up Standee/roll-up-banner.jpg",
+        "/Our Product/Roll-up Standee/rollup-standee-COIMBATORE9.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": 51,
+      "name": "School Diary",
+      "category": "Paper Products",
+      "description": "High-quality School Diary solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/School Diary/school-dairy-printing-services-831.jpg",
+        "/Our Product/School Diary/school-diary-printing-service-573.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 52,
+      "name": "Shirting label",
+      "category": "Labels & Stickers",
+      "description": "High-quality Shirting label solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Shirting label/Shirting label 2.jpg",
+        "/Our Product/Shirting label/Shirting label.jpg",
+        "/Our Product/Shirting label/WhatsApp Image 2025-10-27 at 14.12.59_044a47ec.jpg",
+        "/Our Product/Shirting label/WhatsApp Image 2025-10-27 at 14.13.02_de29536b.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 53,
+      "name": "T-Shirt Printing",
+      "category": "Paper Products",
+      "description": "High-quality T-Shirt Printing solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/T-Shirt Printing/images (1).jpg",
+        "/Our Product/T-Shirt Printing/t-shirt-printing-services.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": 54,
+      "name": "Table Mat",
+      "category": "Paper Products",
+      "description": "High-quality Table Mat solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Table Mat/Businesscard-VC-IWPrinting-Card.jpg",
+        "/Our Product/Table Mat/washable-designer-multi-color-printed-tables-mats-786.jpg",
+        "/Our Product/Table Mat/WhatsApp_Image_2025-01-22_at_2.40.40_AM_800x.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 55,
+      "name": "Tent Card",
+      "category": "Paper Products",
+      "description": "High-quality Tent Card solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Tent Card/Premium-Table-Tent-Cards-Printing.jpg",
+        "/Our Product/Tent Card/tent-card-printing-service-249.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 56,
+      "name": "Thermal barcode stiicker",
+      "category": "Labels & Stickers",
+      "description": "High-quality Thermal barcode stiicker solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Thermal barcode stiicker/Thermal barcode stiicker.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 57,
+      "name": "Thesis  Project Binding",
+      "category": "Paper Products",
+      "description": "High-quality Thesis  Project Binding solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Thesis  Project Binding/canadian-thesis-printing.webp",
+        "/Our Product/Thesis  Project Binding/images.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 58,
+      "name": "vimage",
+      "category": "Paper Products",
+      "description": "High-quality vimage solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/vimage/multicolor-offset-printing-services-273.jpg",
+        "/Our Product/vimage/Printing-Image-1.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": 59,
+      "name": "Warranty Card",
+      "category": "Paper Products",
+      "description": "High-quality Warranty Card solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Warranty Card/High-Quality-Matte-Black-PVC-Business-Card-Custom-Warranty-Card-with-Qr-Code.avif",
+        "/Our Product/Warranty Card/warranty-card-250x250.webp"
+      ],
+      "featured": true
+    },
+    {
+      "id": 60,
+      "name": "Woven label",
+      "category": "Labels & Stickers",
+      "description": "High-quality Woven label solutions tailored for your business needs. Premium printing and durable materials.",
+      "features": [
+        "Custom shapes and sizes",
+        "Premium materials",
+        "Eco-friendly options",
+        "Durable and long-lasting"
+      ],
+      "images": [
+        "/Our Product/Woven label/Sew -on woven clothing label 2.jpg",
+        "/Our Product/Woven label/wOven label.jpg",
+        "/Our Product/Woven label/wOven laberl.jpg"
+      ],
       "featured": false
     }
   ]
