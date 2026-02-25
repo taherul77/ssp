@@ -19,7 +19,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[var(--deep-navy)] pt-40 pb-20 border-t border-black/5 relative overflow-hidden">
+    <footer className="bg-[var(--deep-navy)] py-10 border-t border-black/5 relative overflow-hidden">
       <div className="container mx-auto max-w-7xl px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-40">
           {/* Brand & Mission */}
@@ -86,7 +86,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-20 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-5 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-[10px] font-mono text-gray-400 uppercase tracking-[0.3em]">
             &copy; {currentYear} SS Printers Archive — All Rights Reserved.
           </div>
@@ -95,7 +95,7 @@ const Footer = () => {
             <Link href="/terms" className="hover:text-black transition-colors">Terms</Link>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-              System Active
+              Developed by <Link href="https://deltafox.vercel.app/" target="_blank" className="hover:scale-105 transition-transform duration-300 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#df462b] via-[#f6c444] to-[#2ecc71]">Deltafox</Link>
             </div>
           </div>
         </div>
