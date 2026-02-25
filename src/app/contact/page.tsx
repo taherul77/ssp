@@ -114,7 +114,7 @@ export default function Contact() {
                                           {line}
                                        </a>
                                     ) : (
-                                       <p key={idx} className="text-2xl font-light text-black/90 truncate">{line}</p>
+                                       <p key={idx} className="text-2xl font-light text-black/90 ">{line}</p>
                                     )
                                  ))}
                               </div>

@@ -4,26 +4,16 @@ import GallerySection from '@/components/GallerySection';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import productsData from '@/data/products.json';
 
 export default function Gallery() {
-  // Extended gallery images
-  const galleryImages = [
-    { id: 1, title: 'Industrial Roller Brushes', category: 'Products' },
-    { id: 2, title: 'Manufacturing Facility', category: 'Manufacturing' },
-    { id: 3, title: 'Quality Control Lab', category: 'Quality' },
-    { id: 4, title: 'Custom Brush Solutions', category: 'Custom' },
-    { id: 5, title: 'Strip Brushes Production', category: 'Manufacturing' },
-    { id: 6, title: 'Team Collaboration', category: 'Team' },
-    { id: 7, title: 'Warehouse & Storage', category: 'Facilities' },
-    { id: 8, title: 'Testing & Inspection', category: 'Quality' },
-    { id: 9, title: 'Product Showcase', category: 'Products' },
-    { id: 10, title: 'Rotary Brushes', category: 'Products' },
-    { id: 11, title: 'Assembly Line', category: 'Manufacturing' },
-    { id: 12, title: 'R&D Department', category: 'Innovation' },
-    { id: 13, title: 'Conveyor Cleaning Systems', category: 'Products' },
-    { id: 14, title: 'Client Consultation', category: 'Team' },
-    { id: 15, title: 'Packaging Area', category: 'Facilities' },
-  ];
+  // Map products to gallery format
+  const galleryImages = productsData.products.slice(0, 15).map((product) => ({
+    id: product.id,
+    title: product.name,
+    category: product.category,
+    src: product.images[0] || ''
+  }));
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">

@@ -6,9 +6,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import companyInfo from '@/data/companyInfo.json';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const { company } = companyInfo;
 
@@ -166,7 +168,10 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="font-playfair text-[8vw] lg:text-[4.5rem] font-light leading-[0.9] tracking-tighter text-black/90 hover:italic transition-all duration-700 block hover:pl-10 hover:text-black"
+                      className={`font-playfair text-[8vw] lg:text-[5rem] font-light leading-[0.9] tracking-tighter transition-all duration-700 block uppercase ${pathname === link.href
+                          ? 'text-blue-600 italic pl-10'
+                          : 'text-black/90 hover:italic hover:pl-10 hover:text-black'
+                        }`}
                     >
                       {link.name}
                     </Link>

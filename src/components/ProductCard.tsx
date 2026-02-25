@@ -79,7 +79,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             </p>
 
             <div className="mt-6 pt-6 border-t border-black/5 flex items-center justify-between">
-              <span className="text-[10px] tracking-[0.1em] text-blue-600 font-mono italic">{product.category}</span>
+              <span className="text-[10px] tracking-[0.2em] text-blue-600 font-mono italic uppercase">{product.category}</span>
               {product.price && <span className="text-sm font-medium text-black">{product.price}</span>}
             </div>
           </div>

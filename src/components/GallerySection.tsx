@@ -4,11 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
 import { X, Globe, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface GalleryImage {
   id: number;
   title: string;
   category: string;
+  src?: string;
 }
 
 interface GallerySectionProps {
@@ -20,16 +22,16 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const defaultImages = [
-    { id: 1, title: 'Precision Folding', category: 'Packaging' },
-    { id: 2, title: 'Color Calibration', category: 'Printing' },
-    { id: 3, title: 'Fulfillment Center', category: 'Logistics' },
-    { id: 4, title: 'Material Archive', category: 'Sourcing' },
-    { id: 5, title: 'Die-Cut Processing', category: 'Mechanical' },
-    { id: 6, title: 'Prototype Unit', category: 'Design' },
-    { id: 7, title: 'Scale Production', category: 'Industrial' },
-    { id: 8, title: 'Quality Scanning', category: 'Inspection' },
-    { id: 9, title: 'Custom Finishing', category: 'Craft' },
+  const defaultImages: GalleryImage[] = [
+    { id: 1, title: 'Precision Folding', category: 'Packaging', src: '' },
+    { id: 2, title: 'Color Calibration', category: 'Printing', src: '' },
+    { id: 3, title: 'Fulfillment Center', category: 'Logistics', src: '' },
+    { id: 4, title: 'Material Archive', category: 'Sourcing', src: '' },
+    { id: 5, title: 'Die-Cut Processing', category: 'Mechanical', src: '' },
+    { id: 6, title: 'Prototype Unit', category: 'Design', src: '' },
+    { id: 7, title: 'Scale Production', category: 'Industrial', src: '' },
+    { id: 8, title: 'Quality Scanning', category: 'Inspection', src: '' },
+    { id: 9, title: 'Custom Finishing', category: 'Craft', src: '' },
   ];
 
   const galleryImages = images.length > 0 ? images : defaultImages;
@@ -67,28 +69,37 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: index * 0.1 }}
-              className="relative group cursor-none aspect-[4/5]"
+              className="relative group cursor-pointer aspect-[4/5]"
               onClick={() => setSelectedImage(image)}
             >
               <div className="relative h-full w-full bg-black/[0.02] rounded-[3rem] border border-black/5 overflow-hidden group-hover:border-black/10 transition-all duration-1000">
-                {/* Image Placeholder with Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/[0.05] via-transparent to-transparent  group-hover:opacity-100 transition-opacity duration-1000" />
+                {image.src && (
+                  <Image
+                    src={image.src}
+                    alt={image.title}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                  />
+                )}
+
+                {/* Overlay with Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Globe size={120} className="text-blue-600" />
+                  {!image.src && <Globe size={120} className="text-blue-600" />}
                 </div>
 
                 {/* Overlay Info */}
                 <div className="absolute inset-0 flex flex-col justify-end p-12">
                   <div className="space-y-4">
-                    <span className="text-blue-600 font-mono text-[10px] tracking-[0.4em] uppercase block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                    <span className="text-blue-400 font-mono text-[10px] tracking-[0.4em] uppercase block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                       {image.category}
                     </span>
-                    <h3 className="text-3xl font-playfair italic text-black/90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-75">
+                    <h3 className="text-3xl font-playfair italic text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-75">
                       {image.title}
                     </h3>
-                    <div className="w-12 h-[1px] bg-black/10 group-hover:w-full transition-all duration-1000 delay-150" />
-                    <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest text-gray-400 group-hover:text-blue-600 transition-colors duration-700 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 ">
+                    <div className="w-12 h-[1px] bg-white/10 group-hover:w-full transition-all duration-1000 delay-150" />
+                    <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest text-white/40 group-hover:text-blue-400 transition-colors duration-700 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 ">
                       <span>VERIFY_DATA</span>
                       <ArrowRight size={12} />
                     </div>
@@ -96,10 +107,10 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
                 </div>
 
                 {/* Industrial Grid Lines */}
-                <div className="absolute top-0 bottom-0 left-[20%] w-[1px] bg-black/[0.02]" />
-                <div className="absolute top-0 bottom-0 left-[40%] w-[1px] bg-black/[0.02]" />
-                <div className="absolute top-0 bottom-0 left-[60%] w-[1px] bg-black/[0.02]" />
-                <div className="absolute top-0 bottom-0 left-[80%] w-[1px] bg-black/[0.02]" />
+                <div className="absolute top-0 bottom-0 left-[20%] w-[1px] bg-white/[0.05]" />
+                <div className="absolute top-0 bottom-0 left-[40%] w-[1px] bg-white/[0.05]" />
+                <div className="absolute top-0 bottom-0 left-[60%] w-[1px] bg-white/[0.05]" />
+                <div className="absolute top-0 bottom-0 left-[80%] w-[1px] bg-white/[0.05]" />
               </div>
             </motion.div>
           ))}
@@ -112,7 +123,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[500] bg-[var(--background)]/95 backdrop-blur-3xl flex items-center justify-center p-8"
+              className="fixed inset-0 z-[500] bg-[var(--background)]/98 backdrop-blur-xl flex items-center justify-center p-8 "
               onClick={() => setSelectedImage(null)}
             >
               <button
@@ -126,24 +137,37 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
                 initial={{ scale: 0.9, opacity: 0, y: 50 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-5xl w-full border border-black/5 rounded-[4rem] bg-[var(--deep-navy)] aspect-video flex flex-col p-20 justify-center items-center relative overflow-hidden"
+                className="max-w-4xl w-full border border-black/5 rounded-[3rem] bg-black/[0.02] aspect-video flex flex-col justify-center items-center relative overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-20" />
+                {selectedImage.src && (
+                  <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.title}
+                    fill
+                    className="object-contain p-8"
+                  />
+                )}
 
-                <span className="text-blue-600 font-mono text-xs tracking-[1em] uppercase mb-12">Viewing Specimen</span>
-                <h3 className="font-playfair text-7xl font-light text-black mb-8 tracking-tighter">
-                  {selectedImage.title}
-                </h3>
-                <p className="text-gray-500 font-mono text-xs tracking-widest uppercase">
-                  Category {'//'} {selectedImage.category} {'//'} Node_{selectedImage.id}
-                </p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent pt-20 pb-8 px-12 text-center z-10">
+                  <span className="text-blue-600 font-mono text-[8px] tracking-[0.4em] uppercase mb-3 block">
+                    Secured Specimen Archive
+                  </span>
+                  <h3 className="font-playfair text-2xl md:text-3xl font-light text-black mb-3 tracking-tight">
+                    {selectedImage.title}
+                  </h3>
+                  <div className="flex items-center justify-center gap-4 text-black/30 font-mono text-[8px] tracking-widest uppercase">
+                    <span className="w-8 h-[1px] bg-black/5" />
+                    <span>{selectedImage.category} {'//'} NODE_{selectedImage.id}</span>
+                    <span className="w-8 h-[1px] bg-black/5" />
+                  </div>
+                </div>
 
                 {/* Decorative HUD Elements */}
-                <div className="absolute top-12 left-12 w-20 h-20 border-t border-l border-black/10" />
-                <div className="absolute top-12 right-12 w-20 h-20 border-t border-r border-black/10" />
-                <div className="absolute bottom-12 left-12 w-20 h-20 border-b border-l border-black/10" />
-                <div className="absolute bottom-12 right-12 w-20 h-20 border-b border-r border-black/10" />
+                <div className="absolute top-8 left-8 w-12 h-12 border-t border-l border-black" />
+                <div className="absolute top-8 right-8 w-12 h-12 border-t border-r border-black" />
+                <div className="absolute bottom-8 left-8 w-12 h-12 border-b border-l border-black" />
+                <div className="absolute bottom-8 right-8 w-12 h-12 border-b border-r border-black" />
               </motion.div>
             </motion.div>
           )}
@@ -151,7 +175,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ images = [] }) => {
       </div>
 
       {/* Decorative Background Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-playfair italic text-black/[0.01] -z-10 select-none pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-playfair italic text-white/[0.02] -z-10 select-none pointer-events-none">
         Process
       </div>
     </section>
